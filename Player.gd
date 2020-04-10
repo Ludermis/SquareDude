@@ -6,9 +6,12 @@ var acceleration = 64
 var maxSpeed = 384
 
 func _ready():
-	pass
+	set_physics_process(true)
 
 func _process(delta):
+	pass
+	
+func _physics_process(delta):
 	velocity += Vars.gravity
 	if Input.is_action_pressed('right'):
 		velocity.x = min(velocity.x + acceleration, maxSpeed)
