@@ -1,13 +1,24 @@
-[gd_scene format=2]
+[gd_scene load_steps=2 format=2]
 
-[node name="Node2D" type="Node2D"]
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.635294, 0.207843, 0.207843, 1 )
 
-[node name="Panel" type="Panel" parent="."]
-modulate = Color( 1, 0, 0, 1 )
-margin_left = 531.017
-margin_top = 197.67
-margin_right = 1382.02
-margin_bottom = 760.67
+[node name="TitleScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 2.15851
+margin_right = 2.15845
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="PlayButton" type="Button" parent="."]
+margin_left = 310.612
+margin_top = 246.415
+margin_right = 617.612
+margin_bottom = 342.415
+custom_styles/normal = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
