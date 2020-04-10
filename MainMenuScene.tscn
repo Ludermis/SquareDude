@@ -1,7 +1,8 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
-[sub_resource type="StyleBoxFlat" id=1]
-bg_color = Color( 0.635294, 0.207843, 0.207843, 1 )
+[ext_resource path="res://Selectlevel.png" type="Texture" id=1]
+[ext_resource path="res://play.png" type="Texture" id=2]
+[ext_resource path="res://logo.png" type="Texture" id=3]
 
 [node name="TitleScreen" type="Control"]
 anchor_right = 1.0
@@ -13,12 +14,34 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="PlayButton" type="Button" parent="."]
-margin_left = 310.612
-margin_top = 246.415
-margin_right = 617.612
-margin_bottom = 342.415
-custom_styles/normal = SubResource( 1 )
+[node name="Logo" type="TextureRect" parent="."]
+anchor_top = -0.00189865
+anchor_bottom = -0.00189865
+margin_left = 314.0
+margin_top = 84.0505
+margin_right = 1514.0
+margin_bottom = 284.051
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayButton" type="TextureButton" parent="."]
+margin_left = 135.877
+margin_top = 472.2
+margin_right = 435.877
+margin_bottom = 572.2
+texture_normal = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Select Level" type="TextureButton" parent="."]
+margin_left = 135.877
+margin_top = 666.262
+margin_right = 435.877
+margin_bottom = 766.262
+texture_normal = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
