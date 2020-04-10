@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Selectlevel.png" type="Texture" id=1]
 [ext_resource path="res://play.png" type="Texture" id=2]
 [ext_resource path="res://logo.png" type="Texture" id=3]
+[ext_resource path="res://playfocused.png" type="Texture" id=4]
+[ext_resource path="res://1021603.jpg" type="Texture" id=5]
 
 [node name="TitleScreen" type="Control"]
 anchor_right = 1.0
@@ -14,12 +16,20 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_right = 1920.0
+margin_bottom = 1080.0
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Logo" type="TextureRect" parent="."]
 anchor_top = -0.00189865
 anchor_bottom = -0.00189865
-margin_left = 314.0
+margin_left = 316.158
 margin_top = 84.0505
-margin_right = 1514.0
+margin_right = 1516.16
 margin_bottom = 284.051
 texture = ExtResource( 3 )
 __meta__ = {
@@ -32,6 +42,7 @@ margin_top = 472.2
 margin_right = 435.877
 margin_bottom = 572.2
 texture_normal = ExtResource( 2 )
+texture_hover = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
