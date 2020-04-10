@@ -1,3 +1,12 @@
 [gd_scene format=2]
 
 [node name="Node2D" type="Node2D"]
+
+[node name="Panel" type="Panel" parent="."]
+margin_left = 527.121
+margin_top = 197.67
+margin_right = 1378.12
+margin_bottom = 760.67
+__meta__ = {
+"_edit_use_anchors_": false
+}
