@@ -37,6 +37,10 @@ func _physics_process(delta):
 		else:
 			rotation = lerp(rotation,0,0.1)
 	
+	if Input.is_key_pressed(KEY_C):
+		rotation = 0
+		velocity = Vector2.ZERO
+		position = Vector2(836,502)
 	if Input.is_action_pressed('ui_right'):
 		$"../Wall1".rotation += delta
 	if Input.is_action_pressed('ui_left'):

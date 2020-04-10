@@ -49,7 +49,7 @@ offset = Vector2( 1.26637, 0 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Wall1"]
 visible = false
-polygon = PoolVector2Array( -613.034, -31.9851, 663.593, -32.1291, 540.009, 1.38843, -612.983, 31.8928 )
+polygon = PoolVector2Array( -613.034, -31.9851, 663.593, -32.1291, 664.533, 31.9923, -612.983, 31.8928 )
 
 [node name="Floor" type="StaticBody2D" parent="."]
 modulate = Color( 0.400833, 0, 0.65, 1 )
