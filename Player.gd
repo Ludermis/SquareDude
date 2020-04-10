@@ -5,6 +5,7 @@ var jumpHeight = 1024
 var acceleration = 64
 var maxSpeed = 384
 var debugDraw = false
+var wasOnFloor = false
 
 func _ready():
 	set_physics_process(true)
@@ -15,7 +16,7 @@ func _process(delta):
 func _draw():
 	if debugDraw:
 		draw_rect(Rect2(-32,-32,64,64),Color.red,false)
-	
+
 func _physics_process(delta):
 	velocity += Vars.gravity
 	if Input.is_action_pressed('right'):
@@ -25,8 +26,22 @@ func _physics_process(delta):
 	else:
 		velocity.x = lerp(velocity.x,0,Vars.friction)
 	
+#	# TODO : Ground Fall Impact
+#	if is_on_floor() && wasOnFloor == false:
+#		wasOnFloor = true
+#		var node : AnimatedSprite = preload("res://ImpactEffect.tscn").instance()
+#		node.position = position + get_floor_normal() * 32
+#		node.rotation = get_floor_normal().angle() + PI / 2
+#		node.playing = true
+#		$"..".add_child(node)
+	
 	if Input.is_action_pressed('up') && is_on_floor():
 		velocity.y = -jumpHeight
+		var node : AnimatedSprite = preload("res://ImpactEffect.tscn").instance()
+		node.position = position + get_floor_normal() * 32
+		node.rotation = get_floor_normal().angle() + PI / 2
+		node.playing = true
+		$"..".add_child(node)
 	
 	if is_on_floor():
 		var normal = get_floor_normal()
@@ -45,5 +60,8 @@ func _physics_process(delta):
 #		$"../Wall1".rotation += delta
 #	if Input.is_action_pressed('ui_left'):
 #		$"../Wall1".rotation -= delta
+
+	if !is_on_floor():
+		wasOnFloor = false
 
 	velocity = move_and_slide(velocity,Vector2.UP)
