@@ -3,9 +3,10 @@
 [node name="Node2D" type="Node2D"]
 
 [node name="Panel" type="Panel" parent="."]
-margin_left = 527.121
+modulate = Color( 1, 0, 0, 1 )
+margin_left = 531.017
 margin_top = 197.67
-margin_right = 1378.12
+margin_right = 1382.02
 margin_bottom = 760.67
 __meta__ = {
 "_edit_use_anchors_": false
