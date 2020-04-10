@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://box.png" type="Texture" id=2]
+[ext_resource path="res://DebugPanel.tscn" type="PackedScene" id=3]
 
 [sub_resource type="Environment" id=1]
 background_mode = 4
@@ -10,10 +11,15 @@ glow_bloom = 0.11
 glow_blend_mode = 0
 glow_bicubic_upscale = true
 
-[node name="Node2D" type="Node2D"]
+[node name="Main" type="Node2D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 1 )
+
+[node name="DebugPanel" type="CanvasLayer" parent="."]
+
+[node name="Control" parent="DebugPanel" instance=ExtResource( 3 )]
+visible = false
 
 [node name="Background" type="Sprite" parent="."]
 modulate = Color( 0.0470588, 0.0470588, 0.0470588, 1 )
@@ -27,10 +33,30 @@ offset = Vector2( 2.76999, -15.9033 )
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
 
+[node name="Wall1" type="StaticBody2D" parent="."]
+modulate = Color( 0.0196078, 0.00392157, 0.541176, 1 )
+position = Vector2( 1348.24, 617.818 )
+rotation = -0.433328
+scale = Vector2( 0.410491, 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Wall1"]
+scale = Vector2( 19.9462, 1 )
+texture = ExtResource( 2 )
+offset = Vector2( 1.26637, 0 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Wall1"]
+visible = false
+polygon = PoolVector2Array( -613.034, -31.9851, 663.593, -32.1291, 540.009, 1.38843, -612.983, 31.8928 )
+
 [node name="Floor" type="StaticBody2D" parent="."]
+modulate = Color( 0.400833, 0, 0.65, 1 )
 position = Vector2( 893.063, 720.811 )
 
 [node name="Sprite" type="Sprite" parent="Floor"]
+position = Vector2( 2, 0 )
 scale = Vector2( 19.9462, 1 )
 texture = ExtResource( 2 )
 offset = Vector2( 1.26637, 0 )
