@@ -30,7 +30,6 @@ func _physics_process(delta):
 	
 	if is_on_floor():
 		var normal = get_floor_normal()
-		#get_tree().root.get_node("Node2D/DebugPanel/Control/Panel/Label").text = str(normal)
 		if true:
 			var angleDelta = normal.angle() - (rotation - PI)
 			rotation = lerp(rotation,angleDelta + rotation,0.1)
@@ -41,8 +40,10 @@ func _physics_process(delta):
 		rotation = 0
 		velocity = Vector2.ZERO
 		position = Vector2(836,502)
-	if Input.is_action_pressed('ui_right'):
-		$"../Wall1".rotation += delta
-	if Input.is_action_pressed('ui_left'):
-		$"../Wall1".rotation -= delta
+		
+#	if Input.is_action_pressed('ui_right'):
+#		$"../Wall1".rotation += delta
+#	if Input.is_action_pressed('ui_left'):
+#		$"../Wall1".rotation -= delta
+
 	velocity = move_and_slide(velocity,Vector2.UP)
