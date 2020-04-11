@@ -180,30 +180,30 @@ texture = ExtResource( 5 )
 centered = false
 flip_h = true
 
-[node name="Floor3" type="StaticBody2D" parent="."]
+[node name="Floor5" type="StaticBody2D" parent="."]
 position = Vector2( 648.833, 451.327 )
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Floor3"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Floor5"]
 visible = false
 polygon = PoolVector2Array( -63.8541, 11.9092, -52.017, 0.0223389, 308.038, 0.0534363, 320.182, 12.0898, 320.097, 64.3126, -63.9504, 63.9866 )
 
-[node name="Sprite" type="Sprite" parent="Floor3"]
+[node name="Sprite" type="Sprite" parent="Floor5"]
 scale = Vector2( 2, 2 )
 texture = ExtResource( 4 )
 centered = false
 region_enabled = true
 region_rect = Rect2( 0, 0, 128, 32 )
 
-[node name="Sprite2" type="Sprite" parent="Floor3"]
+[node name="Sprite2" type="Sprite" parent="Floor5"]
 position = Vector2( 256, 0 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 5 )
 centered = false
 
-[node name="Sprite3" type="Sprite" parent="Floor3"]
+[node name="Sprite3" type="Sprite" parent="Floor5"]
 position = Vector2( -64, 0 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 5 )
