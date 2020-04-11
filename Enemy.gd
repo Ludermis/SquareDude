@@ -8,6 +8,7 @@ var debugDraw = false
 var wasOnFloor = false
 var airJumpsMax = 1
 var airJumpsLeft = airJumpsMax
+var health = 100
 
 func _ready():
 	set_physics_process(true)
@@ -15,10 +16,6 @@ func _ready():
 
 func _process(delta):
 	pass
-
-func _draw():
-	if debugDraw:
-		draw_rect(Rect2(-32,-32,64,64),Color.red,false)
 
 func jump ():
 	if is_on_floor():
@@ -37,26 +34,24 @@ func jump ():
 		node.playing = true
 		$"..".add_child(node)
 
+func goRight ():
+	velocity.x = min(velocity.x + acceleration, maxSpeed)
+
+func goLeft ():
+	velocity.x = max(velocity.x - acceleration, -maxSpeed)
+
+func idle():
+	velocity.x = lerp(velocity.x,0,Vars.friction)
+
+func takeDamage (attacker, damage):
+	health -= damage
+	if health <= 0:
+		queue_free()
+
 func _physics_process(delta):
 	velocity += Vars.gravity
-	if Input.is_action_pressed('right'):
-		velocity.x = min(velocity.x + acceleration, maxSpeed)
-	elif Input.is_action_pressed('left'):
-		velocity.x = max(velocity.x - acceleration, -maxSpeed)
-	else:
-		velocity.x = lerp(velocity.x,0,Vars.friction)
 	
-#	# TODO : Ground Fall Impact
-#	if is_on_floor() && wasOnFloor == false:
-#		wasOnFloor = true
-#		var node : AnimatedSprite = preload("res://ImpactEffect.tscn").instance()
-#		node.position = position + get_floor_normal() * 32
-#		node.rotation = get_floor_normal().angle() + PI / 2
-#		node.playing = true
-#		$"..".add_child(node)
-	
-	if Input.is_action_just_pressed('up'):
-		jump()
+	idle()
 	
 	if is_on_floor():
 		airJumpsLeft = airJumpsMax
@@ -66,21 +61,14 @@ func _physics_process(delta):
 			rotation = lerp(rotation,angleDelta + rotation,0.4)
 		else:
 			rotation = lerp(rotation,0,0.4)
-	
-	if Input.is_action_just_pressed("misc1"):
-		var node = preload("res://Enemy.tscn").instance()
-		node.position = get_global_mouse_position()
-		$"..".add_child(node)
 
 	if !is_on_floor():
 		wasOnFloor = false
 
 	velocity = move_and_slide(velocity,Vector2.UP)
-	if get_global_mouse_position().x < position.x:
+	if $"../Player".position.x < position.x:
 		$Weapon.flip_v = true
 	else:
 		$Weapon.flip_v = false
-	$Weapon.look_at(get_global_mouse_position())
-	
-	if Input.is_action_pressed('shoot'):
-		$Weapon.shoot(get_global_mouse_position())
+	$Weapon.look_at($"../Player".position)
+	#$Weapon.shoot($"../Player".position)

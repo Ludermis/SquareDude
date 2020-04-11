@@ -9,7 +9,9 @@ blend_mode = 1
 [sub_resource type="CircleShape2D" id=2]
 radius = 32.1827
 
-[node name="Player" type="KinematicBody2D"]
+[node name="Player" type="KinematicBody2D" groups=[
+"Player",
+]]
 material = SubResource( 1 )
 position = Vector2( 836.854, 502.113 )
 script = ExtResource( 2 )
