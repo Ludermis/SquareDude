@@ -6,6 +6,8 @@ var acceleration = 64
 var maxSpeed = 384
 var debugDraw = false
 var wasOnFloor = false
+var airJumpsMax = 1
+var airJumpsLeft = airJumpsMax
 
 func _ready():
 	set_physics_process(true)
@@ -35,15 +37,25 @@ func _physics_process(delta):
 #		node.playing = true
 #		$"..".add_child(node)
 	
-	if Input.is_action_pressed('up') && is_on_floor():
-		velocity.y = -jumpHeight
-		var node : AnimatedSprite = preload("res://ImpactEffect.tscn").instance()
-		node.position = position + get_floor_normal() * 32
-		node.rotation = get_floor_normal().angle() + PI / 2
-		node.playing = true
-		$"..".add_child(node)
+	if Input.is_action_just_pressed('up'):
+		if is_on_floor():
+			velocity.y = -jumpHeight
+			var node : AnimatedSprite = preload("res://JumpEffect.tscn").instance()
+			node.position = position + get_floor_normal() * 32
+			node.rotation = get_floor_normal().angle() + PI / 2
+			node.playing = true
+			$"..".add_child(node)
+		elif airJumpsLeft > 0:
+			airJumpsLeft -= 1
+			velocity.y = -jumpHeight
+			var node : AnimatedSprite = preload("res://JumpEffect.tscn").instance()
+			node.position = position
+			node.rotation = 0
+			node.playing = true
+			$"..".add_child(node)
 	
 	if is_on_floor():
+		airJumpsLeft = airJumpsMax
 		var normal = get_floor_normal()
 		if true:
 			var angleDelta = normal.angle() - (rotation - PI)
