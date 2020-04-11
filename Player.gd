@@ -11,6 +11,7 @@ var airJumpsLeft = airJumpsMax
 
 func _ready():
 	set_physics_process(true)
+	$Weapon.ownerNode = self
 
 func _process(delta):
 	pass
@@ -67,13 +68,16 @@ func _physics_process(delta):
 		rotation = 0
 		velocity = Vector2.ZERO
 		position = Vector2(836,502)
-		
-#	if Input.is_action_pressed('ui_right'):
-#		$"../Wall1".rotation += delta
-#	if Input.is_action_pressed('ui_left'):
-#		$"../Wall1".rotation -= delta
 
 	if !is_on_floor():
 		wasOnFloor = false
 
 	velocity = move_and_slide(velocity,Vector2.UP)
+	if get_global_mouse_position().x < position.x:
+		$Weapon.flip_v = true
+	else:
+		$Weapon.flip_v = false
+	$Weapon.look_at(get_global_mouse_position())
+	
+	if Input.is_action_pressed('shoot'):
+		$Weapon.shoot()
