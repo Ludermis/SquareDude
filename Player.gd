@@ -47,9 +47,9 @@ func _physics_process(delta):
 		var normal = get_floor_normal()
 		if true:
 			var angleDelta = normal.angle() - (rotation - PI)
-			rotation = lerp(rotation,angleDelta + rotation,0.1)
+			rotation = lerp(rotation,angleDelta + rotation,0.4)
 		else:
-			rotation = lerp(rotation,0,0.1)
+			rotation = lerp(rotation,0,0.4)
 	
 	if Input.is_key_pressed(KEY_C):
 		rotation = 0
