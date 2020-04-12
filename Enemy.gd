@@ -48,6 +48,14 @@ func takeDamage (attacker, damage):
 	if health <= 0:
 		queue_free()
 
+func aiMove ():
+	if $RayCast2D.get_collider() != null && $RayCast2D.get_collider() is Node2D && $RayCast2D.get_collider().is_in_group("Player"):
+		$Weapon.shoot($"../Player".position)
+	elif $"../Player".position.x < position.x:
+		goLeft()
+	else:
+		goRight()
+
 func _physics_process(delta):
 	velocity += Vars.gravity
 	
@@ -71,4 +79,5 @@ func _physics_process(delta):
 	else:
 		$Weapon.flip_v = false
 	$Weapon.look_at($"../Player".position)
-	#$Weapon.shoot($"../Player".position)
+	$RayCast2D.cast_to = to_local($"../Player".position)
+	aiMove()
