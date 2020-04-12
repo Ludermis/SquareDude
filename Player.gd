@@ -59,15 +59,6 @@ func _physics_process(delta):
 	else:
 		velocity.x = lerp(velocity.x,0,Vars.friction)
 	
-#	# TODO : Ground Fall Impact
-#	if is_on_floor() && wasOnFloor == false:
-#		wasOnFloor = true
-#		var node : AnimatedSprite = preload("res://ImpactEffect.tscn").instance()
-#		node.position = position + get_floor_normal() * 32
-#		node.rotation = get_floor_normal().angle() + PI / 2
-#		node.playing = true
-#		$"..".add_child(node)
-	
 	if Input.is_action_just_pressed('up'):
 		jump()
 	

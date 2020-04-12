@@ -12,6 +12,11 @@ var maxHealth : float = 100
 var health : float = maxHealth
 var lastJumpTime = 0
 var jumpCooldown = 200
+var aiType = 2
+# AI Type 2 Vars
+var aiNextMove = -1
+var aiLastCalculated = 0
+var aiMoveCalculateDelay = 500
 
 func _ready():
 	set_physics_process(true)
@@ -65,15 +70,31 @@ func takeDamage (attacker, damage):
 		queue_free()
 
 func aiMove ():	
-	if $RayCast2D.get_collider() != null && $RayCast2D.get_collider() is Node2D && $RayCast2D.get_collider().is_in_group("Player"):
-		$Weapon.shoot($"../Player".position)
-	else:
-		if $"../Player".position.x < position.x:
-			goLeft()
+	randomize()
+	if aiType == 1:
+		if $RayCast2D.get_collider() != null && $RayCast2D.get_collider() is Node2D && $RayCast2D.get_collider().is_in_group("Player"):
+			$Weapon.shoot($"../Player".position)
 		else:
+			if $"../Player".position.x < position.x:
+				goLeft()
+			else:
+				goRight()
+			if $"../Player".position.y < position.y:
+				jump()
+	elif aiType == 2:
+		if aiLastCalculated + aiMoveCalculateDelay <= Vars.time():
+			aiNextMove = randi() % 100 + 1
+			aiLastCalculated = Vars.time()
+		
+		if $RayCast2D.get_collider() != null && $RayCast2D.get_collider() is Node2D && $RayCast2D.get_collider().is_in_group("Player"):
+			$Weapon.shoot($"../Player".position)
+		elif aiNextMove >= 1 && aiNextMove <= 45:
+			goLeft()
+		elif aiNextMove >= 46 && aiNextMove <= 90:
 			goRight()
-		if $"../Player".position.y < position.y:
+		elif aiNextMove >= 91 && aiNextMove <= 100:
 			jump()
+			#aiLastCalculated += aiMoveCalculateDelay - 100
 
 func _physics_process(delta):
 	velocity += Vars.gravity
