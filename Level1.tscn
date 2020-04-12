@@ -38,7 +38,7 @@ __meta__ = {
 }
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 672, 288 )
+position = Vector2( 752.126, 406.897 )
 rotation = 1.5708
 
 [node name="Weapon" parent="Player" instance=ExtResource( 6 )]
@@ -280,3 +280,10 @@ centered = false
 flip_h = true
 
 [node name="Enemy" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1589.42, 200.756 )
+
+[node name="Enemy2" parent="." instance=ExtResource( 8 )]
+position = Vector2( 166.77, 398.096 )
+
+[node name="Enemy3" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1412.39, 556.566 )

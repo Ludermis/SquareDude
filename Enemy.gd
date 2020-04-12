@@ -9,30 +9,35 @@ var wasOnFloor = false
 var airJumpsMax = 1
 var airJumpsLeft = airJumpsMax
 var health = 100
+var lastJumpTime = 0
+var jumpCooldown = 200
 
 func _ready():
 	set_physics_process(true)
 	$Weapon.ownerNode = self
+	$Weapon.shootDelay *= 5
 
 func _process(delta):
 	pass
 
 func jump ():
-	if is_on_floor():
+	if lastJumpTime + jumpCooldown <= Vars.time():
+		lastJumpTime = Vars.time()
+		if is_on_floor():
+				velocity.y = -jumpHeight
+				var node : AnimatedSprite = preload("res://JumpEffect.tscn").instance()
+				node.position = position + get_floor_normal() * 32
+				node.rotation = get_floor_normal().angle() + PI / 2
+				node.playing = true
+				$"..".add_child(node)
+		elif airJumpsLeft > 0:
+			airJumpsLeft -= 1
 			velocity.y = -jumpHeight
 			var node : AnimatedSprite = preload("res://JumpEffect.tscn").instance()
-			node.position = position + get_floor_normal() * 32
-			node.rotation = get_floor_normal().angle() + PI / 2
+			node.position = position
+			node.rotation = 0
 			node.playing = true
 			$"..".add_child(node)
-	elif airJumpsLeft > 0:
-		airJumpsLeft -= 1
-		velocity.y = -jumpHeight
-		var node : AnimatedSprite = preload("res://JumpEffect.tscn").instance()
-		node.position = position
-		node.rotation = 0
-		node.playing = true
-		$"..".add_child(node)
 
 func goRight ():
 	velocity.x = min(velocity.x + acceleration, maxSpeed)
@@ -48,13 +53,16 @@ func takeDamage (attacker, damage):
 	if health <= 0:
 		queue_free()
 
-func aiMove ():
+func aiMove ():	
 	if $RayCast2D.get_collider() != null && $RayCast2D.get_collider() is Node2D && $RayCast2D.get_collider().is_in_group("Player"):
 		$Weapon.shoot($"../Player".position)
-	elif $"../Player".position.x < position.x:
-		goLeft()
 	else:
-		goRight()
+		if $"../Player".position.x < position.x:
+			goLeft()
+		else:
+			goRight()
+		if $"../Player".position.y < position.y:
+			jump()
 
 func _physics_process(delta):
 	velocity += Vars.gravity
@@ -80,4 +88,5 @@ func _physics_process(delta):
 		$Weapon.flip_v = false
 	$Weapon.look_at($"../Player".position)
 	$RayCast2D.cast_to = to_local($"../Player".position)
+	
 	aiMove()
