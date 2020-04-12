@@ -38,6 +38,7 @@ __meta__ = {
 }
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
+material = null
 position = Vector2( 752.126, 406.897 )
 rotation = 1.5708
 

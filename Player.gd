@@ -8,17 +8,30 @@ var debugDraw = false
 var wasOnFloor = false
 var airJumpsMax = 1
 var airJumpsLeft = airJumpsMax
+var maxHealth : float = 100
+var health : float = maxHealth
 
 func _ready():
 	set_physics_process(true)
 	$Weapon.ownerNode = self
 
 func _process(delta):
-	pass
+	update()
+
+func takeDamage (attacker, damage):
+	health -= damage
+	if health <= 0:
+		get_tree().change_scene("res://GameOverScene.tscn")
 
 func _draw():
-	if debugDraw:
-		draw_rect(Rect2(-32,-32,64,64),Color.red,false)
+	#Health Box
+	var pos = Vector2(-48,0)
+	var size = Vector2(8,64)
+	draw_rect(Rect2(pos - size / 2,size),Color.white)
+	
+	pos = Vector2(-48,0)
+	size = Vector2(8,(health / maxHealth) * 64.0)
+	draw_rect(Rect2(pos - size / 2,size),Color.red)
 
 func jump ():
 	if is_on_floor():

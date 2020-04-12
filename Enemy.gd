@@ -8,7 +8,8 @@ var debugDraw = false
 var wasOnFloor = false
 var airJumpsMax = 1
 var airJumpsLeft = airJumpsMax
-var health = 100
+var maxHealth : float = 100
+var health : float = maxHealth
 var lastJumpTime = 0
 var jumpCooldown = 200
 
@@ -17,8 +18,18 @@ func _ready():
 	$Weapon.ownerNode = self
 	$Weapon.shootDelay *= 5
 
+func _draw():
+	#Health Box
+	var pos = Vector2(-48,0)
+	var size = Vector2(8,64)
+	draw_rect(Rect2(pos - size / 2,size),Color.white)
+	
+	pos = Vector2(-48,0)
+	size = Vector2(8,(health / maxHealth) * 64.0)
+	draw_rect(Rect2(pos - size / 2,size),Color.red)
+
 func _process(delta):
-	pass
+	update()
 
 func jump ():
 	if lastJumpTime + jumpCooldown <= Vars.time():
