@@ -19,4 +19,9 @@ func _on_Area2D_body_entered(body):
 			body.takeDamage(ownerNode,damage)
 		if ownerGroup.has("Enemy") && body.is_in_group("Player"):
 			body.takeDamage(ownerNode,damage)
+		var node = preload("res://BulletImpact.tscn").instance()
+		node.position = position
+		node.rotation = rotation - PI / 2
+		node.get_node("AnimatedSprite").play("default")
+		$"..".add_child(node)
 		queue_free()
