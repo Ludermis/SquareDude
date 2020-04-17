@@ -13,6 +13,7 @@ func _process(delta):
 
 func shoot (target):
 	if lastShoot + shootDelay <= Vars.time():
+		$ShootSound.play()
 		ownerNode.velocity.x -= (target - ownerNode.position).normalized().x * 25
 		lastShoot = Vars.time()
 		var node = preload("res://Bullet.tscn").instance()

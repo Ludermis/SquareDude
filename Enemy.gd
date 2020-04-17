@@ -12,7 +12,6 @@ var maxHealth : float = 100
 var health : float = maxHealth
 var lastJumpTime = 0
 var jumpCooldown = 200
-var aiType = 2
 # AI Type 2 Vars
 var aiNextMove = -1
 var aiLastCalculated = 0
@@ -71,7 +70,7 @@ func takeDamage (attacker, damage):
 
 func aiMove ():	
 	randomize()
-	if aiType == 1:
+	if Vars.enemyAIType == 1:
 		if $RayCast2D.get_collider() != null && $RayCast2D.get_collider() is Node2D && $RayCast2D.get_collider().is_in_group("Player"):
 			$Weapon.shoot($"../Player".position)
 		else:
@@ -81,7 +80,7 @@ func aiMove ():
 				goRight()
 			if $"../Player".position.y < position.y:
 				jump()
-	elif aiType == 2:
+	elif Vars.enemyAIType == 2:
 		if aiLastCalculated + aiMoveCalculateDelay <= Vars.time():
 			aiNextMove = randi() % 100 + 1
 			aiLastCalculated = Vars.time()
