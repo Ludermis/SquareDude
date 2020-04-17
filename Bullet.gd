@@ -12,11 +12,12 @@ func _ready():
 func _process(delta):
 	position += dir * speed * delta
 
-func _on_Area2D_body_entered(body):
+func _on_Area2D_body_entered(body : Node2D):
 	if body != ownerNode:
 		$"../Camera2D".shake(0.2,15,4)
 		if ownerGroup.has("Player") && body.is_in_group("Enemy"):
 			body.takeDamage(ownerNode,damage)
+			body.get_node("BloodSound").play()
 		if ownerGroup.has("Enemy") && body.is_in_group("Player"):
 			body.takeDamage(ownerNode,damage)
 		var node = preload("res://BulletImpact.tscn").instance()

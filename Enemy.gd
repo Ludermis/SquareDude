@@ -39,13 +39,17 @@ func jump ():
 	if lastJumpTime + jumpCooldown <= Vars.time():
 		lastJumpTime = Vars.time()
 		if is_on_floor():
-				velocity.y = -jumpHeight
-				var node : AnimatedSprite = preload("res://JumpEffect.tscn").instance()
-				node.position = position + get_floor_normal() * 32
-				node.rotation = get_floor_normal().angle() + PI / 2
-				node.playing = true
-				$"..".add_child(node)
+			$JumpSound.pitch_scale = 1.0
+			$JumpSound.play()
+			velocity.y = -jumpHeight
+			var node : AnimatedSprite = preload("res://JumpEffect.tscn").instance()
+			node.position = position + get_floor_normal() * 32
+			node.rotation = get_floor_normal().angle() + PI / 2
+			node.playing = true
+			$"..".add_child(node)
 		elif airJumpsLeft > 0:
+			$JumpSound.pitch_scale = 0.8
+			$JumpSound.play()
 			airJumpsLeft -= 1
 			velocity.y = -jumpHeight
 			var node : AnimatedSprite = preload("res://JumpEffect.tscn").instance()

@@ -35,13 +35,17 @@ func _draw():
 
 func jump ():
 	if is_on_floor():
-			velocity.y = -jumpHeight
-			var node : AnimatedSprite = preload("res://JumpEffect.tscn").instance()
-			node.position = position + get_floor_normal() * 32
-			node.rotation = get_floor_normal().angle() + PI / 2
-			node.playing = true
-			$"..".add_child(node)
+		$JumpSound.pitch_scale = 1.0
+		$JumpSound.play()
+		velocity.y = -jumpHeight
+		var node : AnimatedSprite = preload("res://JumpEffect.tscn").instance()
+		node.position = position + get_floor_normal() * 32
+		node.rotation = get_floor_normal().angle() + PI / 2
+		node.playing = true
+		$"..".add_child(node)
 	elif airJumpsLeft > 0:
+		$JumpSound.pitch_scale = 0.8
+		$JumpSound.play()
 		airJumpsLeft -= 1
 		velocity.y = -jumpHeight
 		var node : AnimatedSprite = preload("res://JumpEffect.tscn").instance()
@@ -65,11 +69,8 @@ func _physics_process(delta):
 	if is_on_floor():
 		airJumpsLeft = airJumpsMax
 		var normal = get_floor_normal()
-		if true:
-			var angleDelta = normal.angle() - (rotation - PI)
-			rotation = lerp(rotation,angleDelta + rotation,0.4)
-		else:
-			rotation = lerp(rotation,0,0.4)
+		var angleDelta = normal.angle() - (rotation - PI)
+		rotation = lerp(rotation,angleDelta + rotation,0.4)
 	
 	if Input.is_action_just_pressed("misc1"):
 		var node = preload("res://Enemy.tscn").instance()

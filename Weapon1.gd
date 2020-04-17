@@ -13,6 +13,7 @@ func _process(delta):
 
 func shoot (target):
 	if lastShoot + shootDelay <= Vars.time():
+		#$ShootSound.pitch_scale = rand_range(1.3,1.5)
 		$ShootSound.play()
 		ownerNode.velocity.x -= (target - ownerNode.position).normalized().x * 25
 		lastShoot = Vars.time()
