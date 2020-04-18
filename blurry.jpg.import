@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/playfocused.png-e11f9f9de6ed47f1df3a7478232cbe78.stex"
+path="res://.import/blurry.jpg-b8c85adbe929000389eb1c333abf940b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://playfocused.png"
-dest_files=[ "res://.import/playfocused.png-e11f9f9de6ed47f1df3a7478232cbe78.stex" ]
+source_file="res://blurry.jpg"
+dest_files=[ "res://.import/blurry.jpg-b8c85adbe929000389eb1c333abf940b.stex" ]
 
 [params]
 

@@ -1,4 +1,4 @@
-extends TextureButton
+extends Control
 
 
 # Declare member variables here. Examples:
@@ -16,6 +16,5 @@ func _ready():
 #	pass
 
 
-func _on_PlayButton_pressed():
+func _on_Button1_pressed():
 	get_tree().change_scene("res://Level1.tscn")
-	pass 

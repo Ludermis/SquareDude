@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/died.png-ccb1a3a236eb7d5c20fd51c7d999e77f.stex"
+path="res://.import/groundbottom.png-3ee0c3c4e2bb18c8c8e55eb140bd1570.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://died.png"
-dest_files=[ "res://.import/died.png-ccb1a3a236eb7d5c20fd51c7d999e77f.stex" ]
+source_file="res://groundbottom.png"
+dest_files=[ "res://.import/groundbottom.png-3ee0c3c4e2bb18c8c8e55eb140bd1570.stex" ]
 
 [params]
 
@@ -19,8 +19,8 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
-flags/repeat=0
-flags/filter=true
+flags/repeat=1
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

@@ -1,65 +1,315 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=13 format=2]
 
-[ext_resource path="res://Selectlevel.png" type="Texture" id=1]
-[ext_resource path="res://play.png" type="Texture" id=2]
-[ext_resource path="res://logo.png" type="Texture" id=3]
-[ext_resource path="res://playfocused.png" type="Texture" id=4]
-[ext_resource path="res://1021603.jpg" type="Texture" id=5]
-[ext_resource path="res://PlayButton.gd" type="Script" id=6]
-[ext_resource path="res://Select Level.gd" type="Script" id=7]
+[ext_resource path="res://DebugPanel.tscn" type="PackedScene" id=1]
+[ext_resource path="res://MainMenuScene.gd" type="Script" id=2]
+[ext_resource path="res://Menu.tscn" type="PackedScene" id=3]
+[ext_resource path="res://ThaleahFat.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://Camera2D.gd" type="Script" id=5]
+[ext_resource path="res://box.png" type="Texture" id=6]
+[ext_resource path="res://ground.png" type="Texture" id=7]
+[ext_resource path="res://groundcurved.png" type="Texture" id=8]
+[ext_resource path="res://Levels.tscn" type="PackedScene" id=9]
+[ext_resource path="res://groundbottom.png" type="Texture" id=10]
 
-[node name="TitleScreen" type="Control"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 2.15851
-margin_right = 2.15845
+[sub_resource type="Environment" id=1]
+background_mode = 4
+glow_enabled = true
+glow_bloom = 0.11
+glow_blend_mode = 0
+glow_bicubic_upscale = true
+
+[sub_resource type="DynamicFont" id=2]
+size = 120
+outline_size = 8
+font_data = ExtResource( 4 )
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Level1" type="Node2D" parent="."]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Level1"]
+environment = SubResource( 1 )
+
+[node name="DebugPanel" type="CanvasLayer" parent="Level1"]
+
+[node name="Control" parent="Level1/DebugPanel" instance=ExtResource( 1 )]
+visible = false
+
+[node name="Background" type="Sprite" parent="Level1"]
+modulate = Color( 0.027451, 0.0901961, 0.188235, 1 )
+position = Vector2( 1.90735e-06, -5.88673 )
+scale = Vector2( 30, 16.875 )
+texture = ExtResource( 6 )
+centered = false
+offset = Vector2( -9.53674e-07, 0.348844 )
 __meta__ = {
-"_edit_lock_": true,
-"_edit_use_anchors_": false
+"_edit_lock_": true
 }
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="Camera2D" type="Camera2D" parent="Level1"]
+anchor_mode = 0
+current = true
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Wall1" type="StaticBody2D" parent="Level1"]
+position = Vector2( 1600, 560 )
+rotation = -0.445762
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Level1/Wall1"]
+visible = false
+polygon = PoolVector2Array( -372.945, -32.2838, 375.798, -31.6748, 376.164, 32.5925, -244.803, 26.4506 )
+
+[node name="Sprite" type="Sprite" parent="Level1/Wall1"]
+position = Vector2( -8.57794, 0.154297 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 384, 32 )
+
+[node name="Wall2" type="StaticBody2D" parent="Level1"]
+position = Vector2( 332.424, 568.729 )
+rotation = 0.445059
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Level1/Wall2"]
+visible = false
+polygon = PoolVector2Array( -372.945, -32.2838, 375.798, -31.6748, 376.164, 32.5925, -244.803, 26.4506 )
+
+[node name="Sprite" type="Sprite" parent="Level1/Wall2"]
+position = Vector2( -8.57794, 0.154297 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 384, 32 )
+
+[node name="Wall3" type="StaticBody2D" parent="Level1"]
+position = Vector2( 185.318, 134.83 )
+rotation = -0.779827
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Level1/Wall3"]
+visible = false
+polygon = PoolVector2Array( -372.945, -32.2838, 375.798, -31.6748, 376.164, 32.5925, -244.803, 26.4506 )
+
+[node name="Sprite" type="Sprite" parent="Level1/Wall3"]
+position = Vector2( -8.57794, 0.154297 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 384, 32 )
+
+[node name="Wall4" type="StaticBody2D" parent="Level1"]
+position = Vector2( 1763.07, 162.66 )
+rotation = 0.780162
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Level1/Wall4"]
+visible = false
+polygon = PoolVector2Array( -372.945, -32.2838, 375.798, -31.6748, 376.164, 32.5925, -244.803, 26.4506 )
+
+[node name="Sprite" type="Sprite" parent="Level1/Wall4"]
+position = Vector2( -8.57794, 0.154297 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 384, 32 )
+
+[node name="Floor" type="StaticBody2D" parent="Level1"]
+position = Vector2( 520, 720 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Level1/Floor"]
+visible = false
+polygon = PoolVector2Array( -520.421, -32.0165, 503.873, -32.0047, 502.671, 29.9837, -520.789, 31.2885 )
+
+[node name="Sprite" type="Sprite" parent="Level1/Floor"]
+position = Vector2( -8.57794, 0.154297 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 512, 32 )
+
+[node name="Floor2" type="StaticBody2D" parent="Level1"]
+position = Vector2( 1544, 720 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Level1/Floor2"]
+visible = false
+polygon = PoolVector2Array( -520.421, -32.0165, 503.873, -32.0047, 502.671, 29.9837, -520.789, 31.2885 )
+
+[node name="Sprite" type="Sprite" parent="Level1/Floor2"]
+position = Vector2( -8.57794, 0.154297 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 512, 32 )
+
+[node name="Floor5" type="StaticBody2D" parent="Level1"]
+position = Vector2( 625.571, 441.605 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Level1/Floor5"]
+visible = false
+polygon = PoolVector2Array( -63.8541, 11.9092, -52.017, 0.0223389, 308.038, 0.0534363, 320.182, 12.0898, 320.097, 64.3126, -63.9504, 63.9866 )
+
+[node name="Sprite" type="Sprite" parent="Level1/Floor5"]
+scale = Vector2( 2, 2 )
+texture = ExtResource( 7 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 128, 32 )
+
+[node name="Sprite2" type="Sprite" parent="Level1/Floor5"]
+position = Vector2( 256, 0 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 8 )
+centered = false
+
+[node name="Sprite3" type="Sprite" parent="Level1/Floor5"]
+position = Vector2( -64, 0 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 8 )
+centered = false
+flip_h = true
+
+[node name="Floor6" type="StaticBody2D" parent="Level1"]
+position = Vector2( 881.582, 555.375 )
+rotation = 3.14159
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Level1/Floor6"]
+visible = false
+polygon = PoolVector2Array( -63.8541, 11.9092, -52.017, 0.0223389, 308.038, 0.0534363, 320.182, 12.0898, 320.097, 64.3126, -63.9504, 63.9866 )
+
+[node name="Sprite" type="Sprite" parent="Level1/Floor6"]
+scale = Vector2( 2, 2 )
+texture = ExtResource( 7 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 128, 32 )
+
+[node name="Sprite2" type="Sprite" parent="Level1/Floor6"]
+position = Vector2( 256, 0 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 8 )
+centered = false
+
+[node name="Sprite3" type="Sprite" parent="Level1/Floor6"]
+position = Vector2( -64, 0 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 8 )
+centered = false
+flip_h = true
+
+[node name="Floor8" type="StaticBody2D" parent="Level1"]
+position = Vector2( 1326.98, 238.699 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Level1/Floor8"]
+visible = false
+polygon = PoolVector2Array( -63.8541, 11.9092, -52.017, 0.0223389, 308.038, 0.0534363, 320.182, 12.0898, 320.097, 64.3126, -63.9504, 63.9866 )
+
+[node name="Sprite" type="Sprite" parent="Level1/Floor8"]
+scale = Vector2( 2, 2 )
+texture = ExtResource( 7 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 128, 32 )
+
+[node name="Sprite2" type="Sprite" parent="Level1/Floor8"]
+position = Vector2( 256, 0 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 8 )
+centered = false
+
+[node name="Sprite3" type="Sprite" parent="Level1/Floor8"]
+position = Vector2( -64, 0 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 8 )
+centered = false
+flip_h = true
+
+[node name="Floor7" type="StaticBody2D" parent="Level1"]
+position = Vector2( 1583, 352.47 )
+rotation = 3.14159
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Level1/Floor7"]
+visible = false
+polygon = PoolVector2Array( -63.8541, 11.9092, -52.017, 0.0223389, 308.038, 0.0534363, 320.182, 12.0898, 320.097, 64.3126, -63.9504, 63.9866 )
+
+[node name="Sprite" type="Sprite" parent="Level1/Floor7"]
+scale = Vector2( 2, 2 )
+texture = ExtResource( 7 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 128, 32 )
+
+[node name="Sprite2" type="Sprite" parent="Level1/Floor7"]
+position = Vector2( 256, 0 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 8 )
+centered = false
+
+[node name="Sprite3" type="Sprite" parent="Level1/Floor7"]
+position = Vector2( -64, 0 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 8 )
+centered = false
+flip_h = true
+
+[node name="groundbottom" type="Sprite" parent="Level1"]
+position = Vector2( 0, 752 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 10 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 1024, 192 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+current = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
 margin_right = 1920.0
-margin_bottom = 1080.0
-texture = ExtResource( 5 )
-__meta__ = {
-"_edit_lock_": true,
-"_edit_use_anchors_": false
-}
-
-[node name="Logo" type="TextureRect" parent="."]
-anchor_top = -0.00189865
-anchor_bottom = -0.00189865
-margin_left = 316.158
-margin_top = 84.0505
-margin_right = 1516.16
-margin_bottom = 284.051
-texture = ExtResource( 3 )
+margin_bottom = 384.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0, 1, 0.980392, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "SQUARE DUDE!"
+align = 1
+valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="PlayButton" type="TextureButton" parent="."]
-margin_left = 135.877
-margin_top = 472.2
-margin_right = 435.877
-margin_bottom = 572.2
-texture_normal = ExtResource( 2 )
-texture_hover = ExtResource( 4 )
-script = ExtResource( 6 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="Menu" parent="CanvasLayer" instance=ExtResource( 3 )]
 
-[node name="Select Level" type="TextureButton" parent="."]
-margin_left = 135.877
-margin_top = 672.738
-margin_right = 435.877
-margin_bottom = 772.738
-texture_normal = ExtResource( 1 )
-script = ExtResource( 7 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-[connection signal="pressed" from="PlayButton" to="PlayButton" method="_on_PlayButton_pressed"]
-[connection signal="pressed" from="Select Level" to="Select Level" method="_on_Select_Level_pressed"]
+[node name="Levels" parent="CanvasLayer" instance=ExtResource( 9 )]

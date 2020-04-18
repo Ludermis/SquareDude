@@ -1,0 +1,259 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://ThaleahFat.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://button.png" type="Texture" id=2]
+[ext_resource path="res://LevelButton.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 96
+outline_size = 8
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 86
+outline_size = 8
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[node name="Levels" type="Control"]
+visible = false
+margin_right = 1920.0
+margin_bottom = 1080.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button1" type="TextureButton" parent="."]
+margin_left = 656.0
+margin_top = 256.0
+margin_right = 744.0
+margin_bottom = 344.0
+texture_normal = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Button1"]
+margin_right = 88.0
+margin_bottom = 88.0
+custom_fonts/font = SubResource( 1 )
+text = "1"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button2" type="TextureButton" parent="."]
+margin_left = 784.0
+margin_top = 256.0
+margin_right = 872.0
+margin_bottom = 344.0
+texture_normal = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Button2"]
+margin_right = 88.0
+margin_bottom = 88.0
+custom_fonts/font = SubResource( 1 )
+text = "2"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button3" type="TextureButton" parent="."]
+margin_left = 912.0
+margin_top = 256.0
+margin_right = 1000.0
+margin_bottom = 344.0
+texture_normal = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Button3"]
+margin_right = 88.0
+margin_bottom = 88.0
+custom_fonts/font = SubResource( 1 )
+text = "3"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button4" type="TextureButton" parent="."]
+margin_left = 1040.0
+margin_top = 256.0
+margin_right = 1128.0
+margin_bottom = 344.0
+texture_normal = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Button4"]
+margin_right = 88.0
+margin_bottom = 88.0
+custom_fonts/font = SubResource( 1 )
+text = "4"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button5" type="TextureButton" parent="."]
+margin_left = 1168.0
+margin_top = 256.0
+margin_right = 1256.0
+margin_bottom = 344.0
+texture_normal = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Button5"]
+margin_right = 88.0
+margin_bottom = 88.0
+custom_fonts/font = SubResource( 1 )
+text = "5"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button6" type="TextureButton" parent="."]
+margin_left = 656.0
+margin_top = 384.0
+margin_right = 744.0
+margin_bottom = 472.0
+texture_normal = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Button6"]
+margin_right = 88.0
+margin_bottom = 88.0
+custom_fonts/font = SubResource( 1 )
+text = "6"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button7" type="TextureButton" parent="."]
+margin_left = 784.0
+margin_top = 384.0
+margin_right = 872.0
+margin_bottom = 472.0
+texture_normal = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Button7"]
+margin_right = 88.0
+margin_bottom = 88.0
+custom_fonts/font = SubResource( 1 )
+text = "7"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button8" type="TextureButton" parent="."]
+margin_left = 912.0
+margin_top = 384.0
+margin_right = 1000.0
+margin_bottom = 472.0
+texture_normal = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Button8"]
+margin_right = 88.0
+margin_bottom = 88.0
+custom_fonts/font = SubResource( 1 )
+text = "8"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button9" type="TextureButton" parent="."]
+margin_left = 1040.0
+margin_top = 384.0
+margin_right = 1128.0
+margin_bottom = 472.0
+texture_normal = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Button9"]
+margin_right = 88.0
+margin_bottom = 88.0
+custom_fonts/font = SubResource( 1 )
+text = "9"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button10" type="TextureButton" parent="."]
+margin_left = 1168.0
+margin_top = 384.0
+margin_right = 1256.0
+margin_bottom = 472.0
+texture_normal = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Button10"]
+margin_left = 2.75378
+margin_top = -0.250336
+margin_right = 90.7538
+margin_bottom = 87.7497
+custom_fonts/font = SubResource( 2 )
+text = "10"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="Button1" to="." method="_on_Button1_pressed"]

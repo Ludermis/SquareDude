@@ -1,4 +1,4 @@
-extends TextureButton
+extends Node2D
 
 
 # Declare member variables here. Examples:
@@ -8,14 +8,10 @@ extends TextureButton
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	$"Level1/WorldEnvironment".queue_free()
+	add_child(preload("res://BlurEnvironment.tscn").instance())
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
-
-
-func _on_TextureButton_pressed():
-	get_tree().change_scene("res://Level1.tscn")
-	pass # Replace with function body.

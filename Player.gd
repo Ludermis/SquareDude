@@ -20,8 +20,6 @@ func _process(delta):
 
 func takeDamage (attacker, damage):
 	health -= damage
-	if health <= 0:
-		get_tree().change_scene("res://GameOverScene.tscn")
 
 func _draw():
 	#Health Box

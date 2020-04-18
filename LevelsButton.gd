@@ -16,6 +16,6 @@ func _ready():
 #	pass
 
 
-func _on_Select_Level_pressed():
-	get_tree().change_scene("res://SelectLevel.tscn")
-	pass # Replace with function body.
+func _on_LevelsButton_pressed():
+	$"../../Levels".visible = true
+	$"..".visible = false

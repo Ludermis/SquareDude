@@ -1,0 +1,101 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://LevelsButton.gd" type="Script" id=1]
+[ext_resource path="res://ThaleahFat.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://button.png" type="Texture" id=3]
+
+[sub_resource type="DynamicFont" id=2]
+size = 64
+outline_size = 8
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 2 )
+
+[node name="Menu" type="Control"]
+margin_right = 1920.0
+margin_bottom = 1080.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LevelsButton" type="TextureButton" parent="."]
+margin_left = 768.0
+margin_top = 320.0
+margin_right = 1152.0
+margin_bottom = 384.0
+texture_normal = ExtResource( 3 )
+expand = true
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="LevelsButton"]
+margin_right = 384.0
+margin_bottom = 64.0
+custom_fonts/font = SubResource( 2 )
+text = "LEVELS"
+align = 1
+valign = 1
+
+[node name="OptionsButton" type="TextureButton" parent="."]
+margin_left = 768.0
+margin_top = 450.272
+margin_right = 1152.0
+margin_bottom = 514.272
+texture_normal = ExtResource( 3 )
+expand = true
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="OptionsButton"]
+margin_right = 384.0
+margin_bottom = 64.0
+custom_fonts/font = SubResource( 2 )
+text = "OPTIONS"
+align = 1
+valign = 1
+
+[node name="ShopButton" type="TextureButton" parent="."]
+margin_left = 768.0
+margin_top = 578.272
+margin_right = 1152.0
+margin_bottom = 642.272
+texture_normal = ExtResource( 3 )
+expand = true
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="ShopButton"]
+margin_right = 384.0
+margin_bottom = 64.0
+custom_fonts/font = SubResource( 2 )
+text = "SHOP"
+align = 1
+valign = 1
+
+[node name="CustomizeButton" type="TextureButton" parent="."]
+margin_left = 768.0
+margin_top = 706.272
+margin_right = 1152.0
+margin_bottom = 770.272
+texture_normal = ExtResource( 3 )
+expand = true
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CustomizeButton"]
+margin_right = 384.0
+margin_bottom = 64.0
+custom_fonts/font = SubResource( 2 )
+text = "CUSTOMIZE"
+align = 1
+valign = 1
+[connection signal="pressed" from="LevelsButton" to="LevelsButton" method="_on_LevelsButton_pressed"]
