@@ -16,20 +16,30 @@ func _ready():
 	$Weapon.ownerNode = self
 
 func _process(delta):
+	$"Controls/AmmoLabel".text = str($Weapon.curAmmo, "/", $Weapon.maxAmmo)
+	if $Weapon.reloading:
+		$"Controls/ProgressBar".visible = true
+		$"Controls/ProgressBar".get_material().set_shader_param('value',((Vars.time() - $Weapon.reloadStarted) / ($Weapon.reloadDelay)) * 100.0)
+	else:
+		$"Controls/ProgressBar".visible = false
+	$"Controls/HealthFG".rect_size.x = (health / maxHealth) * 64.0
 	update()
 
 func takeDamage (attacker, damage):
 	health -= damage
+	if health <= 0:
+		queue_free()
 
 func _draw():
-	#Health Box
-	var pos = Vector2(-48,0)
-	var size = Vector2(8,64)
-	draw_rect(Rect2(pos - size / 2,size),Color.white)
-	
-	pos = Vector2(-48,0)
-	size = Vector2(8,(health / maxHealth) * 64.0)
-	draw_rect(Rect2(pos - size / 2,size),Color.red)
+#	#Health Box
+#	var pos = Vector2(-48,0)
+#	var size = Vector2(8,64)
+#	draw_rect(Rect2(pos - size / 2,size),Color.white)
+#
+#	pos = Vector2(-48,0)
+#	size = Vector2(8,(health / maxHealth) * 64.0)
+#	draw_rect(Rect2(pos - size / 2,size),Color.red)
+	pass
 
 func jump ():
 	if is_on_floor():
@@ -74,6 +84,9 @@ func _physics_process(delta):
 		var node = preload("res://Enemy.tscn").instance()
 		node.position = get_global_mouse_position()
 		$"..".add_child(node)
+	
+	if Input.is_action_just_pressed("reload") && $Weapon.curAmmo < $Weapon.maxAmmo:
+		$Weapon.reload()
 
 	if !is_on_floor():
 		wasOnFloor = false

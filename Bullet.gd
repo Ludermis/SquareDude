@@ -14,15 +14,28 @@ func _process(delta):
 
 func _on_Area2D_body_entered(body : Node2D):
 	if body != ownerNode:
+		var node = null
 		$"../Camera2D".shake(0.2,15,4)
 		if ownerGroup.has("Player") && body.is_in_group("Enemy"):
 			body.get_node("BloodSound").play()
 			body.takeDamage(ownerNode,damage)
-		if ownerGroup.has("Enemy") && body.is_in_group("Player"):
+			node = preload("res://BloodEffect.tscn").instance()
+			node.position = position
+			node.rotation = rotation - PI / 2
+			node.get_node("AnimatedSprite").play("default")
+			$"..".add_child(node)
+
+		elif ownerGroup.has("Enemy") && body.is_in_group("Player"):
 			body.takeDamage(ownerNode,damage)
-		var node = preload("res://BulletImpact.tscn").instance()
-		node.position = position
-		node.rotation = rotation - PI / 2
-		node.get_node("AnimatedSprite").play("default")
-		$"..".add_child(node)
+			node = preload("res://BloodEffect.tscn").instance()
+			node.position = position
+			node.rotation = rotation - PI / 2
+			node.get_node("AnimatedSprite").play("default")
+			$"..".add_child(node)
+		else:
+			node = preload("res://BulletImpact.tscn").instance()
+			node.position = position
+			node.rotation = rotation - PI / 2
+			node.get_node("AnimatedSprite").play("default")
+			$"..".add_child(node)
 		queue_free()
