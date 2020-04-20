@@ -1,6 +1,5 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://DebugPanel.tscn" type="PackedScene" id=1]
 [ext_resource path="res://MainMenuScene.gd" type="Script" id=2]
 [ext_resource path="res://Menu.tscn" type="PackedScene" id=3]
 [ext_resource path="res://ThaleahFat.ttf" type="DynamicFontData" id=4]
@@ -30,11 +29,6 @@ script = ExtResource( 2 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="Level1"]
 environment = SubResource( 1 )
-
-[node name="DebugPanel" type="CanvasLayer" parent="Level1"]
-
-[node name="Control" parent="Level1/DebugPanel" instance=ExtResource( 1 )]
-visible = false
 
 [node name="Background" type="Sprite" parent="Level1"]
 modulate = Color( 0.027451, 0.0901961, 0.188235, 1 )

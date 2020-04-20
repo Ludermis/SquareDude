@@ -2,7 +2,10 @@ extends Node
 
 var gravity = Vector2(0,98 / 2)
 var friction = 0.2
-var enemyAIType = 3
+var FASTFORDEBUG = false
+var enemyAIType = 2
+var enemyRemaining = 0
+var currentLevel = -1
 
 func rotatePoint(point,center,angle) -> Vector2:
 	var newX = cos(angle) * (point.x - center.x) - sin(angle) * (point.y - center.y) + center.x

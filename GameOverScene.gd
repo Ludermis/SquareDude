@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 
 
 # Declare member variables here. Examples:
@@ -8,9 +8,9 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	get_tree().paused = false
-	$"Level1/WorldEnvironment".queue_free()
-	add_child(preload("res://BlurEnvironment.tscn").instance())
+	get_tree().paused = true
+	var we : WorldEnvironment = $"../../WorldEnvironment"
+	we.environment.dof_blur_near_enabled = true
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

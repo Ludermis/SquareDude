@@ -21,6 +21,7 @@ func _ready():
 	set_physics_process(true)
 	$Weapon.ownerNode = self
 	$Weapon.shootDelay *= 5
+	Vars.enemyRemaining += 1
 
 func _process(delta):
 	$"Controls/HealthFG".rect_size.x = (health / maxHealth) * 64.0
@@ -123,3 +124,7 @@ func _physics_process(delta):
 	$RayCast2D.cast_to = to_local($"../Player".position)
 	
 	aiMove()
+
+
+func _on_Enemy_tree_exiting():
+	Vars.enemyRemaining -= 1

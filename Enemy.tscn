@@ -63,7 +63,7 @@ __meta__ = {
 [node name="HealthFG" type="Panel" parent="Controls"]
 margin_left = -32.0002
 margin_top = -48.0
-margin_right = -0.000183105
+margin_right = 31.9998
 margin_bottom = -40.0
 custom_styles/panel = SubResource( 4 )
 __meta__ = {
@@ -71,6 +71,7 @@ __meta__ = {
 }
 
 [node name="ProgressBar" type="Panel" parent="Controls"]
+visible = false
 material = SubResource( 5 )
 margin_left = 15.9998
 margin_top = -104.0
@@ -79,3 +80,4 @@ margin_bottom = -72.0001
 __meta__ = {
 "_edit_use_anchors_": false
 }
+[connection signal="tree_exiting" from="." to="." method="_on_Enemy_tree_exiting"]

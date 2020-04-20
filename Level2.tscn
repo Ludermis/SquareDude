@@ -8,9 +8,9 @@
 [ext_resource path="res://box.png" type="Texture" id=6]
 [ext_resource path="res://Camera2D.gd" type="Script" id=7]
 [ext_resource path="res://ground2.png" type="Texture" id=8]
-[ext_resource path="res://Player.gd" type="Script" id=9]
-[ext_resource path="res://Weapon1.gd" type="Script" id=10]
-[ext_resource path="res://weapon1.png" type="Texture" id=11]
+[ext_resource path="res://Level2.gd" type="Script" id=9]
+[ext_resource path="res://Enemy.tscn" type="PackedScene" id=10]
+[ext_resource path="res://CountdownScene.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Weapon1.tscn" type="PackedScene" id=13]
 [ext_resource path="res://ground2curved.png" type="Texture" id=14]
@@ -18,10 +18,12 @@
 [sub_resource type="Environment" id=1]
 background_mode = 4
 glow_enabled = true
+glow_bloom = 0.12
 glow_blend_mode = 0
 glow_bicubic_upscale = true
 
-[node name="Main" type="Node2D"]
+[node name="Level2" type="Node2D"]
+script = ExtResource( 9 )
 
 [node name="Sounds" type="Node2D" parent="."]
 
@@ -45,20 +47,10 @@ pitch_scale = 1.5
 stream = ExtResource( 2 )
 volume_db = -5.0
 
-[node name="Player" type="KinematicBody2D" parent="." groups=[
-"Player",
-] instance=ExtResource( 12 )]
-position = Vector2( 752.126, 406.897 )
-rotation = 1.5708
-z_index = -50
-script = ExtResource( 9 )
+[node name="Player" parent="." instance=ExtResource( 12 )]
+position = Vector2( 736.618, 672.153 )
 
-[node name="Weapon" type="Sprite" parent="Player" instance=ExtResource( 13 )]
-position = Vector2( -6.10352e-05, 0.00012207 )
-rotation = -1.5708
-scale = Vector2( 2, 2 )
-texture = ExtResource( 11 )
-script = ExtResource( 10 )
+[node name="Weapon" parent="Player" instance=ExtResource( 13 )]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 1 )
@@ -84,6 +76,7 @@ __meta__ = {
 }
 
 [node name="Floor" type="StaticBody2D" parent="."]
+modulate = Color( 0.27451, 0.541176, 0.776471, 1 )
 position = Vector2( 520, 736 )
 z_index = -20
 __meta__ = {
@@ -102,6 +95,7 @@ region_enabled = true
 region_rect = Rect2( 0, 0, 512, 32 )
 
 [node name="Floor2" type="StaticBody2D" parent="."]
+modulate = Color( 0.27451, 0.541176, 0.776471, 1 )
 position = Vector2( 1544, 736 )
 z_index = -20
 __meta__ = {
@@ -120,6 +114,7 @@ region_enabled = true
 region_rect = Rect2( 0, 0, 512, 32 )
 
 [node name="groundbottom" type="Sprite" parent="."]
+modulate = Color( 0.27451, 0.541176, 0.776471, 1 )
 position = Vector2( 0, 768 )
 scale = Vector2( 2, 2 )
 z_index = -20
@@ -129,6 +124,7 @@ region_enabled = true
 region_rect = Rect2( 0, 0, 1024, 192 )
 
 [node name="AirFloor" type="StaticBody2D" parent="."]
+modulate = Color( 0.27451, 0.541176, 0.776471, 1 )
 position = Vector2( 1550.34, 549.584 )
 rotation = 3.14159
 z_index = -20
@@ -184,3 +180,308 @@ scale = Vector2( 2, 2 )
 texture = ExtResource( 14 )
 centered = false
 flip_h = true
+
+[node name="AirFloor2" type="StaticBody2D" parent="."]
+modulate = Color( 0.27451, 0.541176, 0.776471, 1 )
+position = Vector2( 663.989, 456.079 )
+rotation = 3.14159
+z_index = -20
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AirFloor2"]
+visible = false
+polygon = PoolVector2Array( -64.0771, -2.25549, -52.1309, -14.3177, 307.504, -14.7258, 319.943, -2.08353, 320.111, 102.205, 307.629, 114.41, -52.1238, 113.989, -64.0883, 102.025, -63.9504, 63.9866 )
+
+[node name="Sprite" type="Sprite" parent="AirFloor2"]
+position = Vector2( -0.00817871, -14.2278 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 8 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 128, 32 )
+
+[node name="Sprite2" type="Sprite" parent="AirFloor2"]
+position = Vector2( 255.992, -14.2278 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 14 )
+centered = false
+
+[node name="Sprite3" type="Sprite" parent="AirFloor2"]
+position = Vector2( -64.0082, -14.2278 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 14 )
+centered = false
+flip_h = true
+
+[node name="Sprite4" type="Sprite" parent="AirFloor2"]
+position = Vector2( 256.02, 113.772 )
+rotation = -3.14159
+scale = Vector2( 2, 2 )
+texture = ExtResource( 8 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 128, 32 )
+
+[node name="Sprite5" type="Sprite" parent="AirFloor2"]
+position = Vector2( 0.0197754, 113.771 )
+rotation = -3.14159
+scale = Vector2( 2, 2 )
+texture = ExtResource( 14 )
+centered = false
+
+[node name="Sprite6" type="Sprite" parent="AirFloor2"]
+position = Vector2( 320.02, 113.772 )
+rotation = -3.14159
+scale = Vector2( 2, 2 )
+texture = ExtResource( 14 )
+centered = false
+flip_h = true
+
+[node name="AirFloor3" type="StaticBody2D" parent="."]
+modulate = Color( 0.27451, 0.541176, 0.776471, 1 )
+position = Vector2( 13.164, 640.363 )
+rotation = 4.71239
+z_index = -20
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AirFloor3"]
+visible = false
+polygon = PoolVector2Array( -64.0771, -2.25549, -52.1309, -14.3177, 307.504, -14.7258, 319.943, -2.08353, 320.111, 102.205, 307.629, 114.41, -52.1238, 113.989, -64.0883, 102.025, -63.9504, 63.9866 )
+
+[node name="Sprite" type="Sprite" parent="AirFloor3"]
+position = Vector2( -0.00817871, -14.2278 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 8 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 128, 32 )
+
+[node name="Sprite2" type="Sprite" parent="AirFloor3"]
+position = Vector2( 255.992, -14.2278 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 14 )
+centered = false
+
+[node name="Sprite3" type="Sprite" parent="AirFloor3"]
+position = Vector2( -64.0082, -14.2278 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 14 )
+centered = false
+flip_h = true
+
+[node name="Sprite4" type="Sprite" parent="AirFloor3"]
+position = Vector2( 256.02, 113.772 )
+rotation = -3.14159
+scale = Vector2( 2, 2 )
+texture = ExtResource( 8 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 128, 32 )
+
+[node name="Sprite5" type="Sprite" parent="AirFloor3"]
+position = Vector2( 0.0197754, 113.771 )
+rotation = -3.14159
+scale = Vector2( 2, 2 )
+texture = ExtResource( 14 )
+centered = false
+
+[node name="Sprite6" type="Sprite" parent="AirFloor3"]
+position = Vector2( 320.02, 113.772 )
+rotation = -3.14159
+scale = Vector2( 2, 2 )
+texture = ExtResource( 14 )
+centered = false
+flip_h = true
+
+[node name="AirFloor4" type="StaticBody2D" parent="."]
+modulate = Color( 0.27451, 0.541176, 0.776471, 1 )
+position = Vector2( 13.164, 255.466 )
+rotation = 4.71239
+z_index = -20
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AirFloor4"]
+visible = false
+polygon = PoolVector2Array( -64.0771, -2.25549, -52.1309, -14.3177, 307.504, -14.7258, 319.943, -2.08353, 320.111, 102.205, 307.629, 114.41, -52.1238, 113.989, -64.0883, 102.025, -63.9504, 63.9866 )
+
+[node name="Sprite" type="Sprite" parent="AirFloor4"]
+position = Vector2( -0.00817871, -14.2278 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 8 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 128, 32 )
+
+[node name="Sprite2" type="Sprite" parent="AirFloor4"]
+position = Vector2( 255.992, -14.2278 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 14 )
+centered = false
+
+[node name="Sprite3" type="Sprite" parent="AirFloor4"]
+position = Vector2( -64.0082, -14.2278 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 14 )
+centered = false
+flip_h = true
+
+[node name="Sprite4" type="Sprite" parent="AirFloor4"]
+position = Vector2( 256.02, 113.772 )
+rotation = -3.14159
+scale = Vector2( 2, 2 )
+texture = ExtResource( 8 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 128, 32 )
+
+[node name="Sprite5" type="Sprite" parent="AirFloor4"]
+position = Vector2( 0.0197754, 113.771 )
+rotation = -3.14159
+scale = Vector2( 2, 2 )
+texture = ExtResource( 14 )
+centered = false
+
+[node name="Sprite6" type="Sprite" parent="AirFloor4"]
+position = Vector2( 320.02, 113.772 )
+rotation = -3.14159
+scale = Vector2( 2, 2 )
+texture = ExtResource( 14 )
+centered = false
+flip_h = true
+
+[node name="AirFloor5" type="StaticBody2D" parent="."]
+modulate = Color( 0.27451, 0.541176, 0.776471, 1 )
+position = Vector2( 1805.63, 639.633 )
+rotation = 4.71239
+z_index = -20
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AirFloor5"]
+visible = false
+polygon = PoolVector2Array( -64.0771, -2.25549, -52.1309, -14.3177, 307.504, -14.7258, 319.943, -2.08353, 320.111, 102.205, 307.629, 114.41, -52.1238, 113.989, -64.0883, 102.025, -63.9504, 63.9866 )
+
+[node name="Sprite" type="Sprite" parent="AirFloor5"]
+position = Vector2( -0.00817871, -14.2278 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 8 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 128, 32 )
+
+[node name="Sprite2" type="Sprite" parent="AirFloor5"]
+position = Vector2( 255.992, -14.2278 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 14 )
+centered = false
+
+[node name="Sprite3" type="Sprite" parent="AirFloor5"]
+position = Vector2( -64.0082, -14.2278 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 14 )
+centered = false
+flip_h = true
+
+[node name="Sprite4" type="Sprite" parent="AirFloor5"]
+position = Vector2( 256.02, 113.772 )
+rotation = -3.14159
+scale = Vector2( 2, 2 )
+texture = ExtResource( 8 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 128, 32 )
+
+[node name="Sprite5" type="Sprite" parent="AirFloor5"]
+position = Vector2( 0.0197754, 113.771 )
+rotation = -3.14159
+scale = Vector2( 2, 2 )
+texture = ExtResource( 14 )
+centered = false
+
+[node name="Sprite6" type="Sprite" parent="AirFloor5"]
+position = Vector2( 320.02, 113.772 )
+rotation = -3.14159
+scale = Vector2( 2, 2 )
+texture = ExtResource( 14 )
+centered = false
+flip_h = true
+
+[node name="AirFloor6" type="StaticBody2D" parent="."]
+modulate = Color( 0.27451, 0.541176, 0.776471, 1 )
+position = Vector2( 1806.45, 255.185 )
+rotation = 4.71239
+z_index = -20
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AirFloor6"]
+visible = false
+polygon = PoolVector2Array( -64.0771, -2.25549, -52.1309, -14.3177, 307.504, -14.7258, 319.943, -2.08353, 320.111, 102.205, 307.629, 114.41, -52.1238, 113.989, -64.0883, 102.025, -63.9504, 63.9866 )
+
+[node name="Sprite" type="Sprite" parent="AirFloor6"]
+position = Vector2( -0.00817871, -14.2278 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 8 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 128, 32 )
+
+[node name="Sprite2" type="Sprite" parent="AirFloor6"]
+position = Vector2( 255.992, -14.2278 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 14 )
+centered = false
+
+[node name="Sprite3" type="Sprite" parent="AirFloor6"]
+position = Vector2( -64.0082, -14.2278 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 14 )
+centered = false
+flip_h = true
+
+[node name="Sprite4" type="Sprite" parent="AirFloor6"]
+position = Vector2( 256.02, 113.772 )
+rotation = -3.14159
+scale = Vector2( 2, 2 )
+texture = ExtResource( 8 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 128, 32 )
+
+[node name="Sprite5" type="Sprite" parent="AirFloor6"]
+position = Vector2( 0.0197754, 113.771 )
+rotation = -3.14159
+scale = Vector2( 2, 2 )
+texture = ExtResource( 14 )
+centered = false
+
+[node name="Sprite6" type="Sprite" parent="AirFloor6"]
+position = Vector2( 320.02, 113.772 )
+rotation = -3.14159
+scale = Vector2( 2, 2 )
+texture = ExtResource( 14 )
+centered = false
+flip_h = true
+
+[node name="Enemy" parent="." instance=ExtResource( 10 )]
+position = Vector2( 516.363, 309.936 )
+
+[node name="Enemy2" parent="." instance=ExtResource( 10 )]
+position = Vector2( 1558.81, 406.723 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="CountdownMain" type="Control" parent="CanvasLayer" instance=ExtResource( 11 )]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}

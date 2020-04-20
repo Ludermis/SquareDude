@@ -8,9 +8,8 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	get_tree().paused = false
-	$"Level1/WorldEnvironment".queue_free()
-	add_child(preload("res://BlurEnvironment.tscn").instance())
+	Vars.currentLevel = 2
+	$WorldEnvironment.environment.dof_blur_near_enabled = false
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

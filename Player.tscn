@@ -64,6 +64,7 @@ __meta__ = {
 }
 
 [node name="ProgressBar" type="Panel" parent="Controls"]
+visible = false
 material = SubResource( 5 )
 margin_left = 15.9998
 margin_top = -104.0
@@ -86,7 +87,7 @@ __meta__ = {
 [node name="HealthFG" type="Panel" parent="Controls"]
 margin_left = -32.0002
 margin_top = -48.0
-margin_right = -0.000183105
+margin_right = 31.9998
 margin_bottom = -40.0
 custom_styles/panel = SubResource( 6 )
 __meta__ = {

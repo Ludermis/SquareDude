@@ -1,8 +1,8 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://box.png" type="Texture" id=2]
-[ext_resource path="res://DebugPanel.tscn" type="PackedScene" id=3]
+[ext_resource path="res://CountdownScene.tscn" type="PackedScene" id=3]
 [ext_resource path="res://ground.png" type="Texture" id=4]
 [ext_resource path="res://groundcurved.png" type="Texture" id=5]
 [ext_resource path="res://Weapon1.tscn" type="PackedScene" id=6]
@@ -14,15 +14,19 @@
 [ext_resource path="res://gunshot.wav" type="AudioStream" id=12]
 [ext_resource path="res://bloodsound.wav" type="AudioStream" id=13]
 [ext_resource path="res://reloadsound.wav" type="AudioStream" id=14]
+[ext_resource path="res://Level1.gd" type="Script" id=15]
 
 [sub_resource type="Environment" id=1]
 background_mode = 4
+dof_blur_far_distance = 6.4
+dof_blur_far_transition = 72.82
 glow_enabled = true
 glow_bloom = 0.12
 glow_blend_mode = 0
 glow_bicubic_upscale = true
 
-[node name="Main" type="Node2D"]
+[node name="Level1" type="Node2D"]
+script = ExtResource( 15 )
 
 [node name="Sounds" type="Node2D" parent="."]
 
@@ -48,11 +52,6 @@ volume_db = -5.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 1 )
-
-[node name="DebugPanel" type="CanvasLayer" parent="."]
-
-[node name="Control" parent="DebugPanel" instance=ExtResource( 3 )]
-visible = false
 
 [node name="Background" type="Sprite" parent="."]
 modulate = Color( 0.027451, 0.0901961, 0.188235, 1 )
@@ -319,13 +318,15 @@ centered = false
 flip_h = true
 
 [node name="Enemy" parent="." instance=ExtResource( 8 )]
-position = Vector2( 1589.42, 200.756 )
+position = Vector2( 1586.49, 204.657 )
 
 [node name="Enemy2" parent="." instance=ExtResource( 8 )]
-position = Vector2( 166.77, 398.096 )
+position = Vector2( 156.503, 410.93 )
+rotation = 2.04046
 
 [node name="Enemy3" parent="." instance=ExtResource( 8 )]
-position = Vector2( 1412.39, 556.566 )
+position = Vector2( 1427.8, 570.188 )
+rotation = 1.15464
 
 [node name="groundbottom" type="Sprite" parent="."]
 position = Vector2( 0, 752 )
@@ -335,3 +336,7 @@ texture = ExtResource( 9 )
 centered = false
 region_enabled = true
 region_rect = Rect2( 0, 0, 1024, 192 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="CountdownMain" parent="CanvasLayer" instance=ExtResource( 3 )]

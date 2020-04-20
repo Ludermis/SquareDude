@@ -8,7 +8,7 @@ var debugDraw = false
 var wasOnFloor = false
 var airJumpsMax = 1
 var airJumpsLeft = airJumpsMax
-var maxHealth : float = 10000
+var maxHealth : float = 100
 var health : float = maxHealth
 
 func _ready():
@@ -16,6 +16,10 @@ func _ready():
 	$Weapon.ownerNode = self
 
 func _process(delta):
+	if $Weapon.curAmmo == 0 && $Weapon.reloading == false:
+		$"../Sounds/ReloadSound".play()
+		$Weapon.reload()
+	
 	$"Controls/AmmoLabel".text = str($Weapon.curAmmo, "/", $Weapon.maxAmmo)
 	if $Weapon.reloading:
 		$"Controls/ProgressBar".visible = true
@@ -27,8 +31,9 @@ func _process(delta):
 
 func takeDamage (attacker, damage):
 	health -= damage
+	$"Controls/HealthFG".rect_size.x = (health / maxHealth) * 64.0
 	if health <= 0:
-		queue_free()
+		$"../CanvasLayer".add_child(preload("res://GameOverScene.tscn").instance())
 
 func _draw():
 #	#Health Box
@@ -101,3 +106,6 @@ func _physics_process(delta):
 	
 	if Input.is_action_pressed('shoot'):
 		$Weapon.shoot(get_global_mouse_position())
+	
+	if Vars.enemyRemaining == 0:
+		$"../CanvasLayer".add_child(preload("res://LevelCompletedScene.tscn").instance())
