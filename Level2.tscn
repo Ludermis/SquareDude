@@ -479,9 +479,5 @@ position = Vector2( 1558.81, 406.723 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="CountdownMain" type="Control" parent="CanvasLayer" instance=ExtResource( 11 )]
-anchor_right = 1.0
-anchor_bottom = 1.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="CountdownMain" parent="CanvasLayer" instance=ExtResource( 11 )]
+[connection signal="tree_entered" from="." to="." method="_on_Level2_tree_entered"]

@@ -11,6 +11,18 @@ func _ready():
 	get_tree().paused = true
 	var we : WorldEnvironment = $"../../WorldEnvironment"
 	we.environment.dof_blur_near_enabled = true
+	
+	var tween = get_node("Tween2")
+	tween.interpolate_property(we.environment, "dof_blur_near_distance",
+		1, 2, 0.5,
+		Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+	tween.start()
+	
+	tween = get_node("Tween")
+	tween.interpolate_property(self, "rect_position",
+		Vector2(0, -1920 / 2), Vector2(0, 0), 1,
+		Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+	tween.start()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

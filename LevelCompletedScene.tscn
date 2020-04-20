@@ -12,14 +12,14 @@ size = 120
 outline_size = 8
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=2]
 size = 64
 outline_size = 8
 outline_color = Color( 0, 0, 0, 1 )
 use_filter = true
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=3]
 size = 64
 outline_size = 8
 outline_color = Color( 0, 0, 0, 1 )
@@ -72,7 +72,7 @@ __meta__ = {
 [node name="Label" type="Label" parent="Menu/TryAgainButton"]
 margin_right = 384.0
 margin_bottom = 64.0
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 2 )
 text = "TRY AGAIN"
 align = 1
 valign = 1
@@ -93,7 +93,7 @@ __meta__ = {
 [node name="Label" type="Label" parent="Menu/NextLevelButton"]
 margin_right = 384.0
 margin_bottom = 64.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 text = "NEXT LEVEL"
 align = 1
 valign = 1
@@ -114,10 +114,16 @@ __meta__ = {
 [node name="Label" type="Label" parent="Menu/MainMenuButton"]
 margin_right = 384.0
 margin_bottom = 64.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 3 )
 text = "MAIN MENU"
 align = 1
 valign = 1
+
+[node name="Tween" type="Tween" parent="."]
+pause_mode = 2
+
+[node name="Tween2" type="Tween" parent="."]
+pause_mode = 2
 [connection signal="pressed" from="Menu/TryAgainButton" to="Menu/TryAgainButton" method="_on_TryAgainButton_pressed"]
 [connection signal="pressed" from="Menu/NextLevelButton" to="Menu/NextLevelButton" method="_on_NextLevelButton_pressed"]
 [connection signal="pressed" from="Menu/MainMenuButton" to="Menu/MainMenuButton" method="_on_MainMenuButton_pressed"]

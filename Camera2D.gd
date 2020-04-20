@@ -10,6 +10,7 @@ var _previous_y = 0.0
 var _last_offset = Vector2(0, 0)
 
 func _ready():
+	Vars.currentCamera = self
 	set_process(true)
 
 # Shake with decreasing intensity while there's time remaining.

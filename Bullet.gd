@@ -15,7 +15,7 @@ func _process(delta):
 func _on_Area2D_body_entered(body : Node2D):
 	if body != ownerNode:
 		var node = null
-		$"../Camera2D".shake(0.2,15,4)
+		Vars.currentCamera.shake(0.2,15,4)
 		if ownerGroup.has("Player") && body.is_in_group("Enemy"):
 			$"../Sounds/BloodSound".play()
 			body.takeDamage(ownerNode,damage)

@@ -6,12 +6,12 @@
 [ext_resource path="res://MainMenuButton.gd" type="Script" id=4]
 [ext_resource path="res://GameOverScene.gd" type="Script" id=5]
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=1]
 size = 120
 outline_size = 8
 font_data = ExtResource( 1 )
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=2]
 size = 64
 outline_size = 8
 outline_color = Color( 0, 0, 0, 1 )
@@ -30,7 +30,7 @@ __meta__ = {
 [node name="Label" type="Label" parent="."]
 margin_right = 1920.0
 margin_bottom = 384.0
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 1, 0, 0, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 text = "GAME OVER!
@@ -64,7 +64,7 @@ __meta__ = {
 [node name="Label" type="Label" parent="Menu/TryAgainButton"]
 margin_right = 384.0
 margin_bottom = 64.0
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 2 )
 text = "TRY AGAIN"
 align = 1
 valign = 1
@@ -85,9 +85,15 @@ __meta__ = {
 [node name="Label" type="Label" parent="Menu/MainMenuButton"]
 margin_right = 384.0
 margin_bottom = 64.0
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 2 )
 text = "MAIN MENU"
 align = 1
 valign = 1
+
+[node name="Tween" type="Tween" parent="."]
+pause_mode = 2
+
+[node name="Tween2" type="Tween" parent="."]
+pause_mode = 2
 [connection signal="pressed" from="Menu/TryAgainButton" to="Menu/TryAgainButton" method="_on_TryAgainButton_pressed"]
 [connection signal="pressed" from="Menu/MainMenuButton" to="Menu/MainMenuButton" method="_on_MainMenuButton_pressed"]

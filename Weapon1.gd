@@ -1,6 +1,6 @@
 extends Sprite
 
-var ownerNode
+var ownerNode : Node2D
 var lastShoot = 0
 var shootDelay = 100
 var damage = 10
@@ -32,8 +32,10 @@ func shoot (target):
 		node.look_at(target)
 		node.ownerNode = $".."
 		node.damage = damage
+		if ownerNode.is_in_group("Enemy"):
+			node.modulate = Color.red
 		$"../..".add_child(node)
-		$"../../Camera2D".shake(0.2,15,4)
+		Vars.currentCamera.shake(0.2,15,4)
 		curAmmo -= 1
 
 func reload ():

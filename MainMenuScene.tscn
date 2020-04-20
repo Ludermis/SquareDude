@@ -1,5 +1,6 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
+[ext_resource path="res://MainLabel.gd" type="Script" id=1]
 [ext_resource path="res://MainMenuScene.gd" type="Script" id=2]
 [ext_resource path="res://Menu.tscn" type="PackedScene" id=3]
 [ext_resource path="res://ThaleahFat.ttf" type="DynamicFontData" id=4]
@@ -291,7 +292,7 @@ current = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Label" type="Label" parent="CanvasLayer"]
+[node name="MainLabel" type="Label" parent="CanvasLayer"]
 margin_right = 1920.0
 margin_bottom = 384.0
 custom_fonts/font = SubResource( 2 )
@@ -300,9 +301,12 @@ custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 text = "SQUARE DUDE!"
 align = 1
 valign = 1
+script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Tween" type="Tween" parent="CanvasLayer/MainLabel"]
 
 [node name="Menu" parent="CanvasLayer" instance=ExtResource( 3 )]
 
