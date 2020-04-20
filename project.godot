@@ -17,6 +17,7 @@ _global_script_class_icons={
 
 config/name="Square Dude"
 run/main_scene="res://MainMenuScene.tscn"
+boot_splash/image="res://player.png"
 config/icon="res://icon.png"
 
 [autoload]

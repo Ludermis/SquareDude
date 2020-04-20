@@ -513,7 +513,6 @@ region_rect = Rect2( 0, 0, 10240, 384 )
 [node name="Music" type="AudioStreamPlayer" parent="."]
 pause_mode = 2
 stream = ExtResource( 16 )
-autoplay = true
 
 [node name="InvisibleWall" type="StaticBody2D" parent="."]
 
