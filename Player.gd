@@ -8,7 +8,7 @@ var debugDraw = false
 var wasOnFloor = false
 var airJumpsMax = 1
 var airJumpsLeft = airJumpsMax
-var maxHealth : float = 100
+var maxHealth : float = 10000
 var health : float = maxHealth
 
 func _ready():
@@ -43,8 +43,8 @@ func _draw():
 
 func jump ():
 	if is_on_floor():
-		$JumpSound.pitch_scale = 1.0
-		$JumpSound.play()
+		$"../Sounds/JumpSound".pitch_scale = 1.0
+		$"../Sounds/JumpSound".play()
 		velocity.y = -jumpHeight
 		var node : AnimatedSprite = preload("res://JumpEffect.tscn").instance()
 		node.position = position + get_floor_normal() * 32
@@ -52,8 +52,8 @@ func jump ():
 		node.playing = true
 		$"..".add_child(node)
 	elif airJumpsLeft > 0:
-		$JumpSound.pitch_scale = 0.8
-		$JumpSound.play()
+		$"../Sounds/JumpSound".pitch_scale = 0.8
+		$"../Sounds/JumpSound".play()
 		airJumpsLeft -= 1
 		velocity.y = -jumpHeight
 		var node : AnimatedSprite = preload("res://JumpEffect.tscn").instance()
@@ -85,7 +85,8 @@ func _physics_process(delta):
 		node.position = get_global_mouse_position()
 		$"..".add_child(node)
 	
-	if Input.is_action_just_pressed("reload") && $Weapon.curAmmo < $Weapon.maxAmmo:
+	if Input.is_action_just_pressed("reload") &&  $Weapon.reloading == false && $Weapon.curAmmo < $Weapon.maxAmmo:
+		$"../Sounds/ReloadSound".play()
 		$Weapon.reload()
 
 	if !is_on_floor():

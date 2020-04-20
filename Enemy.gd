@@ -24,14 +24,19 @@ func _ready():
 
 func _process(delta):
 	$"Controls/HealthFG".rect_size.x = (health / maxHealth) * 64.0
+	if $Weapon.reloading:
+		$"Controls/ProgressBar".visible = true
+		$"Controls/ProgressBar".get_material().set_shader_param('value',((Vars.time() - $Weapon.reloadStarted) / ($Weapon.reloadDelay)) * 100.0)
+	else:
+		$"Controls/ProgressBar".visible = false
 	update()
 
 func jump ():
 	if lastJumpTime + jumpCooldown <= Vars.time():
 		lastJumpTime = Vars.time()
 		if is_on_floor():
-			$JumpSound.pitch_scale = 1.0
-			$JumpSound.play()
+			$"../Sounds/JumpSound".pitch_scale = 1.0
+			$"../Sounds/JumpSound".play()
 			velocity.y = -jumpHeight
 			var node : AnimatedSprite = preload("res://JumpEffect.tscn").instance()
 			node.position = position + get_floor_normal() * 32
@@ -39,8 +44,8 @@ func jump ():
 			node.playing = true
 			$"..".add_child(node)
 		elif airJumpsLeft > 0:
-			$JumpSound.pitch_scale = 0.8
-			$JumpSound.play()
+			$"../Sounds/JumpSound".pitch_scale = 0.8
+			$"../Sounds/JumpSound".play()
 			airJumpsLeft -= 1
 			velocity.y = -jumpHeight
 			var node : AnimatedSprite = preload("res://JumpEffect.tscn").instance()
@@ -65,6 +70,8 @@ func takeDamage (attacker, damage):
 
 func aiMove ():	
 	randomize()
+	if $Weapon.curAmmo == 0 && $Weapon.reloading == false:
+		$Weapon.reload()
 	if Vars.enemyAIType == 1:
 		if $RayCast2D.get_collider() != null && $RayCast2D.get_collider() is Node2D && $RayCast2D.get_collider().is_in_group("Player"):
 			$Weapon.shoot($"../Player".position)

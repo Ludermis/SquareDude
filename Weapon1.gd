@@ -22,8 +22,7 @@ func shoot (target):
 
 	
 	if !reloading && curAmmo > 0 && lastShoot + shootDelay <= Vars.time():
-		#$ShootSound.pitch_scale = rand_range(1.3,1.5)
-		$ShootSound.play()
+		$"../../Sounds/ShootSound".play()
 		ownerNode.velocity.x -= (target - ownerNode.position).normalized().x * 25
 		lastShoot = Vars.time()
 		var node = preload("res://Bullet.tscn").instance()

@@ -1,8 +1,7 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://player.png" type="Texture" id=1]
 [ext_resource path="res://Player.gd" type="Script" id=2]
-[ext_resource path="res://jumpsound.wav" type="AudioStream" id=3]
 [ext_resource path="res://ThaleahFat.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://circular-progress.shader" type="Shader" id=5]
 
@@ -18,14 +17,14 @@ outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 4 )
 
-[sub_resource type="ShaderMaterial" id=4]
+[sub_resource type="ShaderMaterial" id=5]
 shader = ExtResource( 5 )
 shader_param/value = 50.0
 shader_param/thickness = 30.0
 shader_param/offset = null
 shader_param/smoothing = 5.0
 
-[sub_resource type="StyleBoxFlat" id=5]
+[sub_resource type="StyleBoxFlat" id=7]
 bg_color = Color( 1, 1, 1, 1 )
 
 [sub_resource type="StyleBoxFlat" id=6]
@@ -47,9 +46,6 @@ texture = ExtResource( 1 )
 visible = false
 shape = SubResource( 2 )
 
-[node name="JumpSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 3 )
-
 [node name="Controls" type="Node2D" parent="."]
 rotation = -1.5708
 z_as_relative = false
@@ -68,7 +64,7 @@ __meta__ = {
 }
 
 [node name="ProgressBar" type="Panel" parent="Controls"]
-material = SubResource( 4 )
+material = SubResource( 5 )
 margin_left = 15.9998
 margin_top = -104.0
 margin_right = 47.9998
@@ -82,7 +78,7 @@ margin_left = -32.0002
 margin_top = -47.9999
 margin_right = 31.9998
 margin_bottom = -39.9999
-custom_styles/panel = SubResource( 5 )
+custom_styles/panel = SubResource( 7 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
