@@ -74,7 +74,7 @@ func aiMove () -> void:
 	if $Weapon.curAmmo == 0 && $Weapon.reloading == false:
 		$Weapon.reload()
 	if Vars.enemyAIType == 1:
-		if $"../Player".position.distance_to(position) > 1920:
+		if $"../Player".position.distance_to(position) > 1920 / 2:
 			return
 		if $RayCast2D.get_collider() != null && $RayCast2D.get_collider() is Node2D && $RayCast2D.get_collider().is_in_group("Player"):
 			$Weapon.shoot($"../Player".position)
@@ -86,7 +86,7 @@ func aiMove () -> void:
 			if $"../Player".position.y < position.y:
 				jump()
 	elif Vars.enemyAIType == 2:
-		if $"../Player".position.distance_to(position) > 1920:
+		if $"../Player".position.distance_to(position) > 1920 / 2:
 			return
 		if aiLastCalculated + aiMoveCalculateDelay <= Vars.time():
 			aiNextMove = randi() % 100 + 1

@@ -1,11 +1,11 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://box.png" type="Texture" id=2]
-[ext_resource path="res://CountdownScene.tscn" type="PackedScene" id=3]
+[ext_resource path="res://WeaponPickup.tscn" type="PackedScene" id=3]
 [ext_resource path="res://ground.png" type="Texture" id=4]
 [ext_resource path="res://groundcurved.png" type="Texture" id=5]
-[ext_resource path="res://Weapon1.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Weapon2.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Camera2D.gd" type="Script" id=7]
 [ext_resource path="res://Enemy.tscn" type="PackedScene" id=8]
 [ext_resource path="res://groundbottom.png" type="Texture" id=9]
@@ -14,7 +14,6 @@
 [ext_resource path="res://gunshot.wav" type="AudioStream" id=12]
 [ext_resource path="res://bloodsound.wav" type="AudioStream" id=13]
 [ext_resource path="res://reloadsound.wav" type="AudioStream" id=14]
-[ext_resource path="res://Level1.gd" type="Script" id=15]
 [ext_resource path="res://music1.wav" type="AudioStream" id=16]
 
 [sub_resource type="Environment" id=1]
@@ -26,8 +25,7 @@ glow_bloom = 0.12
 glow_blend_mode = 0
 glow_bicubic_upscale = true
 
-[node name="Level1" type="Node2D"]
-script = ExtResource( 15 )
+[node name="TestLevel" type="Node2D"]
 
 [node name="Sounds" type="Node2D" parent="."]
 
@@ -70,13 +68,14 @@ __meta__ = {
 material = null
 position = Vector2( 701.6, 653.213 )
 
-[node name="Weapon" parent="Player" instance=ExtResource( 6 )]
-
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2( 3.05176e-05, 0.125977 )
 rotation = -1.5708
 current = true
 script = ExtResource( 7 )
+
+[node name="Weapon" parent="Player" instance=ExtResource( 6 )]
+position = Vector2( -0.663513, 0.00012207 )
 
 [node name="Wall1" type="StaticBody2D" parent="."]
 position = Vector2( 872.076, 772.906 )
@@ -540,7 +539,7 @@ region_rect = Rect2( 0, 0, 10240, 384 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="CountdownMain" parent="CanvasLayer" instance=ExtResource( 3 )]
+[node name="WeaponPickup" parent="." instance=ExtResource( 3 )]
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 pause_mode = 2

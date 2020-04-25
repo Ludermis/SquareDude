@@ -10,22 +10,46 @@ var airJumpsMax = 1
 var airJumpsLeft = airJumpsMax
 var maxHealth : float = 100
 var health : float = maxHealth
+var maxUseRange = 192
 
 func _ready():
 	set_physics_process(true)
-	$Weapon.ownerNode = self
+	if is_instance_valid($Weapon):
+		$Weapon.ownerNode = self
+
+func use ():
+	var nearestPickup = Vars.getNearestPickup(position)
+	if nearestPickup != null && nearestPickup.position.distance_to(position) < maxUseRange:
+		if nearestPickup.is_in_group("WeaponPickup"):
+			if is_instance_valid($Weapon):
+				throwWeapon()
+			var newNode = load(str("res://",nearestPickup.weaponName,".tscn")).instance()
+			newNode.name = "Weapon"
+			newNode.ownerNode = self
+			if nearestPickup.curAmmo == -1:
+				newNode.curAmmo = newNode.maxAmmo
+			else:
+				newNode.curAmmo = nearestPickup.curAmmo
+			add_child(newNode)
+			nearestPickup.queue_free()
 
 func _process(delta):
-	if $Weapon.curAmmo == 0 && $Weapon.reloading == false:
-		$"../Sounds/ReloadSound".play()
-		$Weapon.reload()
-	
-	$"Controls/AmmoLabel".text = str($Weapon.curAmmo, "/", $Weapon.maxAmmo)
-	if $Weapon.reloading:
-		$"Controls/ProgressBar".visible = true
-		$"Controls/ProgressBar".get_material().set_shader_param('value',((Vars.time() - $Weapon.reloadStarted) / ($Weapon.reloadDelay)) * 100.0)
+	if is_instance_valid($Weapon):
+		$"Controls/AmmoLabel".visible = true
+		if $Weapon.curAmmo == 0 && $Weapon.reloading == false:
+			$"../Sounds/ReloadSound".play()
+			$Weapon.reload()
+			
+		$"Controls/AmmoLabel".text = str($Weapon.curAmmo, "/", $Weapon.maxAmmo)
+		
+		if $Weapon.reloading:
+			$"Controls/ProgressBar".visible = true
+			$"Controls/ProgressBar".get_material().set_shader_param('value',((Vars.time() - $Weapon.reloadStarted) / ($Weapon.reloadDelay)) * 100.0)
+		else:
+			$"Controls/ProgressBar".visible = false
 	else:
-		$"Controls/ProgressBar".visible = false
+		$"Controls/AmmoLabel".visible = false
+	
 	$"Controls/HealthFG".rect_size.x = (health / maxHealth) * 64.0
 	update()
 
@@ -67,6 +91,17 @@ func jump ():
 		node.playing = true
 		$"..".add_child(node)
 
+func throwWeapon ():
+	var weaponName = $Weapon.weaponName
+	var curAmmo = $Weapon.curAmmo
+	$Weapon.free()
+	var node = preload("res://WeaponPickup.tscn").instance()
+	node.init(weaponName)
+	node.position = position
+	node.curAmmo = curAmmo
+	node.velocity = (get_global_mouse_position() - position).normalized() * 1024
+	get_tree().root.add_child(node)
+
 func _physics_process(delta):
 	velocity += Vars.gravity
 	if Input.is_action_pressed('right'):
@@ -90,22 +125,27 @@ func _physics_process(delta):
 		node.position = get_global_mouse_position()
 		$"..".add_child(node)
 	
-	if Input.is_action_just_pressed("reload") &&  $Weapon.reloading == false && $Weapon.curAmmo < $Weapon.maxAmmo:
-		$"../Sounds/ReloadSound".play()
-		$Weapon.reload()
+	if is_instance_valid($Weapon):
+		if Input.is_action_just_pressed("reload") &&  $Weapon.reloading == false && $Weapon.curAmmo < $Weapon.maxAmmo:
+			$"../Sounds/ReloadSound".play()
+			$Weapon.reload()
+		if get_global_mouse_position().x < position.x:
+			$Weapon.flip_v = true
+		else:
+			$Weapon.flip_v = false
+		$Weapon.look_at(get_global_mouse_position())
+		if Input.is_action_pressed('shoot'):
+			$Weapon.shoot(get_global_mouse_position())
+		if Input.is_action_just_pressed('throw_weapon'):
+			throwWeapon()
+	
+	if Input.is_action_just_pressed('use'):
+		use()
 
 	if !is_on_floor():
 		wasOnFloor = false
 
 	velocity = move_and_slide(velocity,Vector2.UP)
-	if get_global_mouse_position().x < position.x:
-		$Weapon.flip_v = true
-	else:
-		$Weapon.flip_v = false
-	$Weapon.look_at(get_global_mouse_position())
-	
-	if Input.is_action_pressed('shoot'):
-		$Weapon.shoot(get_global_mouse_position())
 	
 	if Vars.enemyRemaining == 0:
 		$"../CanvasLayer".add_child(preload("res://LevelCompletedScene.tscn").instance())
