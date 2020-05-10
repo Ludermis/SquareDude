@@ -10,6 +10,7 @@ var reloadDelay = 1000
 var reloading = false
 var reloadStarted = 0
 var weaponName = "Weapon1"
+var readyToShoot = false
 
 func _ready():
 	pass
@@ -18,11 +19,15 @@ func _process(delta):
 	if reloading && reloadStarted + reloadDelay <= Vars.time():
 		curAmmo = maxAmmo
 		reloading = false
+	if global_position.distance_to(ownerNode.global_position) > 4:
+		global_position = lerp(global_position,ownerNode.global_position,0.2)
+	else:
+		readyToShoot = true
+		global_position = ownerNode.global_position
 
 func shoot (target):
-
 	
-	if !reloading && curAmmo > 0 && lastShoot + shootDelay <= Vars.time():
+	if readyToShoot && !reloading && curAmmo > 0 && lastShoot + shootDelay <= Vars.time():
 		$"../../Sounds/ShootSound".play()
 		ownerNode.velocity.x -= (target - ownerNode.position).normalized().x * 25
 		lastShoot = Vars.time()

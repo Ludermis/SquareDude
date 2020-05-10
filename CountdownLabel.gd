@@ -10,6 +10,7 @@ extends Label
 func _ready():
 	text = str(Vars.countdownSeconds)
 	if Vars.FASTFORDEBUG:
+		get_tree().paused = false
 		$"..".queue_free()
 	else:
 		$"../Timer".pause_mode = PAUSE_MODE_PROCESS

@@ -6,7 +6,6 @@
 [ext_resource path="res://circular-progress.shader" type="Shader" id=4]
 
 [sub_resource type="CanvasItemMaterial" id=1]
-blend_mode = 1
 
 [sub_resource type="CircleShape2D" id=2]
 radius = 32.1115

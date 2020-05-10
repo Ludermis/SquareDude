@@ -10,6 +10,7 @@ var reloadDelay = 1000
 var reloading = false
 var reloadStarted = 0
 var weaponName = "Weapon2"
+var readyToShoot = false
 
 func _ready():
 	pass
@@ -18,6 +19,11 @@ func _process(delta):
 	if reloading && reloadStarted + reloadDelay <= Vars.time():
 		curAmmo = maxAmmo
 		reloading = false
+	if global_position.distance_to(ownerNode.global_position) > 4:
+		global_position = lerp(global_position,ownerNode.global_position,0.2)
+	else:
+		readyToShoot = true
+		global_position = ownerNode.global_position
 
 func _draw():
 #	var target = get_global_mouse_position()

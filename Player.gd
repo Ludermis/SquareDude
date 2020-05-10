@@ -30,6 +30,7 @@ func use ():
 				newNode.curAmmo = newNode.maxAmmo
 			else:
 				newNode.curAmmo = nearestPickup.curAmmo
+			newNode.position = to_local(nearestPickup.position)
 			add_child(newNode)
 			nearestPickup.queue_free()
 
@@ -100,7 +101,7 @@ func throwWeapon ():
 	node.position = position
 	node.curAmmo = curAmmo
 	node.velocity = (get_global_mouse_position() - position).normalized() * 1024
-	get_tree().root.add_child(node)
+	get_tree().root.get_node("Main").add_child(node)
 
 func _physics_process(delta):
 	velocity += Vars.gravity

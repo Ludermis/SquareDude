@@ -51,78 +51,6 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Wall1" type="StaticBody2D" parent="Level1"]
-position = Vector2( 1600, 560 )
-rotation = -0.445762
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Level1/Wall1"]
-visible = false
-polygon = PoolVector2Array( -372.945, -32.2838, 375.798, -31.6748, 376.164, 32.5925, -244.803, 26.4506 )
-
-[node name="Sprite" type="Sprite" parent="Level1/Wall1"]
-position = Vector2( -8.57794, 0.154297 )
-scale = Vector2( 2, 2 )
-texture = ExtResource( 7 )
-region_enabled = true
-region_rect = Rect2( 0, 0, 384, 32 )
-
-[node name="Wall2" type="StaticBody2D" parent="Level1"]
-position = Vector2( 332.424, 568.729 )
-rotation = 0.445059
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Level1/Wall2"]
-visible = false
-polygon = PoolVector2Array( -372.945, -32.2838, 375.798, -31.6748, 376.164, 32.5925, -244.803, 26.4506 )
-
-[node name="Sprite" type="Sprite" parent="Level1/Wall2"]
-position = Vector2( -8.57794, 0.154297 )
-scale = Vector2( 2, 2 )
-texture = ExtResource( 7 )
-region_enabled = true
-region_rect = Rect2( 0, 0, 384, 32 )
-
-[node name="Wall3" type="StaticBody2D" parent="Level1"]
-position = Vector2( 185.318, 134.83 )
-rotation = -0.779827
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Level1/Wall3"]
-visible = false
-polygon = PoolVector2Array( -372.945, -32.2838, 375.798, -31.6748, 376.164, 32.5925, -244.803, 26.4506 )
-
-[node name="Sprite" type="Sprite" parent="Level1/Wall3"]
-position = Vector2( -8.57794, 0.154297 )
-scale = Vector2( 2, 2 )
-texture = ExtResource( 7 )
-region_enabled = true
-region_rect = Rect2( 0, 0, 384, 32 )
-
-[node name="Wall4" type="StaticBody2D" parent="Level1"]
-position = Vector2( 1763.07, 162.66 )
-rotation = 0.780162
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Level1/Wall4"]
-visible = false
-polygon = PoolVector2Array( -372.945, -32.2838, 375.798, -31.6748, 376.164, 32.5925, -244.803, 26.4506 )
-
-[node name="Sprite" type="Sprite" parent="Level1/Wall4"]
-position = Vector2( -8.57794, 0.154297 )
-scale = Vector2( 2, 2 )
-texture = ExtResource( 7 )
-region_enabled = true
-region_rect = Rect2( 0, 0, 384, 32 )
-
 [node name="Floor" type="StaticBody2D" parent="Level1"]
 position = Vector2( 520, 720 )
 __meta__ = {
@@ -315,5 +243,6 @@ __meta__ = {
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 11 )
+volume_db = -20.0
 autoplay = true
 bus = "Music"

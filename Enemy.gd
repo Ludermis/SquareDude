@@ -132,3 +132,15 @@ func _physics_process(delta):
 
 func _on_Enemy_tree_exiting():
 	Vars.enemyRemaining -= 1
+	for i in range(1,10):
+		var node = preload("res://FlyingParticle.tscn").instance()
+		
+		var sclRnd = rand_range(1.5,2)
+		node.scale.x = sclRnd
+		node.scale.y = sclRnd
+		node.initLifeLeft = rand_range(3,5)
+		node.velocity.y = rand_range(-700,-1400)
+		node.velocity.x = rand_range(-600,600)
+		node.global_position = global_position
+		node.global_position.x = rand_range(global_position.x - 32, global_position.x + 32)
+		$"..".add_child(node)

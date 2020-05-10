@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://box.png" type="Texture" id=2]
@@ -14,7 +14,9 @@
 [ext_resource path="res://gunshot.wav" type="AudioStream" id=12]
 [ext_resource path="res://bloodsound.wav" type="AudioStream" id=13]
 [ext_resource path="res://reloadsound.wav" type="AudioStream" id=14]
+[ext_resource path="res://CountdownScene.tscn" type="PackedScene" id=15]
 [ext_resource path="res://music1.wav" type="AudioStream" id=16]
+[ext_resource path="res://TestLevel.gd" type="Script" id=17]
 
 [sub_resource type="Environment" id=1]
 background_mode = 4
@@ -25,7 +27,8 @@ glow_bloom = 0.12
 glow_blend_mode = 0
 glow_bicubic_upscale = true
 
-[node name="TestLevel" type="Node2D"]
+[node name="Main" type="Node2D"]
+script = ExtResource( 17 )
 
 [node name="Sounds" type="Node2D" parent="."]
 
@@ -50,6 +53,7 @@ stream = ExtResource( 14 )
 volume_db = -5.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+pause_mode = 2
 environment = SubResource( 1 )
 
 [node name="Background" type="Sprite" parent="."]
@@ -66,7 +70,7 @@ __meta__ = {
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 material = null
-position = Vector2( 701.6, 653.213 )
+position = Vector2( 661.89, 637.87 )
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2( 3.05176e-05, 0.125977 )
@@ -517,7 +521,7 @@ centered = false
 flip_h = true
 
 [node name="Enemy" parent="." instance=ExtResource( 8 )]
-position = Vector2( 218.698, 647.695 )
+position = Vector2( 168.158, 650.402 )
 
 [node name="Enemy2" parent="." instance=ExtResource( 8 )]
 position = Vector2( 1315.71, 399.592 )
@@ -539,7 +543,15 @@ region_rect = Rect2( 0, 0, 10240, 384 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
+[node name="CountdownMain" type="Control" parent="CanvasLayer" instance=ExtResource( 15 )]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="WeaponPickup" parent="." instance=ExtResource( 3 )]
+position = Vector2( 442.182, 645.523 )
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 pause_mode = 2
@@ -549,6 +561,10 @@ bus = "Music"
 [node name="InvisibleWall" type="StaticBody2D" parent="."]
 collision_layer = 3
 collision_mask = 3
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="InvisibleWall"]
 polygon = PoolVector2Array( 0, 688, -64, 688, -64, -640, 0, -640 )
@@ -559,4 +575,4 @@ polygon = PoolVector2Array( 224, -88, 224, -152, 4576, -152, 4576, -88 )
 
 [node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="InvisibleWall"]
 polygon = PoolVector2Array( 4416, -640, 4352, -640, 4352, 688, 4416, 688 )
-[connection signal="tree_entered" from="." to="." method="_on_Level1_tree_entered"]
+[connection signal="tree_entered" from="." to="." method="_on_TestLevel_tree_entered"]
