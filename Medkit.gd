@@ -1,18 +1,12 @@
 extends KinematicBody2D
 
-export var weaponName : String
 var velocity = Vector2.ZERO
 var positionY = null
 var startFloating = null
-var curAmmo = -1
-
-func init (name):
-	weaponName = name
-	$Sprite.texture = load("res://" + weaponName + ".png")
+var health = 50
 
 func _ready():
 	set_physics_process(true)
-	$Sprite.texture = load("res://" + weaponName + ".png")
 
 func _physics_process(delta):
 	if positionY == null:
@@ -33,3 +27,10 @@ func _physics_process(delta):
 
 func _process(delta):
 	pass
+
+
+func _on_Area2D_body_entered(body : Node2D):
+	if body.is_in_group("Player"):
+		if body.health != body.maxHealth:
+			body.health = min(body.health + health,body.maxHealth)
+			queue_free()
