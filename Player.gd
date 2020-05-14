@@ -9,8 +9,15 @@ var wasOnFloor = false
 var airJumpsMax = 1
 var airJumpsLeft = airJumpsMax
 var maxHealth : float = 100
+var maxArmor : float = 100
+var armor : float = 0
 var health : float = maxHealth
 var maxUseRange = 192
+var damageMultiplier = 1
+
+# Buff Vars
+var speedBoostTimeLeft : float = -1
+var attackBoostTimeLeft : float = -1
 
 func _ready():
 	set_physics_process(true)
@@ -34,7 +41,27 @@ func use ():
 			add_child(newNode)
 			nearestPickup.queue_free()
 
+func boostHandler (delta):
+	if speedBoostTimeLeft >= 0:
+		$Controls/ProgressBar2.visible = true
+		$"Controls/ProgressBar2".get_material().set_shader_param('value',(speedBoostTimeLeft / 15.0) * 100.0)
+		speedBoostTimeLeft -= delta
+		if speedBoostTimeLeft <= 0:
+			maxSpeed /= 1.75
+			$Controls/ProgressBar2.visible = false
+			speedBoostTimeLeft = -1
+	
+	if attackBoostTimeLeft >= 0:
+		$Controls/ProgressBar3.visible = true
+		$"Controls/ProgressBar3".get_material().set_shader_param('value',(attackBoostTimeLeft / 10.0) * 100.0)
+		attackBoostTimeLeft -= delta
+		if attackBoostTimeLeft <= 0:
+			damageMultiplier = 1
+			$Controls/ProgressBar3.visible = false
+			attackBoostTimeLeft = -1
+
 func _process(delta):
+	boostHandler(delta)
 	if is_instance_valid($Weapon):
 		$"Controls/AmmoLabel".visible = true
 		if $Weapon.curAmmo == 0 && $Weapon.reloading == false:
@@ -52,11 +79,22 @@ func _process(delta):
 		$"Controls/AmmoLabel".visible = false
 	
 	$"Controls/HealthFG".rect_size.x = (health / maxHealth) * 64.0
+	$"Controls/ArmorFG".rect_size.x = (armor / maxArmor) * 64.0
 	update()
 
 func takeDamage (attacker, damage):
-	health -= damage
+	var leftOverDamage = damage
+	if armor > 0:
+		armor -= damage
+		if armor < 0:
+			leftOverDamage = abs(armor)
+			armor = 0
+		else:
+			leftOverDamage = 0
+	
+	health -= leftOverDamage
 	$"Controls/HealthFG".rect_size.x = (health / maxHealth) * 64.0
+	$"Controls/ArmorFG".rect_size.x = (health / maxHealth) * 64.0
 	if health <= 0:
 		$"../CanvasLayer".add_child(preload("res://GameOverScene.tscn").instance())
 

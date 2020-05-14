@@ -53,7 +53,7 @@ func shoot (target):
 		node1.dir = node1.dir.normalized()
 		node1.look_at(target)
 		node1.ownerNode = $".."
-		node1.damage = damage
+		node1.damage = damage * ownerNode.damageMultiplier
 		if ownerNode.is_in_group("Enemy"):
 			node1.modulate = Color.red
 		$"../..".add_child(node1)
@@ -73,7 +73,7 @@ func shoot (target):
 		node2.dir = node2.dir.normalized()
 		node2.look_at(target2)
 		node2.ownerNode = $".."
-		node2.damage = damage
+		node2.damage = damage * ownerNode.damageMultiplier
 		if ownerNode.is_in_group("Enemy"):
 			node2.modulate = Color.red
 		$"../..".add_child(node2)
@@ -92,7 +92,7 @@ func shoot (target):
 		node3.dir = node3.dir.normalized()
 		node3.look_at(target3)
 		node3.ownerNode = $".."
-		node3.damage = damage
+		node3.damage = damage * ownerNode.damageMultiplier
 		if ownerNode.is_in_group("Enemy"):
 			node3.modulate = Color.red
 		$"../..".add_child(node3)

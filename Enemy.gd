@@ -12,6 +12,8 @@ var maxHealth : float = 100
 var health : float = maxHealth
 var lastJumpTime = 0
 var jumpCooldown = 200
+var damageMultiplier = 1
+
 # AI Type 2 Vars
 var aiNextMove = -1
 var aiLastCalculated = 0
