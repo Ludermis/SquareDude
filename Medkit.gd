@@ -32,5 +32,6 @@ func _process(delta):
 func _on_Area2D_body_entered(body : Node2D):
 	if body.is_in_group("Player"):
 		if body.health != body.maxHealth:
+			$"../Sounds/HealthSound".play()
 			body.health = min(body.health + health,body.maxHealth)
 			queue_free()

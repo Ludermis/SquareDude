@@ -24,6 +24,7 @@ animations = [ {
 } ]
 
 [node name="BloodEffect" type="Node2D"]
+pause_mode = 2
 position = Vector2( 757.061, 265.189 )
 scale = Vector2( 2, 2 )
 script = ExtResource( 2 )

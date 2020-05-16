@@ -32,5 +32,6 @@ func _process(delta):
 func _on_Area2D_body_entered(body : Node2D):
 	if body.is_in_group("Player"):
 		if body.armor != body.maxArmor:
+			$"../Sounds/ArmorSound".play()
 			body.armor = min(body.armor + armor,body.maxArmor)
 			queue_free()

@@ -41,7 +41,7 @@ func shoot (target):
 
 	
 	if !reloading && curAmmo > 0 && lastShoot + shootDelay <= Vars.time():
-		$"../../Sounds/ShootSound".play()
+		$"../../Sounds/ShotgunBlastSound".play()
 		ownerNode.velocity.x -= (target - ownerNode.position).normalized().x * 25
 		lastShoot = Vars.time()
 		

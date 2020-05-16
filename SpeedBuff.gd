@@ -30,6 +30,7 @@ func _process(delta):
 
 func _on_Area2D_body_entered(body : Node2D):
 	if body.is_in_group("Player") && body.speedBoostTimeLeft == -1:
+		$"../Sounds/SpeedSound".play()
 		body.maxSpeed *= 1.75
 		body.speedBoostTimeLeft = 15
 		queue_free()
