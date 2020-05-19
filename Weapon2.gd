@@ -2,7 +2,7 @@ extends Sprite
 
 var ownerNode : Node2D
 var lastShoot = -100000
-var shootDelay = 750
+var shootDelay = 790
 var damage = 10
 var maxAmmo = 5
 var curAmmo = maxAmmo
