@@ -439,7 +439,7 @@ centered = false
 flip_h = true
 
 [node name="AirFloor2" type="StaticBody2D" parent="."]
-position = Vector2( 2246.33, 390.962 )
+position = Vector2( 2262, 391.177 )
 rotation = 3.14159
 z_index = -20
 collision_layer = 3
@@ -616,11 +616,11 @@ polygon = PoolVector2Array( 4416, -640, 4352, -640, 4352, 688, 4416, 688 )
 position = Vector2( 1529.97, 403.826 )
 
 [node name="Armor" parent="." instance=ExtResource( 20 )]
-position = Vector2( 1979.33, 222.711 )
+position = Vector2( 2004.84, 237.345 )
 
 [node name="Medkit" parent="." instance=ExtResource( 18 )]
 position = Vector2( 1427.57, 406.275 )
 
 [node name="AttackBuff" parent="." instance=ExtResource( 21 )]
-position = Vector2( 2087.03, 225.418 )
+position = Vector2( 2160.2, 240.47 )
 [connection signal="tree_entered" from="." to="." method="_on_TestLevel_tree_entered"]
