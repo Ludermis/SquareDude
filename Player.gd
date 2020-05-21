@@ -11,7 +11,7 @@ var airJumpsLeft = airJumpsMax
 var maxHealth : float = 100
 var maxArmor : float = 100
 var armor : float = 0
-var health : float = 75
+var health : float = maxHealth
 var maxUseRange = 192
 var damageMultiplier = 1
 

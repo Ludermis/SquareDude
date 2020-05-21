@@ -18,4 +18,5 @@ func _ready():
 
 func _on_TestLevel_tree_entered():
 	Vars.currentLevel = 2
-	Vars.countdownSeconds = 3
+	Vars.countdownSeconds = 2
+	$Music.play(5.50)

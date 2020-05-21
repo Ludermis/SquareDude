@@ -34,14 +34,11 @@ environment = SubResource( 1 )
 
 [node name="Background" type="Sprite" parent="Level1"]
 modulate = Color( 0.027451, 0.0901961, 0.188235, 1 )
-position = Vector2( 1.90735e-06, -5.88673 )
+position = Vector2( 0, -6 )
 scale = Vector2( 30, 16.875 )
 texture = ExtResource( 6 )
 centered = false
 offset = Vector2( -9.53674e-07, 0.348844 )
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="Camera2D" type="Camera2D" parent="Level1"]
 anchor_mode = 0
@@ -213,7 +210,7 @@ scale = Vector2( 2, 2 )
 texture = ExtResource( 10 )
 centered = false
 region_enabled = true
-region_rect = Rect2( 0, 0, 1024, 192 )
+region_rect = Rect2( 0, 0, 960, 192 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
