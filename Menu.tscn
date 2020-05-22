@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://LevelsButton.gd" type="Script" id=1]
 [ext_resource path="res://ThaleahFat.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://button.png" type="Texture" id=3]
+[ext_resource path="res://ShopButton.gd" type="Script" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 size = 64
@@ -66,6 +67,7 @@ margin_right = 1152.0
 margin_bottom = 642.272
 texture_normal = ExtResource( 3 )
 expand = true
+script = ExtResource( 4 )
 __meta__ = {
 "_edit_group_": true,
 "_edit_use_anchors_": false
@@ -99,3 +101,4 @@ text = "CUSTOMIZE"
 align = 1
 valign = 1
 [connection signal="pressed" from="LevelsButton" to="LevelsButton" method="_on_LevelsButton_pressed"]
+[connection signal="pressed" from="ShopButton" to="ShopButton" method="_on_ShopButton_pressed"]

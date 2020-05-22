@@ -72,6 +72,7 @@ func shoot (target):
 		node2.dir = target2 - ownerNode.position
 		node2.dir = node2.dir.normalized()
 		node2.look_at(target2)
+		node2.rotation += PI
 		node2.ownerNode = $".."
 		node2.damage = damage * ownerNode.damageMultiplier
 		if ownerNode.is_in_group("Enemy"):
@@ -91,6 +92,7 @@ func shoot (target):
 		node3.dir = target3 - ownerNode.position
 		node3.dir = node3.dir.normalized()
 		node3.look_at(target3)
+		node3.rotation += PI
 		node3.ownerNode = $".."
 		node3.damage = damage * ownerNode.damageMultiplier
 		if ownerNode.is_in_group("Enemy"):

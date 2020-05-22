@@ -23,6 +23,8 @@ func _ready():
 	set_physics_process(true)
 	if is_instance_valid($Weapon):
 		$Weapon.ownerNode = self
+	if $Hat.visible:
+		$Controls.position.x -= 32
 
 func use ():
 	var nearestPickup = Vars.getNearestPickup(position)
@@ -81,6 +83,7 @@ func _process(delta):
 			$"Controls/ProgressBar".visible = false
 	else:
 		$"Controls/AmmoLabel".visible = false
+		$"Controls/ProgressBar".visible = false
 	
 	$"Controls/HealthFG".rect_size.x = (health / maxHealth) * 64.0
 	$"Controls/ArmorFG".rect_size.x = (armor / maxArmor) * 64.0

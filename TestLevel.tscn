@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://box.png" type="Texture" id=2]
@@ -6,7 +6,6 @@
 [ext_resource path="res://ground.png" type="Texture" id=4]
 [ext_resource path="res://groundcurved.png" type="Texture" id=5]
 [ext_resource path="res://Weapon2.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Camera2D.gd" type="Script" id=7]
 [ext_resource path="res://Enemy.tscn" type="PackedScene" id=8]
 [ext_resource path="res://groundbottom.png" type="Texture" id=9]
 [ext_resource path="res://bulletimpact.wav" type="AudioStream" id=10]
@@ -21,7 +20,6 @@
 [ext_resource path="res://SpeedBuff.tscn" type="PackedScene" id=19]
 [ext_resource path="res://Armor.tscn" type="PackedScene" id=20]
 [ext_resource path="res://AttackBuff.tscn" type="PackedScene" id=21]
-[ext_resource path="res://GhostTrail.tscn" type="PackedScene" id=22]
 [ext_resource path="res://gunpickup.wav" type="AudioStream" id=23]
 [ext_resource path="res://speedsound.wav" type="AudioStream" id=24]
 [ext_resource path="res://armorsound.wav" type="AudioStream" id=25]
@@ -104,18 +102,8 @@ __meta__ = {
 material = null
 position = Vector2( 667.034, 652.445 )
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
-position = Vector2( 3.05176e-05, 0.125977 )
-rotation = -1.5708
-current = true
-script = ExtResource( 7 )
-
 [node name="Weapon" parent="Player" instance=ExtResource( 6 )]
 position = Vector2( -0.663513, 0.00012207 )
-
-[node name="GhostTrail" parent="Player" instance=ExtResource( 22 )]
-visible = false
-rotation = 1.57079
 
 [node name="Wall1" type="StaticBody2D" parent="."]
 position = Vector2( 872.076, 772.906 )
@@ -139,7 +127,7 @@ region_enabled = true
 region_rect = Rect2( 0, 0, 512, 32 )
 
 [node name="Wall2" type="StaticBody2D" parent="."]
-position = Vector2( 1739.53, 401.035 )
+position = Vector2( 1741.46, 401.813 )
 rotation = -0.395076
 z_index = -20
 collision_layer = 3

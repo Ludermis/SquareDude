@@ -1,9 +1,12 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://player.png" type="Texture" id=1]
 [ext_resource path="res://Player.gd" type="Script" id=2]
+[ext_resource path="res://GhostTrail.tscn" type="PackedScene" id=3]
 [ext_resource path="res://ThaleahFat.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://circular-progress.shader" type="Shader" id=5]
+[ext_resource path="res://Camera2D.gd" type="Script" id=6]
+[ext_resource path="res://cowboyhat.png" type="Texture" id=7]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 blend_mode = 1
@@ -17,14 +20,7 @@ outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 4 )
 
-[sub_resource type="ShaderMaterial" id=8]
-shader = ExtResource( 5 )
-shader_param/value = 50.0
-shader_param/thickness = 30.0
-shader_param/offset = null
-shader_param/smoothing = 5.0
-
-[sub_resource type="ShaderMaterial" id=9]
+[sub_resource type="ShaderMaterial" id=4]
 shader = ExtResource( 5 )
 shader_param/value = 50.0
 shader_param/thickness = 30.0
@@ -38,13 +34,20 @@ shader_param/thickness = 30.0
 shader_param/offset = null
 shader_param/smoothing = 5.0
 
-[sub_resource type="StyleBoxFlat" id=5]
+[sub_resource type="ShaderMaterial" id=11]
+shader = ExtResource( 5 )
+shader_param/value = 50.0
+shader_param/thickness = 30.0
+shader_param/offset = null
+shader_param/smoothing = 5.0
+
+[sub_resource type="StyleBoxFlat" id=12]
 bg_color = Color( 1, 1, 1, 1 )
 
-[sub_resource type="StyleBoxFlat" id=7]
+[sub_resource type="StyleBoxFlat" id=8]
 bg_color = Color( 1, 0, 0, 1 )
 
-[sub_resource type="StyleBoxFlat" id=6]
+[sub_resource type="StyleBoxFlat" id=9]
 bg_color = Color( 0, 0.882353, 1, 1 )
 
 [node name="Player" type="KinematicBody2D" groups=[
@@ -69,9 +72,9 @@ rotation = -1.5708
 z_as_relative = false
 
 [node name="AmmoLabel" type="Label" parent="Controls"]
-margin_left = -32.0001
+margin_left = -32.0
 margin_top = -80.0
-margin_right = 31.9999
+margin_right = 32.0
 margin_bottom = -48.0
 custom_fonts/font = SubResource( 3 )
 text = "20/20"
@@ -83,7 +86,7 @@ __meta__ = {
 
 [node name="ProgressBar" type="Panel" parent="Controls"]
 visible = false
-material = SubResource( 8 )
+material = SubResource( 4 )
 margin_left = 15.9998
 margin_top = -104.0
 margin_right = 47.9998
@@ -95,7 +98,7 @@ __meta__ = {
 [node name="ProgressBar2" type="Panel" parent="Controls"]
 visible = false
 modulate = Color( 1, 0.490196, 0, 1 )
-material = SubResource( 9 )
+material = SubResource( 10 )
 margin_left = -64.0
 margin_top = -104.0
 margin_right = -32.0
@@ -107,7 +110,7 @@ __meta__ = {
 [node name="ProgressBar3" type="Panel" parent="Controls"]
 visible = false
 modulate = Color( 1, 0, 0, 1 )
-material = SubResource( 10 )
+material = SubResource( 11 )
 margin_left = -64.0
 margin_top = -64.0
 margin_right = -32.0
@@ -117,21 +120,21 @@ __meta__ = {
 }
 
 [node name="HealthBG" type="Panel" parent="Controls"]
-margin_left = -32.0002
+margin_left = -32.0
 margin_top = -47.9999
-margin_right = 31.9998
+margin_right = 32.0
 margin_bottom = -39.9999
-custom_styles/panel = SubResource( 5 )
+custom_styles/panel = SubResource( 12 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="HealthFG" type="Panel" parent="Controls"]
-margin_left = -32.0002
+margin_left = -32.0
 margin_top = -48.0
-margin_right = 31.9998
+margin_right = 32.0
 margin_bottom = -40.0
-custom_styles/panel = SubResource( 7 )
+custom_styles/panel = SubResource( 8 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -141,7 +144,23 @@ margin_left = -32.0002
 margin_top = -48.0
 margin_right = -32.0002
 margin_bottom = -40.0
-custom_styles/panel = SubResource( 6 )
+custom_styles/panel = SubResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="GhostTrail" parent="." instance=ExtResource( 3 )]
+visible = false
+rotation = 1.57079
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 3.05176e-05, 0.125977 )
+rotation = -1.5708
+current = true
+script = ExtResource( 6 )
+
+[node name="Hat" type="Sprite" parent="."]
+position = Vector2( -40, 0.00012207 )
+rotation = -1.5708
+scale = Vector2( 2, 2 )
+texture = ExtResource( 7 )
