@@ -17,8 +17,13 @@
 
 [sub_resource type="Environment" id=1]
 background_mode = 4
+dof_blur_far_distance = 6.4
+dof_blur_far_transition = 72.82
 dof_blur_near_enabled = true
-dof_blur_near_amount = 0.15
+dof_blur_near_distance = 1.25
+dof_blur_near_transition = 0.73
+dof_blur_near_amount = 0.16
+dof_blur_near_quality = 2
 glow_enabled = true
 glow_bloom = 0.11
 glow_blend_mode = 0

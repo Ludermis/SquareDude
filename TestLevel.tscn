@@ -108,7 +108,6 @@ material = null
 position = Vector2( 667.034, 652.445 )
 
 [node name="Weapon" parent="Player" instance=ExtResource( 6 )]
-position = Vector2( -6.10352e-05, 0.00012207 )
 
 [node name="Wall1" type="StaticBody2D" parent="."]
 position = Vector2( 872.076, 772.906 )
@@ -576,7 +575,11 @@ region_rect = Rect2( 0, 0, 10240, 384 )
 rect_pivot_offset = Vector2( 960, 499.813 )
 
 [node name="WeaponPickup" parent="." instance=ExtResource( 3 )]
-position = Vector2( 437.038, 645.523 )
+position = Vector2( 468.463, 630.858 )
+
+[node name="WeaponPickup3" parent="." instance=ExtResource( 3 )]
+position = Vector2( 572.515, 632.255 )
+weaponName = "Weapon2"
 
 [node name="WeaponPickup2" parent="." instance=ExtResource( 3 )]
 position = Vector2( 310.325, 642.869 )
