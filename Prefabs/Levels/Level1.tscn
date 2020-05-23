@@ -114,7 +114,7 @@ position = Vector2( 256, 608 )
 position = Vector2( -248, 608 )
 
 [node name="Floor3" parent="." instance=ExtResource( 2 )]
-position = Vector2( 768, 608 )
+position = Vector2( 208, 200 )
 
 [node name="AirFloor" parent="." instance=ExtResource( 24 )]
 position = Vector2( 1248, 384 )
