@@ -1,0 +1,45 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Sprites/Levels/Set 1/groundcurved.png" type="Texture" id=2]
+
+[node name="AirFloor" type="StaticBody2D"]
+rotation = 3.14159
+z_index = -20
+collision_layer = 3
+collision_mask = 3
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PoolVector2Array( -64.0852, -51.8185, -52.4904, -64.284, 52.3901, -64.0466, 64.2484, -51.8488, 63.4576, 51.654, 51.3357, 64.0002, -52.2272, 64.2123, -64.0854, 51.702 )
+
+[node name="TopLeft" type="Sprite" parent="."]
+position = Vector2( 63.9998, 64.0002 )
+rotation = -3.14159
+scale = Vector2( 2, 2 )
+texture = ExtResource( 2 )
+centered = false
+flip_h = true
+
+[node name="TopRight" type="Sprite" parent="."]
+position = Vector2( -0.000167847, 64 )
+rotation = -3.14159
+scale = Vector2( 2, 2 )
+texture = ExtResource( 2 )
+centered = false
+
+[node name="BottomLeft" type="Sprite" parent="."]
+position = Vector2( 64, 0.000162252 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 2 )
+centered = false
+offset = Vector2( -32, -31.9998 )
+
+[node name="BottomRight" type="Sprite" parent="."]
+scale = Vector2( 2, 2 )
+texture = ExtResource( 2 )
+centered = false
+offset = Vector2( -32, -32.0002 )
+flip_h = true

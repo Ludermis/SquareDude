@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Sprites/Levels/Set 1/groundbottom.png" type="Texture" id=1]
+
+[node name="GroundBottom" type="Sprite"]
+scale = Vector2( 2, 2 )
+z_index = -20
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 10240, 384 )
