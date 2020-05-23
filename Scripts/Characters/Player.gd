@@ -8,7 +8,7 @@ var debugDraw = false
 var wasOnFloor = false
 var airJumpsMax = 1
 var airJumpsLeft = airJumpsMax
-var maxHealth : float = 100234234
+var maxHealth : float = 100
 var maxArmor : float = 100
 var armor : float = 0
 var health : float = maxHealth
@@ -199,5 +199,5 @@ func _physics_process(delta):
 
 	velocity = move_and_slide(velocity,Vector2.UP)
 	
-	if Vars.enemyRemaining == 0:
-		$"../CanvasLayer".add_child(preload("res://Prefabs/Overlays/LevelCompletedScene.tscn").instance())
+#	if Vars.enemyRemaining == 0:
+#		$"../CanvasLayer".add_child(preload("res://Prefabs/Overlays/LevelCompletedScene.tscn").instance())

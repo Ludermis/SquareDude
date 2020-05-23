@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://Prefabs/Characters/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Prefabs/Design/Set 1/Misc/Background.tscn" type="PackedScene" id=2]
@@ -7,7 +7,6 @@
 [ext_resource path="res://Prefabs/Design/Set 1/Floors & Walls/Floor8x1.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Prefabs/Weapons/Pistol.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Sounds/attackpowerbuff.wav" type="AudioStream" id=7]
-[ext_resource path="res://Prefabs/Characters/Enemy.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Sounds/bulletimpact.wav" type="AudioStream" id=10]
 [ext_resource path="res://Sounds/jumpsound.wav" type="AudioStream" id=11]
 [ext_resource path="res://Sounds/gunshot.wav" type="AudioStream" id=12]
@@ -107,19 +106,13 @@ pause_mode = 2
 environment = SubResource( 1 )
 
 [node name="Background" parent="." instance=ExtResource( 2 )]
-position = Vector2( 0, -3.8147e-06 )
+position = Vector2( 0, 8 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 material = null
-position = Vector2( 1432, 360 )
+position = Vector2( 96, 544 )
 
 [node name="Weapon" parent="Player" instance=ExtResource( 6 )]
-
-[node name="Enemy" parent="." instance=ExtResource( 8 )]
-position = Vector2( 168.158, 650.402 )
-
-[node name="Enemy4" parent="." instance=ExtResource( 8 )]
-position = Vector2( 2729.73, 353.016 )
 
 [node name="GroundBottom" parent="." instance=ExtResource( 4 )]
 position = Vector2( 72, 1088 )
@@ -163,32 +156,32 @@ __meta__ = {
 }
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="InvisibleWall"]
-polygon = PoolVector2Array( 0, 688, -64, 688, -64, -640, 0, -640 )
+polygon = PoolVector2Array( 0, 704, -64, 704, -64, -640, 0, -640 )
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="InvisibleWall"]
 position = Vector2( -224, -488 )
 polygon = PoolVector2Array( 224, -88, 224, -152, 4576, -152, 4576, -88 )
 
 [node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="InvisibleWall"]
-polygon = PoolVector2Array( 4416, -640, 4352, -640, 4352, 688, 4416, 688 )
+polygon = PoolVector2Array( 4416, -640, 4352, -640, 4352, 704, 4416, 704 )
 
 [node name="SpeedBuff" parent="." instance=ExtResource( 19 )]
-position = Vector2( 1529.97, 403.826 )
+position = Vector2( 1584, 680 )
 
 [node name="Armor" parent="." instance=ExtResource( 20 )]
-position = Vector2( 2004.84, 237.345 )
+position = Vector2( 1704, 664 )
 
 [node name="Medkit" parent="." instance=ExtResource( 18 )]
-position = Vector2( 1427.57, 406.275 )
+position = Vector2( 1448, 680 )
 
 [node name="AttackBuff" parent="." instance=ExtResource( 21 )]
-position = Vector2( 2160.2, 240.47 )
+position = Vector2( 1832, 672 )
 
 [node name="Enemy5" parent="." instance=ExtResource( 22 )]
-position = Vector2( 1304, 408 )
+position = Vector2( 1304, 664 )
 
 [node name="Enemy6" parent="." instance=ExtResource( 22 )]
-position = Vector2( 2008, 648 )
+position = Vector2( 2016, 664 )
 
 [node name="Floor" parent="." instance=ExtResource( 5 )]
 position = Vector2( 192, 736 )
@@ -204,4 +197,16 @@ position = Vector2( 1728, 736 )
 
 [node name="Floor5" parent="." instance=ExtResource( 5 )]
 position = Vector2( 2240, 736 )
+
+[node name="Floor6" parent="." instance=ExtResource( 5 )]
+position = Vector2( 2752, 736 )
+
+[node name="Floor7" parent="." instance=ExtResource( 5 )]
+position = Vector2( 3264, 736 )
+
+[node name="Floor8" parent="." instance=ExtResource( 5 )]
+position = Vector2( 3776, 736 )
+
+[node name="Floor9" parent="." instance=ExtResource( 5 )]
+position = Vector2( 4288, 736 )
 [connection signal="tree_entered" from="." to="." method="_on_TestLevel_tree_entered"]
