@@ -2,14 +2,14 @@ extends Sprite
 
 var ownerNode : Node2D
 var lastShoot = -100000
-var shootDelay = 50
-var damage = 7.5
-var maxAmmo = 10
+var shootDelay = 100
+var damage = 10
+var maxAmmo = 20
 var curAmmo = maxAmmo
 var reloadDelay = 1000
 var reloading = false
 var reloadStarted = 0
-var weaponName = "Weapon3"
+var weaponName = "SMG"
 var readyToShoot = false
 
 func _ready():

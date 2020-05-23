@@ -9,7 +9,7 @@ var curAmmo = maxAmmo
 var reloadDelay = 1000
 var reloading = false
 var reloadStarted = 0
-var weaponName = "Weapon4"
+var weaponName = "Pistol"
 var readyToShoot = false
 
 func _ready():

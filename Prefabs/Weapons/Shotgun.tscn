@@ -1,7 +1,9 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://Sprites/Weapons/Weapon2_Anim1.png" type="Texture" id=1]
-[ext_resource path="res://Scripts/Weapons/Weapon2.gd" type="Script" id=2]
+[ext_resource path="res://Sprites/Weapons/Shotgun_Anim1.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/Weapons/Shotgun.gd" type="Script" id=2]
+
+
 
 
 

@@ -5,7 +5,7 @@
 [ext_resource path="res://Prefabs/Misc/CountdownScene.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Sprites/Levels/Set 1/ground.png" type="Texture" id=4]
 [ext_resource path="res://Sprites/Levels/Set 1/groundcurved.png" type="Texture" id=5]
-[ext_resource path="res://Prefabs/Weapons/Weapon1.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Prefabs/Weapons/SMG.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scripts/Misc/Camera2D.gd" type="Script" id=7]
 [ext_resource path="res://Prefabs/Characters/Enemy.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Sprites/Levels/Set 1/groundbottom.png" type="Texture" id=9]
@@ -21,6 +21,7 @@
 [ext_resource path="res://Sounds/armorsound.wav" type="AudioStream" id=19]
 [ext_resource path="res://Sounds/healthsound.wav" type="AudioStream" id=20]
 [ext_resource path="res://Sounds/shotgunblast.wav" type="AudioStream" id=21]
+
 
 
 

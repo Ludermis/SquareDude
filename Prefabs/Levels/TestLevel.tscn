@@ -5,7 +5,7 @@
 [ext_resource path="res://Prefabs/Pickups/WeaponPickup.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Sprites/Levels/Set 1/ground.png" type="Texture" id=4]
 [ext_resource path="res://Sprites/Levels/Set 1/groundcurved.png" type="Texture" id=5]
-[ext_resource path="res://Prefabs/Weapons/Weapon4.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Prefabs/Weapons/Pistol.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Sounds/attackpowerbuff.wav" type="AudioStream" id=7]
 [ext_resource path="res://Prefabs/Characters/Enemy.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Sprites/Levels/Set 1/groundbottom.png" type="Texture" id=9]
@@ -591,14 +591,15 @@ rect_pivot_offset = Vector2( 960, 499.813 )
 
 [node name="WeaponPickup" parent="." instance=ExtResource( 3 )]
 position = Vector2( 468.463, 630.858 )
+weaponName = "SMG"
 
 [node name="WeaponPickup3" parent="." instance=ExtResource( 3 )]
 position = Vector2( 572.515, 632.255 )
-weaponName = "Weapon2"
+weaponName = "Shotgun"
 
 [node name="WeaponPickup2" parent="." instance=ExtResource( 3 )]
 position = Vector2( 310.325, 642.869 )
-weaponName = "Weapon3"
+weaponName = "MiniSMG"
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 pause_mode = 2

@@ -1,7 +1,9 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Scripts/Weapons/Weapon3.gd" type="Script" id=1]
-[ext_resource path="res://Sprites/Weapons/Weapon3.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/Weapons/MiniSMG.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Weapons/MiniSMG.png" type="Texture" id=2]
+
+
 
 
 

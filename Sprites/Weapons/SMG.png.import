@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Weapon2.png-df058e5468a4dd903517f8dabf43bd95.stex"
+path="res://.import/SMG.png-2c7d627b829e53b536f977fe3d93ed82.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Weapons/Weapon2.png"
-dest_files=[ "res://.import/Weapon2.png-df058e5468a4dd903517f8dabf43bd95.stex" ]
+source_file="res://Sprites/Weapons/SMG.png"
+dest_files=[ "res://.import/SMG.png-2c7d627b829e53b536f977fe3d93ed82.stex" ]
 
 [params]
 

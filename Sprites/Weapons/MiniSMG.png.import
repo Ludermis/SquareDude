@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Weapon3.png-ec4a004ea60a6f65a3e968daef34323b.stex"
+path="res://.import/MiniSMG.png-08bb3e7b63f9502c889b9f3c96ecf9a7.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Weapons/Weapon3.png"
-dest_files=[ "res://.import/Weapon3.png-ec4a004ea60a6f65a3e968daef34323b.stex" ]
+source_file="res://Sprites/Weapons/MiniSMG.png"
+dest_files=[ "res://.import/MiniSMG.png-08bb3e7b63f9502c889b9f3c96ecf9a7.stex" ]
 
 [params]
 

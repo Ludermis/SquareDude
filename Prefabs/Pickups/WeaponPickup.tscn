@@ -2,7 +2,8 @@
 
 [ext_resource path="res://Scripts/Pickups/WeaponPickup.gd" type="Script" id=1]
 [ext_resource path="res://Shaders/sprite_outline.shader" type="Shader" id=2]
-[ext_resource path="res://Sprites/Weapons/Weapon1.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Weapons/SMG.png" type="Texture" id=3]
+
 
 
 
