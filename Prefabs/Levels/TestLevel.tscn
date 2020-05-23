@@ -585,20 +585,24 @@ region_rect = Rect2( 0, 0, 10240, 384 )
 rect_pivot_offset = Vector2( 960, 499.813 )
 
 [node name="WeaponPickup" parent="." instance=ExtResource( 3 )]
-position = Vector2( 468.463, 630.858 )
+position = Vector2( 296, 648 )
 weaponName = "SMG"
 
 [node name="WeaponPickup3" parent="." instance=ExtResource( 3 )]
-position = Vector2( 572.515, 632.255 )
+position = Vector2( 568, 640 )
 weaponName = "Shotgun"
 
 [node name="WeaponPickup2" parent="." instance=ExtResource( 3 )]
-position = Vector2( 310.325, 642.869 )
+position = Vector2( 440, 640 )
 weaponName = "MiniSMG"
 
 [node name="WeaponPickup4" parent="." instance=ExtResource( 3 )]
-position = Vector2( 720, 640 )
+position = Vector2( 696, 640 )
 weaponName = "Rifle"
+
+[node name="WeaponPickup5" parent="." instance=ExtResource( 3 )]
+position = Vector2( 816, 640 )
+weaponName = "FlareGun"
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 pause_mode = 2

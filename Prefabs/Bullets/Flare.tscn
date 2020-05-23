@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scripts/Bullets/Flare.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Bullets/Flare.png" type="Texture" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 3.00957, 2.54834 )
+
+[sub_resource type="CanvasItemMaterial" id=4]
+blend_mode = 1
+
+[sub_resource type="ParticlesMaterial" id=2]
+flag_disable_z = true
+direction = Vector3( -1, 0, 0 )
+gravity = Vector3( 0, 98, 0 )
+initial_velocity = 120.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+color = Color( 1, 0, 0, 1 )
+
+[node name="Flare" type="Sprite"]
+position = Vector2( 640, 128 )
+scale = Vector2( 3.89603, 2.15136 )
+texture = ExtResource( 3 )
+script = ExtResource( 1 )
+
+[node name="Area2D" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 1 )
+
+[node name="Particles2D" type="Particles2D" parent="."]
+material = SubResource( 4 )
+amount = 54
+process_material = SubResource( 2 )
+
+[node name="Light2D" type="Light2D" parent="."]
+texture = ExtResource( 3 )
+energy = 5.54
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
