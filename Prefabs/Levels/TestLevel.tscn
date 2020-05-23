@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://Prefabs/Characters/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Sprites/Misc/box.png" type="Texture" id=2]
@@ -21,6 +21,7 @@
 [ext_resource path="res://Prefabs/Pickups/SpeedBuff.tscn" type="PackedScene" id=19]
 [ext_resource path="res://Prefabs/Pickups/Armor.tscn" type="PackedScene" id=20]
 [ext_resource path="res://Prefabs/Pickups/AttackBuff.tscn" type="PackedScene" id=21]
+[ext_resource path="res://Prefabs/Characters/CloakingEnemy.tscn" type="PackedScene" id=22]
 [ext_resource path="res://Sounds/gunpickup.wav" type="AudioStream" id=23]
 [ext_resource path="res://Sounds/speedsound.wav" type="AudioStream" id=24]
 [ext_resource path="res://Sounds/armorsound.wav" type="AudioStream" id=25]
@@ -120,7 +121,7 @@ __meta__ = {
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 material = null
-position = Vector2( 667.034, 652.445 )
+position = Vector2( 1432, 360 )
 
 [node name="Weapon" parent="Player" instance=ExtResource( 6 )]
 
@@ -566,12 +567,6 @@ flip_h = true
 [node name="Enemy" parent="." instance=ExtResource( 8 )]
 position = Vector2( 168.158, 650.402 )
 
-[node name="Enemy2" parent="." instance=ExtResource( 8 )]
-position = Vector2( 1315.71, 399.592 )
-
-[node name="Enemy3" parent="." instance=ExtResource( 8 )]
-position = Vector2( 2163.34, 647.402 )
-
 [node name="Enemy4" parent="." instance=ExtResource( 8 )]
 position = Vector2( 2729.73, 353.016 )
 
@@ -600,6 +595,10 @@ weaponName = "Shotgun"
 [node name="WeaponPickup2" parent="." instance=ExtResource( 3 )]
 position = Vector2( 310.325, 642.869 )
 weaponName = "MiniSMG"
+
+[node name="WeaponPickup4" parent="." instance=ExtResource( 3 )]
+position = Vector2( 720, 640 )
+weaponName = "Rifle"
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 pause_mode = 2
@@ -635,4 +634,10 @@ position = Vector2( 1427.57, 406.275 )
 
 [node name="AttackBuff" parent="." instance=ExtResource( 21 )]
 position = Vector2( 2160.2, 240.47 )
+
+[node name="Enemy5" parent="." instance=ExtResource( 22 )]
+position = Vector2( 1304, 408 )
+
+[node name="Enemy6" parent="." instance=ExtResource( 22 )]
+position = Vector2( 2008, 648 )
 [connection signal="tree_entered" from="." to="." method="_on_TestLevel_tree_entered"]
