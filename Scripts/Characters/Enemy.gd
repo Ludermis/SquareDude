@@ -22,7 +22,6 @@ var aiMoveCalculateDelay = 500
 func _ready():
 	set_physics_process(true)
 	$Weapon.ownerNode = self
-	$Weapon.shootDelay *= 5
 	Vars.enemyRemaining += 1
 
 func _process(delta):

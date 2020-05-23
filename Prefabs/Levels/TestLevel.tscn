@@ -27,7 +27,6 @@
 [ext_resource path="res://Sounds/healthsound.wav" type="AudioStream" id=26]
 [ext_resource path="res://Sounds/shotgunblast.wav" type="AudioStream" id=27]
 
-
 [sub_resource type="Environment" id=1]
 background_mode = 4
 dof_blur_far_distance = 6.4
@@ -44,6 +43,10 @@ __meta__ = {
 }
 
 [node name="Sounds" type="Node2D" parent="."]
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
 
 [node name="ShotgunBlastSound" type="AudioStreamPlayer" parent="Sounds"]
 pause_mode = 2
