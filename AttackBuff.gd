@@ -30,6 +30,7 @@ func _process(delta):
 
 func _on_Area2D_body_entered(body : Node2D):
 	if body.is_in_group("Player") && body.attackBoostTimeLeft == -1:
+		$"../Sounds/AttackPowerSound".play()
 		body.damageMultiplier = 1.15
 		body.attackBoostTimeLeft = 10
 		queue_free()

@@ -160,6 +160,7 @@ current = true
 script = ExtResource( 6 )
 
 [node name="Hat" type="Sprite" parent="."]
+visible = false
 position = Vector2( -40, 0.00012207 )
 rotation = -1.5708
 scale = Vector2( 2, 2 )

@@ -8,7 +8,8 @@ var enemyRemaining = 0
 var currentLevel = -1
 var countdownSeconds = 1
 var currentCamera : Camera2D
-var ownedCosmetics = ["cowboyhat"]
+var ownedCosmetics = {"hat": ["none","cowboyhat","testhat"]}
+var currentCosmetics = {"hat": 0}
 
 func rotatePoint(point,center,angle) -> Vector2:
 	var newX = cos(angle) * (point.x - center.x) - sin(angle) * (point.y - center.y) + center.x

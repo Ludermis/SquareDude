@@ -23,7 +23,11 @@ func _ready():
 	set_physics_process(true)
 	if is_instance_valid($Weapon):
 		$Weapon.ownerNode = self
-	if $Hat.visible:
+	
+	# Cosmetics
+	if Vars.currentCosmetics["hat"] != 0:
+		$Hat.visible = true
+		$Hat.texture = load("res://" + Vars.ownedCosmetics["hat"][Vars.currentCosmetics["hat"]] + ".png")
 		$Controls.position.x -= 32
 
 func use ():
@@ -67,6 +71,8 @@ func boostHandler (delta):
 			attackBoostTimeLeft = -1
 
 func _process(delta):
+	if Input.is_action_just_pressed('esc'):
+		get_tree().change_scene("res://MainMenuScene.tscn")
 	boostHandler(delta)
 	if is_instance_valid($Weapon):
 		$"Controls/AmmoLabel".visible = true

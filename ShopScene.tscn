@@ -90,6 +90,7 @@ __meta__ = {
 
 [node name="TextureRect2" type="TextureRect" parent="MoneyPanel"]
 margin_left = 280.0
+margin_top = 8.0
 margin_right = 296.0
 margin_bottom = 56.0
 texture = ExtResource( 8 )

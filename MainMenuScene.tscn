@@ -1,8 +1,8 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://MainLabel.gd" type="Script" id=1]
 [ext_resource path="res://MainMenuScene.gd" type="Script" id=2]
-[ext_resource path="res://Menu.tscn" type="PackedScene" id=3]
+[ext_resource path="res://button.png" type="Texture" id=3]
 [ext_resource path="res://ThaleahFat.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://Camera2D.gd" type="Script" id=5]
 [ext_resource path="res://box.png" type="Texture" id=6]
@@ -11,9 +11,14 @@
 [ext_resource path="res://Levels.tscn" type="PackedScene" id=9]
 [ext_resource path="res://groundbottom.png" type="Texture" id=10]
 [ext_resource path="res://musicmenu.wav" type="AudioStream" id=11]
+[ext_resource path="res://ShopButton.gd" type="Script" id=12]
+[ext_resource path="res://LevelsButton.gd" type="Script" id=13]
+[ext_resource path="res://CustomizeButton.gd" type="Script" id=14]
 
 [sub_resource type="Environment" id=1]
 background_mode = 4
+dof_blur_near_enabled = true
+dof_blur_near_amount = 0.15
 glow_enabled = true
 glow_bloom = 0.11
 glow_blend_mode = 0
@@ -24,7 +29,14 @@ size = 120
 outline_size = 8
 font_data = ExtResource( 4 )
 
-[node name="MainMenu" type="Node2D"]
+[sub_resource type="DynamicFont" id=3]
+size = 64
+outline_size = 8
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 4 )
+
+[node name="Main" type="Node2D"]
 script = ExtResource( 2 )
 
 [node name="Level1" type="Node2D" parent="."]
@@ -234,7 +246,95 @@ __meta__ = {
 
 [node name="Tween" type="Tween" parent="CanvasLayer/MainLabel"]
 
-[node name="Menu" parent="CanvasLayer" instance=ExtResource( 3 )]
+[node name="Menu" type="Control" parent="CanvasLayer"]
+margin_right = 1920.0
+margin_bottom = 1080.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LevelsButton" type="TextureButton" parent="CanvasLayer/Menu"]
+margin_left = 768.0
+margin_top = 320.0
+margin_right = 1152.0
+margin_bottom = 384.0
+texture_normal = ExtResource( 3 )
+expand = true
+script = ExtResource( 13 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CanvasLayer/Menu/LevelsButton"]
+margin_right = 384.0
+margin_bottom = 64.0
+custom_fonts/font = SubResource( 3 )
+text = "LEVELS"
+align = 1
+valign = 1
+
+[node name="OptionsButton" type="TextureButton" parent="CanvasLayer/Menu"]
+margin_left = 768.0
+margin_top = 450.272
+margin_right = 1152.0
+margin_bottom = 514.272
+texture_normal = ExtResource( 3 )
+expand = true
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CanvasLayer/Menu/OptionsButton"]
+margin_right = 384.0
+margin_bottom = 64.0
+custom_fonts/font = SubResource( 3 )
+text = "OPTIONS"
+align = 1
+valign = 1
+
+[node name="ShopButton" type="TextureButton" parent="CanvasLayer/Menu"]
+margin_left = 768.0
+margin_top = 578.272
+margin_right = 1152.0
+margin_bottom = 642.272
+texture_normal = ExtResource( 3 )
+expand = true
+script = ExtResource( 12 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CanvasLayer/Menu/ShopButton"]
+margin_right = 384.0
+margin_bottom = 64.0
+custom_fonts/font = SubResource( 3 )
+text = "SHOP"
+align = 1
+valign = 1
+
+[node name="CustomizeButton" type="TextureButton" parent="CanvasLayer/Menu"]
+margin_left = 768.0
+margin_top = 706.272
+margin_right = 1152.0
+margin_bottom = 770.272
+texture_normal = ExtResource( 3 )
+expand = true
+script = ExtResource( 14 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="CanvasLayer/Menu/CustomizeButton"]
+margin_right = 384.0
+margin_bottom = 64.0
+custom_fonts/font = SubResource( 3 )
+text = "CUSTOMIZE"
+align = 1
+valign = 1
 
 [node name="Levels" parent="CanvasLayer" instance=ExtResource( 9 )]
 
@@ -243,3 +343,6 @@ stream = ExtResource( 11 )
 volume_db = -20.0
 autoplay = true
 bus = "Music"
+[connection signal="pressed" from="CanvasLayer/Menu/LevelsButton" to="CanvasLayer/Menu/LevelsButton" method="_on_LevelsButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/Menu/ShopButton" to="CanvasLayer/Menu/ShopButton" method="_on_ShopButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/Menu/CustomizeButton" to="CanvasLayer/Menu/CustomizeButton" method="_on_CustomizeButton_pressed"]
