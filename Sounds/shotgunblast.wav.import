@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/shotgunblast.wav-8c3eea049d39570d61a78f268c2562e9.sample"
+
+[deps]
+
+source_file="res://Sounds/shotgunblast.wav"
+dest_files=[ "res://.import/shotgunblast.wav-8c3eea049d39570d61a78f268c2562e9.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

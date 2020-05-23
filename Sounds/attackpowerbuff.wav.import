@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/attackpowerbuff.wav-7fd28984d283c2df1143c060c6d78eb3.sample"
+
+[deps]
+
+source_file="res://Sounds/attackpowerbuff.wav"
+dest_files=[ "res://.import/attackpowerbuff.wav-7fd28984d283c2df1143c060c6d78eb3.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

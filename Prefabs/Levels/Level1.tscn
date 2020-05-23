@@ -1,0 +1,606 @@
+[gd_scene load_steps=23 format=2]
+
+[ext_resource path="res://Prefabs/Characters/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Sprites/Misc/box.png" type="Texture" id=2]
+[ext_resource path="res://Prefabs/Misc/CountdownScene.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Sprites/Levels/Set 1/ground.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Levels/Set 1/groundcurved.png" type="Texture" id=5]
+[ext_resource path="res://Prefabs/Weapons/Weapon1.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scripts/Misc/Camera2D.gd" type="Script" id=7]
+[ext_resource path="res://Prefabs/Characters/Enemy.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Sprites/Levels/Set 1/groundbottom.png" type="Texture" id=9]
+[ext_resource path="res://Sounds/bulletimpact.wav" type="AudioStream" id=10]
+[ext_resource path="res://Sounds/jumpsound.wav" type="AudioStream" id=11]
+[ext_resource path="res://Sounds/gunshot.wav" type="AudioStream" id=12]
+[ext_resource path="res://Sounds/bloodsound.wav" type="AudioStream" id=13]
+[ext_resource path="res://Sounds/reloadsound.wav" type="AudioStream" id=14]
+[ext_resource path="res://Scripts/Levels/Level1.gd" type="Script" id=15]
+[ext_resource path="res://Sounds/Music/music1.wav" type="AudioStream" id=16]
+[ext_resource path="res://Sounds/gunpickup.wav" type="AudioStream" id=17]
+[ext_resource path="res://Sounds/speedsound.wav" type="AudioStream" id=18]
+[ext_resource path="res://Sounds/armorsound.wav" type="AudioStream" id=19]
+[ext_resource path="res://Sounds/healthsound.wav" type="AudioStream" id=20]
+[ext_resource path="res://Sounds/shotgunblast.wav" type="AudioStream" id=21]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[sub_resource type="Environment" id=1]
+background_mode = 4
+dof_blur_far_distance = 6.4
+dof_blur_far_transition = 72.82
+glow_enabled = true
+glow_bloom = 0.12
+glow_blend_mode = 0
+glow_bicubic_upscale = true
+
+[node name="Main" type="Node2D"]
+script = ExtResource( 15 )
+
+[node name="Sounds" type="Node2D" parent="."]
+
+[node name="ShotgunBlastSound" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 21 )
+volume_db = -15.0
+
+[node name="BulletImpactSound" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 10 )
+volume_db = 10.0
+
+[node name="JumpSound" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 11 )
+
+[node name="BloodSound" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 13 )
+pitch_scale = 2.0
+
+[node name="ShootSound" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 12 )
+volume_db = -15.0
+pitch_scale = 1.5
+
+[node name="ReloadSound" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 14 )
+volume_db = -5.0
+
+[node name="WeaponPickupSound" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 17 )
+volume_db = -5.0
+pitch_scale = 0.9
+
+[node name="SpeedSound" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 18 )
+
+[node name="ArmorSound" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 19 )
+pitch_scale = 1.3
+
+[node name="HealthSound" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 20 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+pause_mode = 2
+environment = SubResource( 1 )
+
+[node name="Background" type="Sprite" parent="."]
+modulate = Color( 0.027451, 0.0901961, 0.188235, 1 )
+position = Vector2( -4287.05, -2282.3 )
+scale = Vector2( 187.875, 92.6702 )
+z_index = -100
+texture = ExtResource( 2 )
+centered = false
+offset = Vector2( -9.53674e-07, 0.348844 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+material = null
+position = Vector2( 701.6, 653.213 )
+
+[node name="Weapon" parent="Player" instance=ExtResource( 6 )]
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2( 3.05176e-05, 0.125977 )
+rotation = -1.5708
+current = true
+script = ExtResource( 7 )
+
+[node name="Wall1" type="StaticBody2D" parent="."]
+position = Vector2( 872.076, 772.906 )
+rotation = -0.671489
+z_index = -20
+collision_layer = 3
+collision_mask = 3
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Wall1"]
+visible = false
+polygon = PoolVector2Array( -520.421, -32.0165, 503.873, -32.0047, 502.671, 29.9837, -520.789, 31.2885 )
+
+[node name="Sprite" type="Sprite" parent="Wall1"]
+position = Vector2( -8.57794, 0.154297 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 512, 32 )
+
+[node name="Wall2" type="StaticBody2D" parent="."]
+position = Vector2( 1739.53, 401.035 )
+rotation = -0.395076
+z_index = -20
+collision_layer = 3
+collision_mask = 3
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Wall2"]
+visible = false
+polygon = PoolVector2Array( -226.403, -32.4986, 222.987, -32.2253, 225.206, 32.371, -237.969, 31.3834 )
+
+[node name="Sprite" type="Sprite" parent="Wall2"]
+position = Vector2( -8.57794, 0.154297 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 256, 32 )
+
+[node name="Floor" type="StaticBody2D" parent="."]
+position = Vector2( 520, 720 )
+z_index = -20
+collision_layer = 3
+collision_mask = 3
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Floor"]
+visible = false
+polygon = PoolVector2Array( -520.421, -32.0165, 503.873, -32.0047, 502.671, 29.9837, -520.789, 31.2885 )
+
+[node name="Sprite" type="Sprite" parent="Floor"]
+position = Vector2( -8.57794, 0.154297 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 512, 32 )
+
+[node name="Floor8" type="StaticBody2D" parent="."]
+position = Vector2( -504, 720 )
+z_index = -20
+collision_layer = 3
+collision_mask = 3
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Floor8"]
+visible = false
+polygon = PoolVector2Array( -520.421, -32.0165, 503.873, -32.0047, 502.671, 29.9837, -520.789, 31.2885 )
+
+[node name="Sprite" type="Sprite" parent="Floor8"]
+position = Vector2( -8.57794, 0.154297 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 512, 32 )
+
+[node name="Floor9" type="StaticBody2D" parent="."]
+position = Vector2( -1528, 720 )
+z_index = -20
+collision_layer = 3
+collision_mask = 3
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Floor9"]
+visible = false
+polygon = PoolVector2Array( -520.421, -32.0165, 503.873, -32.0047, 502.671, 29.9837, -520.789, 31.2885 )
+
+[node name="Sprite" type="Sprite" parent="Floor9"]
+position = Vector2( -8.57794, 0.154297 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 512, 32 )
+
+[node name="Floor10" type="StaticBody2D" parent="."]
+position = Vector2( -2552, 720 )
+z_index = -20
+collision_layer = 3
+collision_mask = 3
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Floor10"]
+visible = false
+polygon = PoolVector2Array( -520.421, -32.0165, 503.873, -32.0047, 502.671, 29.9837, -520.789, 31.2885 )
+
+[node name="Sprite" type="Sprite" parent="Floor10"]
+position = Vector2( -8.57794, 0.154297 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 512, 32 )
+
+[node name="Floor11" type="StaticBody2D" parent="."]
+position = Vector2( -2552, 720 )
+z_index = -20
+collision_layer = 3
+collision_mask = 3
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Floor11"]
+visible = false
+polygon = PoolVector2Array( -520.421, -32.0165, 503.873, -32.0047, 502.671, 29.9837, -520.789, 31.2885 )
+
+[node name="Sprite" type="Sprite" parent="Floor11"]
+position = Vector2( -8.57794, 0.154297 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 512, 32 )
+
+[node name="Floor2" type="StaticBody2D" parent="."]
+position = Vector2( 1544, 720 )
+z_index = -20
+collision_layer = 3
+collision_mask = 3
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Floor2"]
+visible = false
+polygon = PoolVector2Array( -520.421, -32.0165, 503.873, -32.0047, 502.671, 29.9837, -520.789, 31.2885 )
+
+[node name="Sprite" type="Sprite" parent="Floor2"]
+position = Vector2( -8.57794, 0.154297 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 512, 32 )
+
+[node name="Floor3" type="StaticBody2D" parent="."]
+position = Vector2( 2568, 720 )
+z_index = -20
+collision_layer = 3
+collision_mask = 3
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Floor3"]
+visible = false
+polygon = PoolVector2Array( -520.421, -32.0165, 503.873, -32.0047, 502.671, 29.9837, -520.789, 31.2885 )
+
+[node name="Sprite" type="Sprite" parent="Floor3"]
+position = Vector2( -8.57794, 0.154297 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 512, 32 )
+
+[node name="Floor4" type="StaticBody2D" parent="."]
+position = Vector2( 3592, 720 )
+z_index = -20
+collision_layer = 3
+collision_mask = 3
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Floor4"]
+visible = false
+polygon = PoolVector2Array( -520.421, -32.0165, 503.873, -32.0047, 502.671, 29.9837, -520.789, 31.2885 )
+
+[node name="Sprite" type="Sprite" parent="Floor4"]
+position = Vector2( -8.57794, 0.154297 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 512, 32 )
+
+[node name="Floor5" type="StaticBody2D" parent="."]
+position = Vector2( 4616, 720 )
+z_index = -20
+collision_layer = 3
+collision_mask = 3
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Floor5"]
+visible = false
+polygon = PoolVector2Array( -520.421, -32.0165, 503.873, -32.0047, 502.671, 29.9837, -520.789, 31.2885 )
+
+[node name="Sprite" type="Sprite" parent="Floor5"]
+position = Vector2( -8.57794, 0.154297 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 512, 32 )
+
+[node name="Floor6" type="StaticBody2D" parent="."]
+position = Vector2( 5640, 720 )
+z_index = -20
+collision_layer = 3
+collision_mask = 3
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Floor6"]
+visible = false
+polygon = PoolVector2Array( -520.421, -32.0165, 503.873, -32.0047, 502.671, 29.9837, -520.789, 31.2885 )
+
+[node name="Sprite" type="Sprite" parent="Floor6"]
+position = Vector2( -8.57794, 0.154297 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 512, 32 )
+
+[node name="Floor7" type="StaticBody2D" parent="."]
+position = Vector2( 6664, 720 )
+z_index = -20
+collision_layer = 3
+collision_mask = 3
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Floor7"]
+visible = false
+polygon = PoolVector2Array( -520.421, -32.0165, 503.873, -32.0047, 502.671, 29.9837, -520.789, 31.2885 )
+
+[node name="Sprite" type="Sprite" parent="Floor7"]
+position = Vector2( -8.57794, 0.154297 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 4 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 512, 32 )
+
+[node name="AirFloor" type="StaticBody2D" parent="."]
+position = Vector2( 1550.34, 549.584 )
+rotation = 3.14159
+z_index = -20
+collision_layer = 3
+collision_mask = 3
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AirFloor"]
+visible = false
+polygon = PoolVector2Array( -64.0771, -2.25549, -52.1309, -14.3177, 307.504, -14.7258, 319.943, -2.08353, 320.111, 102.205, 307.629, 114.41, -52.1238, 113.989, -64.0883, 102.025, -63.9504, 63.9866 )
+
+[node name="Sprite" type="Sprite" parent="AirFloor"]
+position = Vector2( -0.00817871, -14.2278 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 4 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 128, 32 )
+
+[node name="Sprite2" type="Sprite" parent="AirFloor"]
+position = Vector2( 255.992, -14.2278 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 5 )
+centered = false
+
+[node name="Sprite3" type="Sprite" parent="AirFloor"]
+position = Vector2( -64.0082, -14.2278 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 5 )
+centered = false
+flip_h = true
+
+[node name="Sprite4" type="Sprite" parent="AirFloor"]
+position = Vector2( 256.02, 113.772 )
+rotation = -3.14159
+scale = Vector2( 2, 2 )
+texture = ExtResource( 4 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 128, 32 )
+
+[node name="Sprite5" type="Sprite" parent="AirFloor"]
+position = Vector2( 0.0197754, 113.771 )
+rotation = -3.14159
+scale = Vector2( 2, 2 )
+texture = ExtResource( 5 )
+centered = false
+
+[node name="Sprite6" type="Sprite" parent="AirFloor"]
+position = Vector2( 320.02, 113.772 )
+rotation = -3.14159
+scale = Vector2( 2, 2 )
+texture = ExtResource( 5 )
+centered = false
+flip_h = true
+
+[node name="AirFloor2" type="StaticBody2D" parent="."]
+position = Vector2( 2246.33, 390.962 )
+rotation = 3.14159
+z_index = -20
+collision_layer = 3
+collision_mask = 3
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AirFloor2"]
+visible = false
+polygon = PoolVector2Array( -64.0771, -2.25549, -52.1309, -14.3177, 307.504, -14.7258, 319.943, -2.08353, 320.111, 102.205, 307.629, 114.41, -52.1238, 113.989, -64.0883, 102.025, -63.9504, 63.9866 )
+
+[node name="Sprite" type="Sprite" parent="AirFloor2"]
+position = Vector2( -0.00817871, -14.2278 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 4 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 128, 32 )
+
+[node name="Sprite2" type="Sprite" parent="AirFloor2"]
+position = Vector2( 255.992, -14.2278 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 5 )
+centered = false
+
+[node name="Sprite3" type="Sprite" parent="AirFloor2"]
+position = Vector2( -64.0082, -14.2278 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 5 )
+centered = false
+flip_h = true
+
+[node name="Sprite4" type="Sprite" parent="AirFloor2"]
+position = Vector2( 256.02, 113.772 )
+rotation = -3.14159
+scale = Vector2( 2, 2 )
+texture = ExtResource( 4 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 128, 32 )
+
+[node name="Sprite5" type="Sprite" parent="AirFloor2"]
+position = Vector2( 0.0197754, 113.771 )
+rotation = -3.14159
+scale = Vector2( 2, 2 )
+texture = ExtResource( 5 )
+centered = false
+
+[node name="Sprite6" type="Sprite" parent="AirFloor2"]
+position = Vector2( 320.02, 113.772 )
+rotation = -3.14159
+scale = Vector2( 2, 2 )
+texture = ExtResource( 5 )
+centered = false
+flip_h = true
+
+[node name="AirFloor3" type="StaticBody2D" parent="."]
+position = Vector2( 2906.12, 504.38 )
+rotation = 3.14159
+z_index = -20
+collision_layer = 3
+collision_mask = 3
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AirFloor3"]
+visible = false
+polygon = PoolVector2Array( -64.0771, -2.25549, -52.1309, -14.3177, 307.504, -14.7258, 319.943, -2.08353, 320.111, 102.205, 307.629, 114.41, -52.1238, 113.989, -64.0883, 102.025, -63.9504, 63.9866 )
+
+[node name="Sprite" type="Sprite" parent="AirFloor3"]
+position = Vector2( -0.00817871, -14.2278 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 4 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 128, 32 )
+
+[node name="Sprite2" type="Sprite" parent="AirFloor3"]
+position = Vector2( 255.992, -14.2278 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 5 )
+centered = false
+
+[node name="Sprite3" type="Sprite" parent="AirFloor3"]
+position = Vector2( -64.0082, -14.2278 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 5 )
+centered = false
+flip_h = true
+
+[node name="Sprite4" type="Sprite" parent="AirFloor3"]
+position = Vector2( 256.02, 113.772 )
+rotation = -3.14159
+scale = Vector2( 2, 2 )
+texture = ExtResource( 4 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 128, 32 )
+
+[node name="Sprite5" type="Sprite" parent="AirFloor3"]
+position = Vector2( 0.0197754, 113.771 )
+rotation = -3.14159
+scale = Vector2( 2, 2 )
+texture = ExtResource( 5 )
+centered = false
+
+[node name="Sprite6" type="Sprite" parent="AirFloor3"]
+position = Vector2( 320.02, 113.772 )
+rotation = -3.14159
+scale = Vector2( 2, 2 )
+texture = ExtResource( 5 )
+centered = false
+flip_h = true
+
+[node name="Enemy" parent="." instance=ExtResource( 8 )]
+position = Vector2( 218.698, 647.695 )
+
+[node name="Enemy2" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1315.71, 399.592 )
+
+[node name="Enemy3" parent="." instance=ExtResource( 8 )]
+position = Vector2( 2163.34, 647.402 )
+
+[node name="Enemy4" parent="." instance=ExtResource( 8 )]
+position = Vector2( 2729.73, 353.016 )
+
+[node name="groundbottom" type="Sprite" parent="."]
+position = Vector2( -2888, 752 )
+scale = Vector2( 2, 2 )
+z_index = -20
+texture = ExtResource( 9 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 10240, 384 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="CountdownMain" parent="CanvasLayer" instance=ExtResource( 3 )]
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
+stream = ExtResource( 16 )
+bus = "Music"
+
+[node name="InvisibleWall" type="StaticBody2D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="InvisibleWall"]
+polygon = PoolVector2Array( 0, 688, -64, 688, -64, -640, 0, -640 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="InvisibleWall"]
+position = Vector2( -224, -488 )
+polygon = PoolVector2Array( 224, -88, 224, -152, 4576, -152, 4576, -88 )
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="InvisibleWall"]
+polygon = PoolVector2Array( 4416, -640, 4352, -640, 4352, 688, 4416, 688 )
+[connection signal="tree_entered" from="." to="." method="_on_Level1_tree_entered"]
