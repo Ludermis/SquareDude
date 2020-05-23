@@ -25,9 +25,9 @@ func _ready():
 		$Weapon.ownerNode = self
 	
 	# Cosmetics
-	if Vars.currentCosmetics["hat"] != 0:
+	if Vars.currentCosmetics["Hat"] != 0:
 		$Hat.visible = true
-		$Hat.texture = load("res://Sprites/Cosmetics/Hat/" + Vars.ownedCosmetics["hat"][Vars.currentCosmetics["hat"]] + ".png")
+		$Hat.texture = load("res://Sprites/Cosmetics/Hat/" + Vars.ownedCosmetics["Hat"][Vars.currentCosmetics["Hat"]] + ".png")
 		$Controls.position.x -= 32
 
 func use ():

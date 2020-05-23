@@ -1,0 +1,105 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Fonts/ThaleahFat.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Sprites/Misc/box.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/UI/button.png" type="Texture" id=3]
+[ext_resource path="res://Scripts/Overlays/ConfirmationOverlay.gd" type="Script" id=4]
+[ext_resource path="res://Sprites/Cosmetics/Hat/testhat.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Misc/black.png" type="Texture" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+size = 48
+outline_size = 4
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 48
+outline_size = 4
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[node name="ConfirmationOverlay" type="Control"]
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color( 1, 1, 1, 0.501961 )
+margin_right = 1920.0
+margin_bottom = 1080.0
+texture = ExtResource( 6 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="TextureRect" parent="."]
+self_modulate = Color( 0.458824, 0.74902, 0.584314, 1 )
+margin_left = 768.0
+margin_top = 384.0
+margin_right = 1536.0
+margin_bottom = 704.0
+texture = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Panel"]
+margin_right = 768.0
+margin_bottom = 108.0
+custom_fonts/font = SubResource( 1 )
+text = "Do you want to buy this item ?"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="YesButton" type="TextureButton" parent="Panel"]
+margin_left = 37.2312
+margin_top = 189.227
+margin_right = 357.231
+margin_bottom = 269.227
+texture_normal = ExtResource( 3 )
+
+[node name="Label" type="Label" parent="Panel/YesButton"]
+margin_right = 320.0
+margin_bottom = 80.0
+custom_fonts/font = SubResource( 2 )
+text = "YES"
+align = 1
+valign = 1
+
+[node name="NoButton" type="TextureButton" parent="Panel"]
+margin_left = 413.305
+margin_top = 189.227
+margin_right = 733.305
+margin_bottom = 269.227
+texture_normal = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Panel/NoButton"]
+margin_right = 320.0
+margin_bottom = 80.0
+custom_fonts/font = SubResource( 2 )
+text = "NO"
+align = 1
+valign = 1
+
+[node name="Item" type="TextureRect" parent="Panel"]
+margin_left = 37.0
+margin_top = 77.0
+margin_right = 744.0
+margin_bottom = 160.0
+texture = ExtResource( 5 )
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="Panel/YesButton" to="." method="_on_YesButton_pressed"]
+[connection signal="pressed" from="Panel/NoButton" to="." method="_on_NoButton_pressed"]
