@@ -28,7 +28,7 @@ func _process(delta):
 func shoot (target):
 	
 	if readyToShoot && !reloading && curAmmo > 0 && lastShoot + shootDelay <= Vars.time():
-		$"../../Sounds/ShootSound".play()
+		$"../../Sounds/FlareGunAttackSound".play()
 		ownerNode.velocity.x -= (target - ownerNode.position).normalized().x * 25
 		lastShoot = Vars.time()
 		var node = preload("res://Prefabs/Bullets/Flare.tscn").instance()
@@ -45,5 +45,7 @@ func shoot (target):
 		curAmmo -= 1
 
 func reload ():
+	if ownerNode.is_in_group("Player"):
+		$"../../Sounds/ReloadSound".play()
 	reloadStarted = Vars.time()
 	reloading = true

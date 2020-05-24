@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://Prefabs/Characters/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Prefabs/Design/Set 1/Misc/Background.tscn" type="PackedScene" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://Prefabs/Design/Set 1/Floors & Walls/Floor8x1.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Prefabs/Weapons/Pistol.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Sounds/attackpowerbuff.wav" type="AudioStream" id=7]
+[ext_resource path="res://Sounds/rifleattacksound.wav" type="AudioStream" id=8]
+[ext_resource path="res://Sounds/flaregunattacksound.wav" type="AudioStream" id=9]
 [ext_resource path="res://Sounds/bulletimpact.wav" type="AudioStream" id=10]
 [ext_resource path="res://Sounds/jumpsound.wav" type="AudioStream" id=11]
 [ext_resource path="res://Sounds/gunshot.wav" type="AudioStream" id=12]
@@ -25,6 +27,9 @@
 [ext_resource path="res://Sounds/armorsound.wav" type="AudioStream" id=25]
 [ext_resource path="res://Sounds/healthsound.wav" type="AudioStream" id=26]
 [ext_resource path="res://Sounds/shotgunblast.wav" type="AudioStream" id=27]
+[ext_resource path="res://Sounds/riflereload.wav" type="AudioStream" id=28]
+[ext_resource path="res://Sounds/pistolattacksound.wav" type="AudioStream" id=29]
+[ext_resource path="res://Sounds/pistolreloadsound.wav" type="AudioStream" id=30]
 
 [sub_resource type="Environment" id=1]
 background_mode = 4
@@ -100,6 +105,26 @@ stream = ExtResource( 26 )
 pause_mode = 2
 stream = ExtResource( 7 )
 volume_db = -13.97
+
+[node name="RifleAttackSound" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 8 )
+volume_db = -15.0
+
+[node name="PistolAttackSound" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 29 )
+volume_db = -15.0
+
+[node name="PistolReloadSound" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 30 )
+volume_db = -12.0
+
+[node name="RifleReloadSound" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 28 )
+volume_db = -15.0
+
+[node name="FlareGunAttackSound" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 9 )
+volume_db = -15.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 pause_mode = 2

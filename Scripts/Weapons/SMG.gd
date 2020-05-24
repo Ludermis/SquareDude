@@ -45,5 +45,7 @@ func shoot (target):
 		curAmmo -= 1
 
 func reload ():
+	if ownerNode.is_in_group("Player"):
+		$"../../Sounds/ReloadSound".play()
 	reloadStarted = Vars.time()
 	reloading = true

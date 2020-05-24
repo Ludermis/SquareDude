@@ -77,7 +77,6 @@ func _process(delta):
 	if is_instance_valid($Weapon):
 		$"Controls/AmmoLabel".visible = true
 		if $Weapon.curAmmo == 0 && $Weapon.reloading == false:
-			$"../Sounds/ReloadSound".play()
 			$Weapon.reload()
 			
 		$"Controls/AmmoLabel".text = str($Weapon.curAmmo, "/", $Weapon.maxAmmo)
@@ -179,7 +178,6 @@ func _physics_process(delta):
 	
 	if is_instance_valid($Weapon):
 		if Input.is_action_just_pressed("reload") &&  $Weapon.reloading == false && $Weapon.curAmmo < $Weapon.maxAmmo:
-			$"../Sounds/ReloadSound".play()
 			$Weapon.reload()
 		if get_global_mouse_position().x < position.x:
 			$Weapon.flip_v = true

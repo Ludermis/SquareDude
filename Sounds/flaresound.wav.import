@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/flaresound.wav-1ef28270cd4487b4abe0be135316af1c.sample"
+
+[deps]
+
+source_file="res://Sounds/flaresound.wav"
+dest_files=[ "res://.import/flaresound.wav-1ef28270cd4487b4abe0be135316af1c.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=true
+compress/mode=0

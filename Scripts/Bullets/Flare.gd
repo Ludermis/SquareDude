@@ -7,10 +7,16 @@ var damage  = 0
 var ownerGroup : Array
 var stuckInto = null
 var gravEnabled = false
+var lifeTime : float = 10
+
 func _ready():
 	ownerGroup = ownerNode.get_groups()
 
 func _process(delta):
+	lifeTime -= delta
+	if lifeTime <= 0:
+		queue_free()
+	
 	position += dir * speed * delta
 	if stuckInto != null && !is_instance_valid(stuckInto):
 		stuckInto = null

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/pistolreloadsound.wav-e33f4522aec10bce3250f2338ef37e18.sample"
+
+[deps]
+
+source_file="res://Sounds/pistolreloadsound.wav"
+dest_files=[ "res://.import/pistolreloadsound.wav-e33f4522aec10bce3250f2338ef37e18.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
