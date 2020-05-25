@@ -15,8 +15,7 @@ func _ready():
 #func _process(delta):
 #	pass
 
-
-func _on_Level1_tree_entered():
+func _on_Main_tree_entered():
 	Vars.currentLevel = 1
 	Vars.countdownSeconds = 2
 	$Music.play(5.50)

@@ -1,5 +1,6 @@
 extends KinematicBody2D
 
+export var startCloaked = false
 var velocity = Vector2.ZERO
 var jumpHeight = 1024
 var acceleration = 64
@@ -31,6 +32,8 @@ func _ready():
 	$Weapon.ownerNode = self
 	Vars.enemyRemaining += 1
 	nextInvisible = Vars.time() + invisibleCooldown * 1000
+	if startCloaked:
+		nextInvisible = Vars.time()
 
 func shadering (delta):
 	var r = 0.1
