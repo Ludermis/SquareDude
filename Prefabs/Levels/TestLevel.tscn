@@ -112,7 +112,7 @@ volume_db = -15.0
 
 [node name="PistolAttackSound" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource( 29 )
-volume_db = -15.0
+volume_db = -18.0
 
 [node name="PistolReloadSound" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource( 30 )

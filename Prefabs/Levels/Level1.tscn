@@ -33,13 +33,13 @@
 [ext_resource path="res://Sounds/Music/music1.wav" type="AudioStream" id=31]
 [ext_resource path="res://Fonts/ThaleahFat.ttf" type="DynamicFontData" id=32]
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=1]
 size = 32
 outline_size = 4
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 32 )
 
-[sub_resource type="Environment" id=1]
+[sub_resource type="Environment" id=2]
 background_mode = 4
 dof_blur_far_distance = 6.4
 dof_blur_far_transition = 72.82
@@ -59,7 +59,7 @@ margin_left = -896.0
 margin_top = 384.0
 margin_right = -666.0
 margin_bottom = 414.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 text = "Take the weapon!"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -70,7 +70,7 @@ margin_left = -448.0
 margin_top = 64.0
 margin_right = -172.0
 margin_bottom = 94.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 text = "Is.. there an enemy ?"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -81,7 +81,7 @@ margin_left = 336.0
 margin_top = 200.0
 margin_right = 808.0
 margin_bottom = 230.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 text = "YOu'll need this medkit to survive."
 __meta__ = {
 "_edit_use_anchors_": false
@@ -92,7 +92,7 @@ margin_left = 1264.0
 margin_top = -40.0
 margin_right = 1434.0
 margin_bottom = -10.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 text = "Make a jump!"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -103,7 +103,7 @@ margin_left = 2048.0
 margin_top = 104.0
 margin_right = 2370.0
 margin_bottom = 134.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 text = "Beware of bullet hell!"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -114,7 +114,7 @@ margin_left = 2048.0
 margin_top = 472.0
 margin_right = 2590.0
 margin_bottom = 502.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 text = "Use medkits on lowest health possible!"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -124,14 +124,14 @@ __meta__ = {
 margin_left = 1536.0
 margin_right = 1820.0
 margin_bottom = 30.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 text = "..And take the armor."
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Background" parent="." instance=ExtResource( 22 )]
-position = Vector2( 6.10352e-05, 7.62939e-06 )
+position = Vector2( 1.45519e-11, 4.54747e-13 )
 
 [node name="GroundBottom" parent="." instance=ExtResource( 3 )]
 position = Vector2( 8, 1024 )
@@ -272,7 +272,7 @@ weaponName = "SMG"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 pause_mode = 2
-environment = SubResource( 1 )
+environment = SubResource( 2 )
 
 [node name="Medkit" parent="." instance=ExtResource( 9 )]
 position = Vector2( 576, 288 )
@@ -366,7 +366,7 @@ volume_db = -15.0
 
 [node name="PistolAttackSound" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource( 28 )
-volume_db = -15.0
+volume_db = -18.0
 
 [node name="PistolReloadSound" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource( 29 )
@@ -382,14 +382,8 @@ volume_db = -15.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="CountdownMain" type="Control" parent="CanvasLayer" instance=ExtResource( 4 )]
-anchor_right = 1.0
-anchor_bottom = 1.0
+[node name="CountdownMain" parent="CanvasLayer" instance=ExtResource( 4 )]
 rect_pivot_offset = Vector2( 960, 499.813 )
-__meta__ = {
-"_edit_lock_": true,
-"_edit_use_anchors_": false
-}
 
 [node name="Armor" parent="." instance=ExtResource( 10 )]
 position = Vector2( 1624, 88 )
