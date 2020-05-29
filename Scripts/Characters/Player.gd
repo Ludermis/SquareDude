@@ -154,7 +154,7 @@ func throwWeapon ():
 	get_tree().root.get_node("Main").add_child(node)
 
 func _physics_process(delta):
-	velocity += Vars.gravity
+	velocity += Vars.gravity * delta
 	if Input.is_action_pressed('right'):
 		velocity.x = min(velocity.x + acceleration, maxSpeed)
 	elif Input.is_action_pressed('left'):

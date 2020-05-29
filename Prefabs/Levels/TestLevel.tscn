@@ -135,7 +135,7 @@ position = Vector2( 0, 8 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 material = null
-position = Vector2( 96, 544 )
+position = Vector2( 96, 672 )
 
 [node name="Weapon" parent="Player" instance=ExtResource( 6 )]
 
@@ -148,7 +148,7 @@ position = Vector2( 72, 1088 )
 rect_pivot_offset = Vector2( 960, 499.813 )
 
 [node name="WeaponPickup" parent="." instance=ExtResource( 3 )]
-position = Vector2( 296, 648 )
+position = Vector2( 920, 640 )
 weaponName = "SMG"
 
 [node name="WeaponPickup3" parent="." instance=ExtResource( 3 )]
@@ -166,6 +166,10 @@ weaponName = "Rifle"
 [node name="WeaponPickup5" parent="." instance=ExtResource( 3 )]
 position = Vector2( 816, 640 )
 weaponName = "FlareGun"
+
+[node name="WeaponPickup6" parent="." instance=ExtResource( 3 )]
+position = Vector2( 208, 648 )
+weaponName = "Sniper"
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 pause_mode = 2

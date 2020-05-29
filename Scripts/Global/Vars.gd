@@ -1,9 +1,9 @@
 extends Node
 
-var gravity = Vector2(0,98 / 2)
+var gravity = Vector2(0,98 / 2 * 60)
 var friction = 0.2
-var FASTFORDEBUG = false
-var enemyAIType = 2
+var FASTFORDEBUG = true
+var enemyAIType = 3
 var enemyRemaining = 0
 var currentLevel = -1
 var countdownSeconds = 1

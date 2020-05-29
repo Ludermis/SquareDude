@@ -16,7 +16,7 @@ func _ready():
 
 func _physics_process(delta):
 	if positionY == null:
-		velocity += Vars.gravity
+		velocity += Vars.gravity * delta
 	
 	velocity = move_and_slide(velocity, Vector2.UP)
 	if velocity.y != 0:
