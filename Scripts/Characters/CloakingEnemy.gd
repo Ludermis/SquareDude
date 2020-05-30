@@ -141,7 +141,7 @@ func aiMove () -> void:
 			#aiLastCalculated += aiMoveCalculateDelay - 100
 
 func _physics_process(delta):
-	velocity += Vars.gravity
+	velocity += Vars.gravity * delta
 	
 	idle()
 	

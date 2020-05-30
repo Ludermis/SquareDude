@@ -44,7 +44,7 @@ func shoot (target):
 		frame = 0
 		play()
 		$"../../Sounds/ShotgunBlastSound".play()
-		ownerNode.velocity.x -= (target - ownerNode.position).normalized().x * 25
+		ownerNode.velocity.x -= (target - ownerNode.position).normalized().x * 25 * 20
 		lastShoot = Vars.time()
 		
 		#Bullet 1

@@ -43,6 +43,7 @@ func shoot (target):
 		$"../../Sounds/SniperAttackSound".play()
 		canKill = true
 		ownerNode.velocity.x -= (target - ownerNode.position).normalized().x * 25 * 50
+		ownerNode.velocity.y -= (target - ownerNode.position).normalized().y * 25 * 50 / 2
 		lastShoot = Vars.time()
 		Vars.currentCamera.shake(0.2,15,4)
 		curAmmo -= 1

@@ -29,7 +29,7 @@ func shoot (target):
 	
 	if readyToShoot && !reloading && curAmmo > 0 && lastShoot + (1000.0 / shootDelay) <= Vars.time():
 		$"../../Sounds/RifleAttackSound".play()
-		ownerNode.velocity.x -= (target - ownerNode.position).normalized().x * 25
+		ownerNode.velocity.x -= (target - ownerNode.position).normalized().x * 25 * 10
 		lastShoot = Vars.time()
 		var node = preload("res://Prefabs/Bullets/Bullet.tscn").instance()
 		node.position = to_global(Vars.rotatePoint(position + Vector2(16,0),position,get_angle_to(target)))
