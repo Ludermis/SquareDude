@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://Prefabs/Characters/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Prefabs/Design/Set 1/Misc/Background.tscn" type="PackedScene" id=2]
@@ -30,6 +30,8 @@
 [ext_resource path="res://Sounds/riflereload.wav" type="AudioStream" id=28]
 [ext_resource path="res://Sounds/pistolattacksound.wav" type="AudioStream" id=29]
 [ext_resource path="res://Sounds/pistolreloadsound.wav" type="AudioStream" id=30]
+[ext_resource path="res://Sounds/sniperattacksound.wav" type="AudioStream" id=31]
+[ext_resource path="res://Sounds/sniperreload.wav" type="AudioStream" id=32]
 
 [sub_resource type="Environment" id=1]
 background_mode = 4
@@ -124,6 +126,14 @@ volume_db = -15.0
 
 [node name="FlareGunAttackSound" type="AudioStreamPlayer" parent="Sounds"]
 stream = ExtResource( 9 )
+volume_db = -15.0
+
+[node name="SniperAttackSound" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 31 )
+volume_db = -15.0
+
+[node name="SniperReloadSound" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 32 )
 volume_db = -15.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]

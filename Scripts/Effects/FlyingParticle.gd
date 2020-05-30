@@ -13,7 +13,7 @@ func _process(delta):
 	pass
 
 func _physics_process(delta):
-	velocity += Vars.gravity
+	velocity += Vars.gravity * delta
 	if is_on_floor():
 		var normal = get_floor_normal()
 		var angleDelta = normal.angle() - (rotation - PI)

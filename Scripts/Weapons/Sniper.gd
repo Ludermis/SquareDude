@@ -40,7 +40,7 @@ func _process(delta):
 func shoot (target):
 	
 	if readyToShoot && !reloading && curAmmo > 0 && lastShoot + shootDelay <= Vars.time():
-		$"../../Sounds/RifleAttackSound".play()
+		$"../../Sounds/SniperAttackSound".play()
 		canKill = true
 		ownerNode.velocity.x -= (target - ownerNode.position).normalized().x * 25 * 50
 		lastShoot = Vars.time()
@@ -50,6 +50,6 @@ func shoot (target):
 
 func reload ():
 	if ownerNode.is_in_group("Player"):
-		$"../../Sounds/RifleReloadSound".play()
+		$"../../Sounds/SniperReloadSound".play()
 	reloadStarted = Vars.time()
 	reloading = true
