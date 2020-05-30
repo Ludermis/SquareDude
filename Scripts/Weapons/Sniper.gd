@@ -2,11 +2,11 @@ extends Sprite
 
 var ownerNode : Node2D
 var lastShoot = -100000
-var shootDelay = 175
+var shootDelay = 5.8
 var damage = 100
 var maxAmmo = 1
 var curAmmo = maxAmmo
-var reloadDelay = 2000
+var reloadDelay = 1.25
 var reloading = false
 var reloadStarted = 0
 var weaponName = "Sniper"
@@ -24,7 +24,7 @@ func _process(delta):
 	
 	if reloading && reloadStarted + 100 <= Vars.time():
 		$LaserBeam2D.is_casting = false
-	if reloading && reloadStarted + reloadDelay <= Vars.time():
+	if reloading && reloadStarted + reloadDelay * 1000 <= Vars.time():
 		curAmmo = maxAmmo
 		reloading = false
 	if global_position.distance_to(ownerNode.global_position) > 4:
@@ -39,7 +39,7 @@ func _process(delta):
 
 func shoot (target):
 	
-	if readyToShoot && !reloading && curAmmo > 0 && lastShoot + shootDelay <= Vars.time():
+	if readyToShoot && !reloading && curAmmo > 0 && lastShoot + (1000.0 / shootDelay) <= Vars.time():
 		$"../../Sounds/SniperAttackSound".play()
 		canKill = true
 		ownerNode.velocity.x -= (target - ownerNode.position).normalized().x * 25 * 50

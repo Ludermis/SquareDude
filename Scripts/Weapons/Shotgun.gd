@@ -2,11 +2,11 @@ extends AnimatedSprite
 
 var ownerNode : Node2D
 var lastShoot = -100000
-var shootDelay = 790
-var damage = 10
+var shootDelay = 1.2
+var damage = 25
 var maxAmmo = 5
 var curAmmo = maxAmmo
-var reloadDelay = 1000
+var reloadDelay = 1
 var reloading = false
 var reloadStarted = 0
 var weaponName = "Shotgun"
@@ -16,7 +16,7 @@ func _ready():
 	pass
 
 func _process(delta):
-	if reloading && reloadStarted + reloadDelay <= Vars.time():
+	if reloading && reloadStarted + reloadDelay * 1000 <= Vars.time():
 		curAmmo = maxAmmo
 		reloading = false
 	if global_position.distance_to(ownerNode.global_position) > 4:
@@ -40,7 +40,7 @@ func _draw():
 func shoot (target):
 
 	
-	if !reloading && curAmmo > 0 && lastShoot + shootDelay <= Vars.time():
+	if !reloading && curAmmo > 0 && lastShoot + (1000.0 / shootDelay) <= Vars.time():
 		frame = 0
 		play()
 		$"../../Sounds/ShotgunBlastSound".play()

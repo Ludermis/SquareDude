@@ -28,7 +28,7 @@ func _process(delta):
 	$"Controls/HealthFG".rect_size.x = (health / maxHealth) * 64.0
 	if $Weapon.reloading:
 		$"Controls/ProgressBar".visible = true
-		$"Controls/ProgressBar".get_material().set_shader_param('value',((Vars.time() - $Weapon.reloadStarted) / ($Weapon.reloadDelay)) * 100.0)
+		$"Controls/ProgressBar".get_material().set_shader_param('value',((Vars.time() - $Weapon.reloadStarted) / ($Weapon.reloadDelay * 1000)) * 100.0)
 	else:
 		$"Controls/ProgressBar".visible = false
 	update()
