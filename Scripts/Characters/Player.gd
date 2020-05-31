@@ -8,7 +8,7 @@ var debugDraw = false
 var wasOnFloor = false
 var airJumpsMax = 1
 var airJumpsLeft = airJumpsMax
-var maxHealth : float = 100
+var maxHealth : float = 100000
 var maxArmor : float = 100
 var armor : float = 0
 var health : float = maxHealth
@@ -172,7 +172,7 @@ func _physics_process(delta):
 		rotation = lerp(rotation,angleDelta + rotation,0.4)
 	
 	if Input.is_action_just_pressed("misc1"):
-		var node = preload("res://Prefabs/Characters/Enemy.tscn").instance()
+		var node = preload("res://Prefabs/Characters/TeleportingEnemy.tscn").instance()
 		node.position = get_global_mouse_position()
 		$"..".add_child(node)
 	
