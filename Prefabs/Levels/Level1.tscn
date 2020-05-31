@@ -275,7 +275,7 @@ pause_mode = 2
 environment = SubResource( 2 )
 
 [node name="Medkit" parent="." instance=ExtResource( 9 )]
-position = Vector2( 576, 288 )
+position = Vector2( 576, 296 )
 
 [node name="Medkit2" parent="." instance=ExtResource( 9 )]
 position = Vector2( 2528, 552 )

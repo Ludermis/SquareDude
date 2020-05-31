@@ -24,7 +24,7 @@ func _physics_process(delta):
 	else:
 		velocity.x = lerp(velocity.x,0,Vars.friction / 3)
 	
-	if velocity.y == 0 && abs(velocity.x) < 64 && positionY == null:
+	if abs(velocity.y) < 2 && abs(velocity.x) < 64 && positionY == null:
 		positionY = position.y
 		startFloating = Vars.time()
 

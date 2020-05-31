@@ -15,6 +15,7 @@ var currentCosmetics = {"Hat": 0}
 var cosmeticsPrice = {"cowboyhat": 100,"testhat": 350, "blackhat": 500}
 var money = 100
 var crystal = 5
+var levelStarted = 0
 
 func rotatePoint(point,center,angle) -> Vector2:
 	var newX = cos(angle) * (point.x - center.x) - sin(angle) * (point.y - center.y) + center.x

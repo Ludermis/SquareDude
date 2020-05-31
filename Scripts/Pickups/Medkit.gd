@@ -10,7 +10,7 @@ func _ready():
 
 func _physics_process(delta):
 	if positionY == null:
-		velocity += Vars.gravity
+		velocity += Vars.gravity * delta
 	
 	velocity = move_and_slide(velocity, Vector2.UP)
 	if velocity.y != 0:
@@ -18,7 +18,7 @@ func _physics_process(delta):
 	else:
 		velocity.x = lerp(velocity.x,0,Vars.friction / 3)
 	
-	if velocity.y == 0 && abs(velocity.x) < 64 && positionY == null:
+	if abs(velocity.y) < 2 && abs(velocity.x) < 64 && positionY == null:
 		positionY = position.y
 		startFloating = Vars.time()
 
