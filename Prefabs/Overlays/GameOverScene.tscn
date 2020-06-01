@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Fonts/ThaleahFat.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Sprites/UI/button.png" type="Texture" id=2]
@@ -6,19 +6,17 @@
 [ext_resource path="res://Scripts/UI/MainMenuButton.gd" type="Script" id=4]
 [ext_resource path="res://Scripts/Overlays/GameOverScene.gd" type="Script" id=5]
 
-
-
-
-
-
-
-
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=3]
 size = 120
 outline_size = 8
 font_data = ExtResource( 1 )
 
 [sub_resource type="DynamicFont" id=2]
+size = 80
+outline_size = 8
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=4]
 size = 64
 outline_size = 8
 outline_color = Color( 0, 0, 0, 1 )
@@ -37,11 +35,26 @@ __meta__ = {
 [node name="Label" type="Label" parent="."]
 margin_right = 1920.0
 margin_bottom = 384.0
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 1, 0, 0, 1 )
 custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
 text = "GAME OVER!
 You DIED"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="."]
+margin_left = 480.0
+margin_top = 280.0
+margin_right = 1432.0
+margin_bottom = 384.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+text = "00.00"
 align = 1
 valign = 1
 __meta__ = {
@@ -71,7 +84,7 @@ __meta__ = {
 [node name="Label" type="Label" parent="Menu/TryAgainButton"]
 margin_right = 384.0
 margin_bottom = 64.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 4 )
 text = "TRY AGAIN"
 align = 1
 valign = 1
@@ -92,7 +105,7 @@ __meta__ = {
 [node name="Label" type="Label" parent="Menu/MainMenuButton"]
 margin_right = 384.0
 margin_bottom = 64.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 4 )
 text = "MAIN MENU"
 align = 1
 valign = 1

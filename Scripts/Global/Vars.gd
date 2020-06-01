@@ -3,7 +3,7 @@ extends Node
 var gravity = Vector2(0,98 / 2 * 60)
 var friction = 0.2
 var FASTFORDEBUG = true
-var enemyAIType = 2
+var enemyAIType = 3
 var enemyRemaining = 0
 var currentLevel = -1
 var countdownSeconds = 1
@@ -34,6 +34,19 @@ func getNearestPickup (pos) -> Node2D:
 		if pickup.global_position.distance_to(pos) < returner.global_position.distance_to(pos):
 			returner = pickup
 	return returner
+
+func timeToString (t):
+	var rtn = ""
+	var minutes = int(t / 60)
+	if minutes < 10:
+		rtn += "0"
+	rtn += str(minutes)
+	rtn += ":"
+	var seconds = int(t) % 60
+	if seconds < 10:
+		rtn += "0"
+	rtn += str(seconds)
+	return rtn
 
 func saveGame ():
 	var dict = {

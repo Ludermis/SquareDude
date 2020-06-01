@@ -10,7 +10,7 @@ extends Control
 func _ready():
 	get_tree().paused = true
 	var we : WorldEnvironment = $"../../WorldEnvironment"
-	$Label2.text = str(int((Vars.time() - Vars.levelStarted) / 1000 / 60),".",int((Vars.time() - Vars.levelStarted) / 1000) % 60)
+	$Label2.text = Vars.timeToString((Vars.time() - Vars.levelStarted) / 1000)
 	we.environment.dof_blur_near_enabled = true
 	
 	var tween = get_node("Tween2")

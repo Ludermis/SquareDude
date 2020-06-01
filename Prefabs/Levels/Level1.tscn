@@ -133,8 +133,15 @@ __meta__ = {
 [node name="Background" parent="." instance=ExtResource( 22 )]
 position = Vector2( 1.45519e-11, 4.54747e-13 )
 
-[node name="GroundBottom" parent="." instance=ExtResource( 3 )]
-position = Vector2( 8, 1024 )
+[node name="Floor" parent="." instance=ExtResource( 2 )]
+position = Vector2( 3718.21, 388.951 )
+rotation = -0.489691
+scale = Vector2( 1, 1 )
+
+[node name="Floor2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 3266.56, 629.589 )
+rotation = -0.489691
+scale = Vector2( 1, 1 )
 
 [node name="Floors" type="Node2D" parent="."]
 
@@ -233,6 +240,30 @@ position = Vector2( 2864, 312 )
 [node name="AirFloor12" parent="AirFloors" instance=ExtResource( 5 )]
 position = Vector2( 3000, 176 )
 
+[node name="AirFloor14" parent="AirFloors" instance=ExtResource( 5 )]
+position = Vector2( 4043.27, 305.271 )
+
+[node name="AirFloor18" parent="AirFloors" instance=ExtResource( 5 )]
+position = Vector2( 4763.27, -30.7291 )
+
+[node name="AirFloor19" parent="AirFloors" instance=ExtResource( 5 )]
+position = Vector2( 5003.27, -142.729 )
+
+[node name="AirFloor20" parent="AirFloors" instance=ExtResource( 5 )]
+position = Vector2( 5259.27, -142.729 )
+
+[node name="AirFloor21" parent="AirFloors" instance=ExtResource( 5 )]
+position = Vector2( 5515.27, -142.729 )
+
+[node name="AirFloor15" parent="AirFloors" instance=ExtResource( 5 )]
+position = Vector2( 4283.27, 193.271 )
+
+[node name="AirFloor16" parent="AirFloors" instance=ExtResource( 5 )]
+position = Vector2( 4283.27, 193.271 )
+
+[node name="AirFloor17" parent="AirFloors" instance=ExtResource( 5 )]
+position = Vector2( 4523.27, 81.2709 )
+
 [node name="AirFloor13" parent="AirFloors" instance=ExtResource( 5 )]
 position = Vector2( 2736, 440 )
 
@@ -251,6 +282,18 @@ position = Vector2( 2440, 224 )
 [node name="Enemy6" parent="." instance=ExtResource( 8 )]
 position = Vector2( 2568, 96 )
 
+[node name="Enemy9" parent="." instance=ExtResource( 8 )]
+position = Vector2( 3968.91, 205.186 )
+
+[node name="Enemy10" parent="." instance=ExtResource( 8 )]
+position = Vector2( 4092.9, 203.335 )
+
+[node name="Enemy13" parent="." instance=ExtResource( 8 )]
+position = Vector2( 5349.88, -241.631 )
+
+[node name="Enemy14" parent="." instance=ExtResource( 8 )]
+position = Vector2( 5579.54, -249.833 )
+
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( -928, 544 )
 
@@ -262,13 +305,29 @@ startCloaked = true
 position = Vector2( 2720, -24 )
 startCloaked = true
 
+[node name="Enemy11" parent="." instance=ExtResource( 6 )]
+position = Vector2( 4459.57, -21.8786 )
+startCloaked = true
+
+[node name="Enemy12" parent="." instance=ExtResource( 6 )]
+position = Vector2( 4701.46, -127.533 )
+startCloaked = true
+
+[node name="Enemy15" parent="." instance=ExtResource( 6 )]
+position = Vector2( 4946.52, -252.19 )
+startCloaked = true
+
 [node name="Enemy8" parent="." instance=ExtResource( 6 )]
 position = Vector2( 2984, 88 )
 startCloaked = true
 
 [node name="WeaponPickup" parent="." instance=ExtResource( 7 )]
-position = Vector2( -800, 544 )
+position = Vector2( -800, 552 )
 weaponName = "SMG"
+
+[node name="WeaponPickup2" parent="." instance=ExtResource( 7 )]
+position = Vector2( 3187.2, 551.186 )
+weaponName = "Rifle"
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 pause_mode = 2
@@ -279,6 +338,9 @@ position = Vector2( 576, 296 )
 
 [node name="Medkit2" parent="." instance=ExtResource( 9 )]
 position = Vector2( 2528, 552 )
+
+[node name="Medkit3" parent="." instance=ExtResource( 9 )]
+position = Vector2( 3096.63, 549.415 )
 
 [node name="InvisibleWall" type="StaticBody2D" parent="."]
 collision_layer = 3
@@ -387,6 +449,9 @@ rect_pivot_offset = Vector2( 960, 499.813 )
 
 [node name="Armor" parent="." instance=ExtResource( 10 )]
 position = Vector2( 1624, 88 )
+
+[node name="GroundBottom" parent="." instance=ExtResource( 3 )]
+position = Vector2( 8, 1024 )
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 pause_mode = 2
