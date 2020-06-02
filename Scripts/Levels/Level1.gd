@@ -19,4 +19,4 @@ func _ready():
 func _on_Main_tree_entered():
 	Vars.currentLevel = 1
 	Vars.countdownSeconds = 2
-	$Music.play(5.50)
+	$Music.play(5.30)
