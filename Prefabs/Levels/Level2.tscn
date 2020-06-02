@@ -1,12 +1,12 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://Prefabs/Design/Set 1/Floors & Walls/Floor8x1.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Prefabs/Pickups/Armor.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Prefabs/Pickups/WeaponPickup.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Prefabs/Design/Set 1/AirFloors/AirFloor2x2.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Prefabs/Design/Set 1/Floors & Walls/Floor6x1.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Prefabs/Characters/Enemy.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Prefabs/Design/Set 1/Floors & Walls/Floor4x1.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Prefabs/Pickups/AttackBuff.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Prefabs/Pickups/Medkit.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Prefabs/Pickups/WeaponPickup.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Prefabs/Design/Set 1/Misc/Background.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Prefabs/Design/Set 1/Misc/GroundBottom.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Prefabs/Design/Set 1/AirFloors/AirFloor6x2.tscn" type="PackedScene" id=10]
@@ -23,6 +23,14 @@
 [ext_resource path="res://Sounds/gunshot.wav" type="AudioStream" id=21]
 [ext_resource path="res://Sounds/bulletimpact.wav" type="AudioStream" id=22]
 [ext_resource path="res://Sounds/jumpsound.wav" type="AudioStream" id=23]
+[ext_resource path="res://Sounds/flaregunattacksound.wav" type="AudioStream" id=24]
+[ext_resource path="res://Sounds/rifleattacksound.wav" type="AudioStream" id=25]
+[ext_resource path="res://Sounds/riflereload.wav" type="AudioStream" id=26]
+[ext_resource path="res://Sounds/pistolattacksound.wav" type="AudioStream" id=27]
+[ext_resource path="res://Sounds/sniperreload.wav" type="AudioStream" id=28]
+[ext_resource path="res://Sounds/pistolreloadsound.wav" type="AudioStream" id=29]
+[ext_resource path="res://Sounds/sniperattacksound.wav" type="AudioStream" id=30]
+[ext_resource path="res://Prefabs/Pickups/Armor.tscn" type="PackedScene" id=31]
 
 [sub_resource type="Environment" id=1]
 background_mode = 4
@@ -47,18 +55,24 @@ position = Vector2( 512, 0 )
 [node name="Floor3" parent="Floor" instance=ExtResource( 1 )]
 position = Vector2( 1024, 0 )
 
+[node name="Floor" parent="Floor" instance=ExtResource( 3 )]
+position = Vector2( 1472, 0 )
+
+[node name="Floor4" parent="Floor" instance=ExtResource( 3 )]
+position = Vector2( 1856, 0 )
+
 [node name="Background" parent="." instance=ExtResource( 8 )]
-position = Vector2( 2.38419e-07, -9.53674e-07 )
+position = Vector2( 2.84217e-14, -5.68434e-14 )
 
 [node name="GroundBottom" parent="." instance=ExtResource( 9 )]
 position = Vector2( 840, 1024 )
 
 [node name="Floor2" parent="." instance=ExtResource( 5 )]
-position = Vector2( 528, 408 )
+position = Vector2( 704, 360 )
 rotation = -0.377821
 
 [node name="AirFloor" parent="." instance=ExtResource( 10 )]
-position = Vector2( 880, 368 )
+position = Vector2( 1096, 320 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 pause_mode = 2
@@ -67,24 +81,38 @@ environment = SubResource( 1 )
 [node name="Player" parent="." instance=ExtResource( 11 )]
 position = Vector2( 192, 544 )
 
-[node name="Enemy" parent="." instance=ExtResource( 4 )]
-position = Vector2( 928, 544 )
+[node name="AirFloor2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 128, 360 )
+rotation = -5.07036e-06
 
-[node name="Enemy2" parent="." instance=ExtResource( 12 )]
-position = Vector2( 1008, 272 )
+[node name="Floor3" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1368, 448 )
+rotation = -1.57118
 
-[node name="WeaponPickup" parent="." instance=ExtResource( 3 )]
-position = Vector2( 312, 544 )
-weaponName = "Shotgun"
+[node name="AirFloor3" parent="." instance=ExtResource( 10 )]
+position = Vector2( 1696, 512 )
 
-[node name="Armor" parent="." instance=ExtResource( 2 )]
-position = Vector2( 640, 528 )
-
-[node name="Medkit" parent="." instance=ExtResource( 7 )]
-position = Vector2( 768, 280 )
+[node name="Floor4" parent="." instance=ExtResource( 1 )]
+position = Vector2( 2560, 608 )
 
 [node name="AttackBuff" parent="." instance=ExtResource( 6 )]
-position = Vector2( 48, 544 )
+position = Vector2( 128, 264 )
+
+[node name="Enemy" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1192, 224 )
+
+[node name="Enemy2" parent="." instance=ExtResource( 12 )]
+position = Vector2( 1464, 544 )
+
+[node name="Floor5" parent="." instance=ExtResource( 5 )]
+position = Vector2( 400, 168 )
+
+[node name="Enemy3" parent="." instance=ExtResource( 4 )]
+position = Vector2( 408, 104 )
+
+[node name="WeaponPickup" parent="." instance=ExtResource( 7 )]
+position = Vector2( 64, 536 )
+weaponName = "Pistol"
 
 [node name="Sounds" type="Node2D" parent="."]
 __meta__ = {
@@ -145,3 +173,34 @@ stream = ExtResource( 17 )
 pause_mode = 2
 stream = ExtResource( 18 )
 volume_db = -13.97
+
+[node name="RifleAttackSound" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 25 )
+volume_db = -15.0
+
+[node name="PistolAttackSound" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 27 )
+volume_db = -18.0
+
+[node name="PistolReloadSound" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 29 )
+volume_db = -12.0
+
+[node name="RifleReloadSound" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 26 )
+volume_db = -15.0
+
+[node name="FlareGunAttackSound" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 24 )
+volume_db = -15.0
+
+[node name="SniperAttackSound" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 30 )
+volume_db = -15.0
+
+[node name="SniperReloadSound" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 28 )
+volume_db = -15.0
+
+[node name="Armor" parent="." instance=ExtResource( 31 )]
+position = Vector2( 488, 104 )
