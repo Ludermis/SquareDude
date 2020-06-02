@@ -74,7 +74,7 @@ func _process(delta):
 	if Input.is_action_just_pressed('esc'):
 		get_tree().change_scene("res://Prefabs/Scenes/MainMenuScene.tscn")
 	boostHandler(delta)
-	if is_instance_valid($Weapon):
+	if has_node("Weapon"):
 		$"Controls/AmmoLabel".visible = true
 		if $Weapon.curAmmo == 0 && $Weapon.reloading == false:
 			$Weapon.reload()
@@ -170,7 +170,7 @@ func _physics_process(delta):
 		node.position = get_global_mouse_position()
 		$"..".add_child(node)
 	
-	if is_instance_valid($Weapon):
+	if has_node("Weapon"):
 		if Input.is_action_just_pressed("reload") &&  $Weapon.reloading == false && $Weapon.curAmmo < $Weapon.maxAmmo:
 			$Weapon.reload()
 		if get_global_mouse_position().x < position.x:
