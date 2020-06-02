@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://Prefabs/Characters/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Prefabs/Design/Set 1/Misc/Background.tscn" type="PackedScene" id=2]
@@ -21,6 +21,7 @@
 [ext_resource path="res://Prefabs/Pickups/SpeedBuff.tscn" type="PackedScene" id=19]
 [ext_resource path="res://Prefabs/Pickups/Armor.tscn" type="PackedScene" id=20]
 [ext_resource path="res://Prefabs/Pickups/AttackBuff.tscn" type="PackedScene" id=21]
+[ext_resource path="res://Prefabs/Characters/CloakingEnemy.tscn" type="PackedScene" id=22]
 [ext_resource path="res://Sounds/gunpickup.wav" type="AudioStream" id=23]
 [ext_resource path="res://Sounds/speedsound.wav" type="AudioStream" id=24]
 [ext_resource path="res://Sounds/armorsound.wav" type="AudioStream" id=25]
@@ -32,6 +33,8 @@
 [ext_resource path="res://Sounds/sniperattacksound.wav" type="AudioStream" id=31]
 [ext_resource path="res://Sounds/sniperreload.wav" type="AudioStream" id=32]
 [ext_resource path="res://Prefabs/Characters/TeleportingEnemy.tscn" type="PackedScene" id=33]
+[ext_resource path="res://Prefabs/Design/Set 1/AirFloors/AirFloor6x2.tscn" type="PackedScene" id=34]
+[ext_resource path="res://Prefabs/Characters/Enemy.tscn" type="PackedScene" id=35]
 
 [sub_resource type="Environment" id=1]
 background_mode = 4
@@ -216,6 +219,10 @@ position = Vector2( 1448, 680 )
 [node name="AttackBuff" parent="." instance=ExtResource( 21 )]
 position = Vector2( 1832, 672 )
 
+[node name="AAA" parent="." instance=ExtResource( 5 )]
+position = Vector2( 1256, 568 )
+rotation = -0.774088
+
 [node name="Floor" parent="." instance=ExtResource( 5 )]
 position = Vector2( 192, 736 )
 
@@ -244,5 +251,17 @@ position = Vector2( 3776, 736 )
 position = Vector2( 4288, 736 )
 
 [node name="TeleportingEnemy" parent="." instance=ExtResource( 33 )]
-position = Vector2( 336, 648 )
+position = Vector2( 1568, 336 )
+
+[node name="Enemy" parent="." instance=ExtResource( 35 )]
+position = Vector2( 320, 656 )
+
+[node name="Enemy2" parent="." instance=ExtResource( 22 )]
+position = Vector2( 1992, 200 )
+
+[node name="AirFloor" parent="." instance=ExtResource( 34 )]
+position = Vector2( 1592, 432 )
+
+[node name="AirFloor2" parent="." instance=ExtResource( 34 )]
+position = Vector2( 2096, 312 )
 [connection signal="tree_entered" from="." to="." method="_on_TestLevel_tree_entered"]

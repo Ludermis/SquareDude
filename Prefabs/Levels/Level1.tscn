@@ -136,12 +136,10 @@ position = Vector2( 1.45519e-11, 4.54747e-13 )
 [node name="Floor" parent="." instance=ExtResource( 2 )]
 position = Vector2( 3718.21, 388.951 )
 rotation = -0.489691
-scale = Vector2( 1, 1 )
 
 [node name="Floor2" parent="." instance=ExtResource( 2 )]
 position = Vector2( 3266.56, 629.589 )
 rotation = -0.489691
-scale = Vector2( 1, 1 )
 
 [node name="Floors" type="Node2D" parent="."]
 
