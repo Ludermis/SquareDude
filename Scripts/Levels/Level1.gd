@@ -11,10 +11,10 @@ func _ready():
 	$WorldEnvironment.environment.dof_blur_near_enabled = false
 	Vars.levelStarted = Vars.time()
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _process(delta):
+	if $Music.playing == false:
+		$Music.play(5.30)
 
 func _on_Main_tree_entered():
 	Vars.currentLevel = 1

@@ -178,6 +178,8 @@ func _on_Sprite_animation_finished():
 			if "Floor" in i.name:
 				rndArr.append(i)
 		var nodeToTeleport = rndArr[randi() % rndArr.size()]
+		while nodeToTeleport.position.distance_to(get_tree().root.get_node("Main/Player").position) > 1920:
+			nodeToTeleport = rndArr[randi() % rndArr.size()]
 		position.x = nodeToTeleport.position.x
 		position.y = nodeToTeleport.position.y - 32
 	elif $Sprite.animation == "spawning":

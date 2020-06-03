@@ -3,9 +3,6 @@
 [ext_resource path="res://Fonts/ThaleahFat.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Scripts/UI/CountdownLabel.gd" type="Script" id=2]
 
-
-
-
 [sub_resource type="DynamicFont" id=1]
 size = 256
 outline_size = 8
@@ -16,6 +13,7 @@ font_data = ExtResource( 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 __meta__ = {
+"_edit_lock_": true,
 "_edit_use_anchors_": false
 }
 

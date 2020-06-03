@@ -1,5 +1,6 @@
 extends KinematicBody2D
 
+export var canJump = true
 var velocity = Vector2.ZERO
 var jumpHeight = 1024
 var acceleration = 64
@@ -34,7 +35,7 @@ func _process(delta):
 	update()
 
 func jump ():
-	if lastJumpTime + jumpCooldown <= Vars.time():
+	if canJump && lastJumpTime + jumpCooldown <= Vars.time():
 		lastJumpTime = Vars.time()
 		if is_on_floor():
 			$"../Sounds/JumpSound".pitch_scale = 1.0
