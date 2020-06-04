@@ -9,6 +9,7 @@ extends Control
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	get_tree().paused = true
+	AudioServer.set_bus_effect_enabled(1,0,true)
 	var we : WorldEnvironment = $"../../WorldEnvironment"
 	$Label2.text = Vars.timeToString((Vars.time() - Vars.levelStarted) / 1000)
 	we.environment.dof_blur_near_enabled = true
