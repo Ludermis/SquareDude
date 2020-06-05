@@ -1,0 +1,444 @@
+[gd_scene load_steps=35 format=2]
+
+[ext_resource path="res://Prefabs/Characters/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Prefabs/Design/Set 1/Floors & Walls/Floor8x1.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Prefabs/Design/Set 1/Misc/GroundBottom.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Prefabs/Misc/CountdownScene.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scripts/Levels/Level4.gd" type="Script" id=5]
+[ext_resource path="res://Prefabs/Design/Set 1/AirFloors/AirFloor6x2.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Prefabs/Pickups/WeaponPickup.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Prefabs/Characters/Enemy.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Prefabs/Characters/CloakingEnemy.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Prefabs/Pickups/Armor.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Sounds/jumpsound.wav" type="AudioStream" id=11]
+[ext_resource path="res://Sounds/gunshot.wav" type="AudioStream" id=12]
+[ext_resource path="res://Sounds/bloodsound.wav" type="AudioStream" id=13]
+[ext_resource path="res://Sounds/reloadsound.wav" type="AudioStream" id=14]
+[ext_resource path="res://Sounds/attackpowerbuff.wav" type="AudioStream" id=15]
+[ext_resource path="res://Sounds/bulletimpact.wav" type="AudioStream" id=16]
+[ext_resource path="res://Sounds/gunpickup.wav" type="AudioStream" id=17]
+[ext_resource path="res://Sounds/speedsound.wav" type="AudioStream" id=18]
+[ext_resource path="res://Sounds/armorsound.wav" type="AudioStream" id=19]
+[ext_resource path="res://Sounds/healthsound.wav" type="AudioStream" id=20]
+[ext_resource path="res://Sounds/shotgunblast.wav" type="AudioStream" id=21]
+[ext_resource path="res://Prefabs/Design/Set 1/Misc/Background.tscn" type="PackedScene" id=22]
+[ext_resource path="res://Prefabs/Characters/TeleportingEnemy.tscn" type="PackedScene" id=23]
+[ext_resource path="res://Prefabs/Design/Set 1/Floors & Walls/Floor6x1.tscn" type="PackedScene" id=24]
+[ext_resource path="res://Sounds/rifleattacksound.wav" type="AudioStream" id=25]
+[ext_resource path="res://Sounds/flaregunattacksound.wav" type="AudioStream" id=26]
+[ext_resource path="res://Sounds/riflereload.wav" type="AudioStream" id=27]
+[ext_resource path="res://Sounds/pistolattacksound.wav" type="AudioStream" id=28]
+[ext_resource path="res://Sounds/pistolreloadsound.wav" type="AudioStream" id=29]
+[ext_resource path="res://Sounds/Music/music1.wav" type="AudioStream" id=31]
+[ext_resource path="res://Fonts/ThaleahFat.ttf" type="DynamicFontData" id=32]
+[ext_resource path="res://Prefabs/Pickups/SpeedBuff.tscn" type="PackedScene" id=33]
+
+[sub_resource type="DynamicFont" id=2]
+size = 94
+outline_size = 4
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 32 )
+
+[sub_resource type="Environment" id=3]
+background_mode = 4
+dof_blur_far_distance = 6.4
+dof_blur_far_transition = 72.82
+glow_enabled = true
+glow_bloom = 0.12
+glow_blend_mode = 0
+glow_bicubic_upscale = true
+
+[node name="Main" type="Node2D"]
+script = ExtResource( 5 )
+
+[node name="Texts" type="Node2D" parent="."]
+z_index = -75
+
+[node name="Label9" type="Label" parent="Texts"]
+margin_left = 2200.0
+margin_top = 152.0
+margin_right = 2875.0
+margin_bottom = 329.0
+custom_fonts/font = SubResource( 2 )
+text = "level 4
+HIGH RISE"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" parent="." instance=ExtResource( 22 )]
+position = Vector2( 1.45519e-11, 4.54747e-13 )
+
+[node name="Floors" type="Node2D" parent="."]
+
+[node name="Floor8" parent="Floors" instance=ExtResource( 2 )]
+position = Vector2( 768, 608 )
+
+[node name="Floor9" parent="Floors" instance=ExtResource( 2 )]
+position = Vector2( 1280, 608 )
+
+[node name="Floor10" parent="Floors" instance=ExtResource( 2 )]
+position = Vector2( 1792, 608 )
+
+[node name="Floor11" parent="Floors" instance=ExtResource( 2 )]
+position = Vector2( 2304, 608 )
+
+[node name="Floor12" parent="Floors" instance=ExtResource( 2 )]
+position = Vector2( 2816, 608 )
+
+[node name="Floor13" parent="Floors" instance=ExtResource( 2 )]
+position = Vector2( 3328, 608 )
+
+[node name="Floor14" parent="Floors" instance=ExtResource( 2 )]
+position = Vector2( 3840, 608 )
+
+[node name="Floor15" parent="Floors" instance=ExtResource( 2 )]
+position = Vector2( 4352, 608 )
+
+[node name="Floor16" parent="Floors" instance=ExtResource( 2 )]
+position = Vector2( 4864, 608 )
+
+[node name="Floor17" parent="Floors" instance=ExtResource( 2 )]
+position = Vector2( 5376, 608 )
+
+[node name="Floor18" parent="Floors" instance=ExtResource( 2 )]
+position = Vector2( 5888, 608 )
+
+[node name="Floor19" parent="Floors" instance=ExtResource( 2 )]
+position = Vector2( 6400, 608 )
+
+[node name="Floor20" parent="Floors" instance=ExtResource( 2 )]
+position = Vector2( 6912, 608 )
+
+[node name="Floor" parent="Floors" instance=ExtResource( 2 )]
+position = Vector2( 256, 608 )
+
+[node name="Floor2" parent="Floors" instance=ExtResource( 2 )]
+position = Vector2( -248, 608 )
+
+[node name="Floor4" parent="Floors" instance=ExtResource( 2 )]
+position = Vector2( -760, 608 )
+
+[node name="Floor5" parent="Floors" instance=ExtResource( 2 )]
+position = Vector2( -1272, 608 )
+
+[node name="Floor6" parent="Floors" instance=ExtResource( 2 )]
+position = Vector2( -1784, 608 )
+
+[node name="Floor7" parent="Floors" instance=ExtResource( 2 )]
+position = Vector2( -2296, 608 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 2528, 544 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+pause_mode = 2
+environment = SubResource( 3 )
+
+[node name="InvisibleWall" type="StaticBody2D" parent="."]
+collision_layer = 3
+collision_mask = 3
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="InvisibleWall"]
+position = Vector2( -1224, -48 )
+polygon = PoolVector2Array( 8, 624, -56, 624, -56, -2640, 8, -2640 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="InvisibleWall"]
+position = Vector2( -224, -488 )
+polygon = PoolVector2Array( -992, -2136, -992, -2200, 5920, -2200, 5920, -2136 )
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="InvisibleWall"]
+position = Vector2( 1256, -24 )
+polygon = PoolVector2Array( 4440, -2600, 4376, -2600, 4376, 600, 4440, 600 )
+
+[node name="Sounds" type="Node2D" parent="."]
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="ShotgunBlastSound" type="AudioStreamPlayer" parent="Sounds"]
+pause_mode = 2
+stream = ExtResource( 21 )
+volume_db = -15.0
+
+[node name="BulletImpactSound" type="AudioStreamPlayer" parent="Sounds"]
+pause_mode = 2
+stream = ExtResource( 16 )
+volume_db = 10.0
+
+[node name="JumpSound" type="AudioStreamPlayer" parent="Sounds"]
+pause_mode = 2
+stream = ExtResource( 11 )
+
+[node name="BloodSound" type="AudioStreamPlayer" parent="Sounds"]
+pause_mode = 2
+stream = ExtResource( 13 )
+pitch_scale = 2.0
+
+[node name="ShootSound" type="AudioStreamPlayer" parent="Sounds"]
+pause_mode = 2
+stream = ExtResource( 12 )
+volume_db = -15.0
+pitch_scale = 1.5
+
+[node name="ReloadSound" type="AudioStreamPlayer" parent="Sounds"]
+pause_mode = 2
+stream = ExtResource( 14 )
+volume_db = -5.0
+
+[node name="WeaponPickupSound" type="AudioStreamPlayer" parent="Sounds"]
+pause_mode = 2
+stream = ExtResource( 17 )
+volume_db = -5.0
+pitch_scale = 0.9
+
+[node name="SpeedSound" type="AudioStreamPlayer" parent="Sounds"]
+pause_mode = 2
+stream = ExtResource( 18 )
+
+[node name="ArmorSound" type="AudioStreamPlayer" parent="Sounds"]
+pause_mode = 2
+stream = ExtResource( 19 )
+pitch_scale = 1.3
+
+[node name="HealthSound" type="AudioStreamPlayer" parent="Sounds"]
+pause_mode = 2
+stream = ExtResource( 20 )
+
+[node name="AttackPowerSound" type="AudioStreamPlayer" parent="Sounds"]
+pause_mode = 2
+stream = ExtResource( 15 )
+volume_db = -13.97
+
+[node name="RifleAttackSound" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 25 )
+volume_db = -15.0
+
+[node name="PistolAttackSound" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 28 )
+volume_db = -18.0
+
+[node name="PistolReloadSound" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 29 )
+volume_db = -12.0
+
+[node name="RifleReloadSound" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 27 )
+volume_db = -15.0
+
+[node name="FlareGunAttackSound" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 26 )
+volume_db = -15.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="CountdownMain" parent="CanvasLayer" instance=ExtResource( 4 )]
+rect_pivot_offset = Vector2( 960, 499.813 )
+
+[node name="GroundBottom" parent="." instance=ExtResource( 3 )]
+position = Vector2( 8, 1024 )
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+pause_mode = 2
+stream = ExtResource( 31 )
+bus = "Music"
+
+[node name="WeaponPickup" parent="." instance=ExtResource( 7 )]
+position = Vector2( 2656, 560 )
+weaponName = "SMG"
+
+[node name="WeaponPickup2" parent="." instance=ExtResource( 7 )]
+position = Vector2( 2648, 0 )
+weaponName = "Shotgun"
+
+[node name="AirFloor" parent="." instance=ExtResource( 6 )]
+position = Vector2( 2536, 88 )
+
+[node name="AirFloor4" parent="." instance=ExtResource( 6 )]
+position = Vector2( 2976, -64 )
+
+[node name="AirFloor7" parent="." instance=ExtResource( 6 )]
+position = Vector2( 3456, -312 )
+
+[node name="AirFloor5" parent="." instance=ExtResource( 6 )]
+position = Vector2( 2088, -64 )
+
+[node name="AirFloor6" parent="." instance=ExtResource( 6 )]
+position = Vector2( 1600, -320 )
+
+[node name="AirFloor8" parent="." instance=ExtResource( 6 )]
+position = Vector2( 2112, -576 )
+
+[node name="AirFloor10" parent="." instance=ExtResource( 6 )]
+position = Vector2( 2504, -832 )
+
+[node name="AirFloor9" parent="." instance=ExtResource( 6 )]
+position = Vector2( 2880, -576 )
+
+[node name="AirFloor2" parent="." instance=ExtResource( 6 )]
+position = Vector2( 2112, 320 )
+
+[node name="AirFloor3" parent="." instance=ExtResource( 6 )]
+position = Vector2( 2944, 312 )
+
+[node name="Enemy" parent="." instance=ExtResource( 8 )]
+position = Vector2( 2080, 224 )
+
+[node name="Enemy2" parent="." instance=ExtResource( 8 )]
+position = Vector2( 2976, 216 )
+rotation = 1.5727
+
+[node name="Enemy3" parent="." instance=ExtResource( 8 )]
+position = Vector2( 3104, -160 )
+rotation = 1.5727
+
+[node name="Enemy4" parent="." instance=ExtResource( 8 )]
+position = Vector2( 2080, -160 )
+rotation = 1.5727
+
+[node name="Enemy7" parent="." instance=ExtResource( 8 )]
+position = Vector2( 2112, -672 )
+rotation = 1.5727
+
+[node name="Enemy8" parent="." instance=ExtResource( 8 )]
+position = Vector2( 2888, -672 )
+rotation = 1.5727
+
+[node name="TeleportingEnemy" parent="." instance=ExtResource( 23 )]
+position = Vector2( 2544, 8 )
+
+[node name="Enemy5" parent="." instance=ExtResource( 9 )]
+position = Vector2( 1576, -416 )
+
+[node name="Enemy9" parent="." instance=ExtResource( 9 )]
+position = Vector2( 2520, -936 )
+
+[node name="Enemy6" parent="." instance=ExtResource( 9 )]
+position = Vector2( 3464, -408 )
+
+[node name="Armor" parent="." instance=ExtResource( 10 )]
+position = Vector2( 2208, 216 )
+
+[node name="Armor2" parent="." instance=ExtResource( 10 )]
+position = Vector2( 2848, 208 )
+
+[node name="SpeedBuff" parent="." instance=ExtResource( 33 )]
+position = Vector2( 2456, 0 )
+
+[node name="INVS" type="Node2D" parent="."]
+visible = false
+
+[node name="INV" parent="INVS" instance=ExtResource( 24 )]
+position = Vector2( 1888, 200 )
+rotation = -1.5708
+collision_layer = 8
+collision_mask = 8
+
+[node name="INV2" parent="INVS" instance=ExtResource( 24 )]
+position = Vector2( 2336, 192 )
+rotation = -1.5708
+collision_layer = 8
+collision_mask = 8
+
+[node name="INV3" parent="INVS" instance=ExtResource( 24 )]
+position = Vector2( 1864, -128 )
+rotation = -1.5708
+collision_layer = 8
+collision_mask = 8
+
+[node name="INV4" parent="INVS" instance=ExtResource( 24 )]
+position = Vector2( 2312, -192 )
+rotation = -1.5708
+collision_layer = 8
+collision_mask = 8
+
+[node name="INV5" parent="INVS" instance=ExtResource( 24 )]
+position = Vector2( 2752, -184 )
+rotation = -1.5708
+collision_layer = 8
+collision_mask = 8
+
+[node name="INV6" parent="INVS" instance=ExtResource( 24 )]
+position = Vector2( 3200, -184 )
+rotation = -1.5708
+collision_layer = 8
+collision_mask = 8
+
+[node name="INV7" parent="INVS" instance=ExtResource( 24 )]
+position = Vector2( 3232, -392 )
+rotation = -1.5708
+collision_layer = 8
+collision_mask = 8
+
+[node name="INV8" parent="INVS" instance=ExtResource( 24 )]
+position = Vector2( 3680, -408 )
+rotation = -1.5708
+collision_layer = 8
+collision_mask = 8
+
+[node name="INV9" parent="INVS" instance=ExtResource( 24 )]
+position = Vector2( 3104, -664 )
+rotation = -1.5708
+collision_layer = 8
+collision_mask = 8
+
+[node name="INV10" parent="INVS" instance=ExtResource( 24 )]
+position = Vector2( 2656, -688 )
+rotation = -1.5708
+collision_layer = 8
+collision_mask = 8
+
+[node name="INV11" parent="INVS" instance=ExtResource( 24 )]
+position = Vector2( 2728, -936 )
+rotation = -1.5708
+collision_layer = 8
+collision_mask = 8
+
+[node name="INV12" parent="INVS" instance=ExtResource( 24 )]
+position = Vector2( 2280, -944 )
+rotation = -1.5708
+collision_layer = 8
+collision_mask = 8
+
+[node name="INV13" parent="INVS" instance=ExtResource( 24 )]
+position = Vector2( 2336, -696 )
+rotation = -1.5708
+collision_layer = 8
+collision_mask = 8
+
+[node name="INV14" parent="INVS" instance=ExtResource( 24 )]
+position = Vector2( 1888, -672 )
+rotation = -1.5708
+collision_layer = 8
+collision_mask = 8
+
+[node name="INV15" parent="INVS" instance=ExtResource( 24 )]
+position = Vector2( 1824, -440 )
+rotation = -1.5708
+collision_layer = 8
+collision_mask = 8
+
+[node name="INV16" parent="INVS" instance=ExtResource( 24 )]
+position = Vector2( 1376, -384 )
+rotation = -1.5708
+collision_layer = 8
+collision_mask = 8
+
+[node name="INV17" parent="INVS" instance=ExtResource( 24 )]
+position = Vector2( 2720, 192 )
+rotation = -1.5708
+collision_layer = 8
+collision_mask = 8
+
+[node name="INV18" parent="INVS" instance=ExtResource( 24 )]
+position = Vector2( 3168, 200 )
+rotation = -1.5708
+collision_layer = 8
+collision_mask = 8
+[connection signal="tree_entered" from="." to="." method="_on_Main_tree_entered"]

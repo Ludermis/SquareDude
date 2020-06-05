@@ -342,6 +342,7 @@ align = 1
 valign = 1
 
 [node name="Levels" parent="CanvasLayer" instance=ExtResource( 9 )]
+visible = false
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 11 )

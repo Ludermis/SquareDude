@@ -18,3 +18,19 @@ func _ready():
 
 func _on_Button1_pressed():
 	get_tree().change_scene("res://Prefabs/Levels/Level1.tscn")
+
+
+func _on_Button2_pressed():
+	get_tree().change_scene("res://Prefabs/Levels/Level2.tscn")
+
+
+func _on_Button3_pressed():
+	get_tree().change_scene("res://Prefabs/Levels/Level3.tscn")
+
+
+func _on_Button4_pressed():
+	get_tree().change_scene("res://Prefabs/Levels/Level4.tscn")
+
+
+func _on_Button5_pressed():
+	get_tree().change_scene("res://Prefabs/Levels/Level5.tscn")

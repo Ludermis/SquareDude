@@ -5,7 +5,6 @@
 [ext_resource path="res://Prefabs/Weapons/Pistol.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Shaders/circular-progress.shader" type="Shader" id=4]
 
-
 [sub_resource type="CanvasItemMaterial" id=1]
 
 [sub_resource type="CircleShape2D" id=2]
@@ -30,6 +29,8 @@ shader_param/smoothing = 5.0
 position = Vector2( 1346.46, 147.769 )
 rotation = 1.5708
 z_index = -50
+collision_layer = 9
+collision_mask = 9
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
