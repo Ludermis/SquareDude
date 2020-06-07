@@ -213,6 +213,18 @@ position = Vector2( 4864, 608 )
 [node name="Floor17" parent="Floors" instance=ExtResource( 2 )]
 position = Vector2( 5376, 608 )
 
+[node name="Floor21" parent="Floors" instance=ExtResource( 2 )]
+position = Vector2( 5663.18, 325.701 )
+rotation = -1.5708
+
+[node name="Floor22" parent="Floors" instance=ExtResource( 2 )]
+position = Vector2( 5662.74, -185.434 )
+rotation = -1.5708
+
+[node name="Floor23" parent="Floors" instance=ExtResource( 2 )]
+position = Vector2( 5662.73, -695.517 )
+rotation = -1.5708
+
 [node name="Floor18" parent="Floors" instance=ExtResource( 2 )]
 position = Vector2( 5888, 608 )
 

@@ -3,9 +3,6 @@
 [ext_resource path="res://Sprites/Characters/enemy.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Effects/FlyingParticle.gd" type="Script" id=2]
 
-
-
-
 [sub_resource type="CircleShape2D" id=1]
 radius = 6.38671
 
@@ -23,6 +20,7 @@ __meta__ = {
 }
 
 [node name="Sprite" type="Sprite" parent="."]
+rotation = -1.5708
 scale = Vector2( 0.2, 0.2 )
 texture = ExtResource( 1 )
 

@@ -158,6 +158,7 @@ func _on_Enemy_tree_exiting():
 		var node = preload("res://Prefabs/Effects/FlyingParticle.tscn").instance()
 		
 		var sclRnd = rand_range(1.5,2)
+		node.get_node("Sprite").texture = $Sprite.frames.get_frame("default",0)
 		node.scale.x = sclRnd
 		node.scale.y = sclRnd
 		node.initLifeLeft = rand_range(3,5)

@@ -7,9 +7,9 @@ func _ready():
 
 func _process(delta):
 	if $Music.playing == false:
-		$Music.play(5.30)
+		$Music.play(0)
 
 func _on_Main_tree_entered():
 	Vars.currentLevel = 4
 	Vars.countdownSeconds = 3
-	$Music.play(5.30)
+	$Music.play(0)

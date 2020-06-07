@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://Prefabs/Characters/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Prefabs/Design/Set 1/Floors & Walls/Floor8x1.tscn" type="PackedScene" id=2]
@@ -8,7 +8,7 @@
 [ext_resource path="res://Prefabs/Design/Set 1/AirFloors/AirFloor6x2.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Prefabs/Pickups/WeaponPickup.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Prefabs/Characters/Enemy.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Prefabs/Characters/CloakingEnemy.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Prefabs/Pickups/Medkit.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Prefabs/Pickups/Armor.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Sounds/jumpsound.wav" type="AudioStream" id=11]
 [ext_resource path="res://Sounds/gunshot.wav" type="AudioStream" id=12]
@@ -29,17 +29,18 @@
 [ext_resource path="res://Sounds/riflereload.wav" type="AudioStream" id=27]
 [ext_resource path="res://Sounds/pistolattacksound.wav" type="AudioStream" id=28]
 [ext_resource path="res://Sounds/pistolreloadsound.wav" type="AudioStream" id=29]
-[ext_resource path="res://Sounds/Music/music1.wav" type="AudioStream" id=31]
+[ext_resource path="res://Prefabs/Characters/CloakingEnemy.tscn" type="PackedScene" id=30]
+[ext_resource path="res://Sounds/Music/music4.wav" type="AudioStream" id=31]
 [ext_resource path="res://Fonts/ThaleahFat.ttf" type="DynamicFontData" id=32]
 [ext_resource path="res://Prefabs/Pickups/SpeedBuff.tscn" type="PackedScene" id=33]
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=1]
 size = 94
 outline_size = 4
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 32 )
 
-[sub_resource type="Environment" id=3]
+[sub_resource type="Environment" id=2]
 background_mode = 4
 dof_blur_far_distance = 6.4
 dof_blur_far_transition = 72.82
@@ -59,7 +60,7 @@ margin_left = 2200.0
 margin_top = 152.0
 margin_right = 2875.0
 margin_bottom = 329.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 text = "level 4
 HIGH RISE"
 align = 1
@@ -134,7 +135,7 @@ position = Vector2( 2528, 544 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 pause_mode = 2
-environment = SubResource( 3 )
+environment = SubResource( 2 )
 
 [node name="InvisibleWall" type="StaticBody2D" parent="."]
 collision_layer = 3
@@ -257,6 +258,10 @@ weaponName = "SMG"
 position = Vector2( 2648, 0 )
 weaponName = "Shotgun"
 
+[node name="WeaponPickup3" parent="." instance=ExtResource( 7 )]
+position = Vector2( 2208, -664 )
+weaponName = "Rifle"
+
 [node name="AirFloor" parent="." instance=ExtResource( 6 )]
 position = Vector2( 2536, 88 )
 
@@ -277,6 +282,18 @@ position = Vector2( 2112, -576 )
 
 [node name="AirFloor10" parent="." instance=ExtResource( 6 )]
 position = Vector2( 2504, -832 )
+
+[node name="AirFloor11" parent="." instance=ExtResource( 6 )]
+position = Vector2( 2112, -1088 )
+
+[node name="AirFloor12" parent="." instance=ExtResource( 6 )]
+position = Vector2( 1664, -1280 )
+
+[node name="AirFloor14" parent="." instance=ExtResource( 6 )]
+position = Vector2( 1280, -1536 )
+
+[node name="AirFloor13" parent="." instance=ExtResource( 6 )]
+position = Vector2( 3264, -1216 )
 
 [node name="AirFloor9" parent="." instance=ExtResource( 6 )]
 position = Vector2( 2880, -576 )
@@ -310,16 +327,30 @@ rotation = 1.5727
 position = Vector2( 2888, -672 )
 rotation = 1.5727
 
+[node name="Enemy11" parent="." instance=ExtResource( 8 )]
+position = Vector2( 2080, -1192 )
+rotation = 1.5727
+
+[node name="Enemy12" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1248, -1640 )
+rotation = 1.5727
+
+[node name="Medkit3" parent="." instance=ExtResource( 9 )]
+position = Vector2( 2208, -1176 )
+
 [node name="TeleportingEnemy" parent="." instance=ExtResource( 23 )]
 position = Vector2( 2544, 8 )
 
-[node name="Enemy5" parent="." instance=ExtResource( 9 )]
+[node name="Enemy5" parent="." instance=ExtResource( 30 )]
 position = Vector2( 1576, -416 )
 
-[node name="Enemy9" parent="." instance=ExtResource( 9 )]
+[node name="Enemy9" parent="." instance=ExtResource( 30 )]
 position = Vector2( 2520, -936 )
 
-[node name="Enemy6" parent="." instance=ExtResource( 9 )]
+[node name="Enemy10" parent="." instance=ExtResource( 30 )]
+position = Vector2( 3232, -1312 )
+
+[node name="Enemy6" parent="." instance=ExtResource( 30 )]
 position = Vector2( 3464, -408 )
 
 [node name="Armor" parent="." instance=ExtResource( 10 )]
@@ -406,6 +437,54 @@ rotation = -1.5708
 collision_layer = 8
 collision_mask = 8
 
+[node name="INV19" parent="INVS" instance=ExtResource( 24 )]
+position = Vector2( 2336, -1328 )
+rotation = -1.5708
+collision_layer = 8
+collision_mask = 8
+
+[node name="INV20" parent="INVS" instance=ExtResource( 24 )]
+position = Vector2( 1904, -1344 )
+rotation = -1.5708
+collision_layer = 8
+collision_mask = 8
+
+[node name="INV21" parent="INVS" instance=ExtResource( 24 )]
+position = Vector2( 1888, -1400 )
+rotation = -1.5708
+collision_layer = 8
+collision_mask = 8
+
+[node name="INV22" parent="INVS" instance=ExtResource( 24 )]
+position = Vector2( 1440, -1400 )
+rotation = -1.5708
+collision_layer = 8
+collision_mask = 8
+
+[node name="INV25" parent="INVS" instance=ExtResource( 24 )]
+position = Vector2( 1496, -1744 )
+rotation = -1.5708
+collision_layer = 8
+collision_mask = 8
+
+[node name="INV26" parent="INVS" instance=ExtResource( 24 )]
+position = Vector2( 1056, -1760 )
+rotation = -1.5708
+collision_layer = 8
+collision_mask = 8
+
+[node name="INV23" parent="INVS" instance=ExtResource( 24 )]
+position = Vector2( 3040, -1344 )
+rotation = -1.5708
+collision_layer = 8
+collision_mask = 8
+
+[node name="INV24" parent="INVS" instance=ExtResource( 24 )]
+position = Vector2( 3488, -1352 )
+rotation = -1.5708
+collision_layer = 8
+collision_mask = 8
+
 [node name="INV13" parent="INVS" instance=ExtResource( 24 )]
 position = Vector2( 2336, -696 )
 rotation = -1.5708
@@ -441,4 +520,10 @@ position = Vector2( 3168, 200 )
 rotation = -1.5708
 collision_layer = 8
 collision_mask = 8
+
+[node name="Medkit" parent="." instance=ExtResource( 9 )]
+position = Vector2( 2208, -152 )
+
+[node name="Medkit2" parent="." instance=ExtResource( 9 )]
+position = Vector2( 2912, -152 )
 [connection signal="tree_entered" from="." to="." method="_on_Main_tree_entered"]

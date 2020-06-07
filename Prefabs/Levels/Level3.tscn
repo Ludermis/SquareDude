@@ -142,20 +142,20 @@ rotation = -0.490209
 position = Vector2( 1456, 3144 )
 rotation = -0.490209
 
-[node name="Floor10" parent="." instance=ExtResource( 2 )]
+[node name="F10" parent="." instance=ExtResource( 2 )]
 position = Vector2( 608, 376 )
 rotation = -1.5708
 
 [node name="Floor" parent="." instance=ExtResource( 2 )]
 position = Vector2( -1024, 608 )
 
-[node name="Floor7" parent="." instance=ExtResource( 2 )]
+[node name="F7" parent="." instance=ExtResource( 2 )]
 position = Vector2( -1536, 608 )
 
-[node name="Floor8" parent="." instance=ExtResource( 2 )]
+[node name="F8" parent="." instance=ExtResource( 2 )]
 position = Vector2( -2048, 608 )
 
-[node name="Floor9" parent="." instance=ExtResource( 2 )]
+[node name="F9" parent="." instance=ExtResource( 2 )]
 position = Vector2( -2552, 608 )
 
 [node name="Floor2" parent="." instance=ExtResource( 2 )]
@@ -167,7 +167,7 @@ position = Vector2( -968, 3488 )
 [node name="Floor25" parent="." instance=ExtResource( 2 )]
 position = Vector2( -1216, 3296 )
 
-[node name="Floor26" parent="." instance=ExtResource( 2 )]
+[node name="F26" parent="." instance=ExtResource( 2 )]
 position = Vector2( -1344, 3104 )
 
 [node name="Floor21" parent="." instance=ExtResource( 2 )]
@@ -206,40 +206,19 @@ position = Vector2( 4664, 3488 )
 [node name="Floor36" parent="." instance=ExtResource( 2 )]
 position = Vector2( 5176, 3488 )
 
-[node name="Floor37" parent="." instance=ExtResource( 2 )]
+[node name="F37" parent="." instance=ExtResource( 2 )]
 position = Vector2( 5688, 3488 )
 
-[node name="Floor38" parent="." instance=ExtResource( 2 )]
+[node name="F38" parent="." instance=ExtResource( 2 )]
 position = Vector2( 6200, 3488 )
 
-[node name="Floor39" parent="." instance=ExtResource( 2 )]
+[node name="F39" parent="." instance=ExtResource( 2 )]
 position = Vector2( 6712, 3488 )
 
-[node name="Floor40" parent="." instance=ExtResource( 2 )]
-position = Vector2( 7224, 3488 )
-
-[node name="Floor41" parent="." instance=ExtResource( 2 )]
-position = Vector2( 7736, 3488 )
-
-[node name="Floor42" parent="." instance=ExtResource( 2 )]
-position = Vector2( 8248, 3488 )
-
-[node name="Floor43" parent="." instance=ExtResource( 2 )]
-position = Vector2( 8760, 3488 )
-
-[node name="Floor44" parent="." instance=ExtResource( 2 )]
-position = Vector2( 9272, 3488 )
-
-[node name="Floor45" parent="." instance=ExtResource( 2 )]
-position = Vector2( 9784, 3488 )
-
-[node name="Floor46" parent="." instance=ExtResource( 2 )]
-position = Vector2( 10296, 3488 )
-
-[node name="Floor19" parent="." instance=ExtResource( 2 )]
+[node name="F19" parent="." instance=ExtResource( 2 )]
 position = Vector2( -1480, 3488 )
 
-[node name="Floor20" parent="." instance=ExtResource( 2 )]
+[node name="F20" parent="." instance=ExtResource( 2 )]
 position = Vector2( -1992, 3488 )
 
 [node name="Floor3" parent="." instance=ExtResource( 2 )]
@@ -266,11 +245,11 @@ position = Vector2( 3712, 608 )
 [node name="Floor17" parent="." instance=ExtResource( 2 )]
 position = Vector2( 4224, 608 )
 
-[node name="Floor13" parent="." instance=ExtResource( 2 )]
+[node name="F13" parent="." instance=ExtResource( 2 )]
 position = Vector2( 2976, 320 )
 rotation = -1.5708
 
-[node name="Floor14" parent="." instance=ExtResource( 2 )]
+[node name="F14" parent="." instance=ExtResource( 2 )]
 position = Vector2( 2976, -192 )
 rotation = -1.5708
 
@@ -298,7 +277,7 @@ canJump = false
 position = Vector2( 2784, 3424 )
 canJump = false
 
-[node name="Floor11" parent="." instance=ExtResource( 5 )]
+[node name="F11" parent="." instance=ExtResource( 5 )]
 position = Vector2( 400, 464 )
 rotation = -0.770354
 
