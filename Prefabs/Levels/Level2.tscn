@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://Prefabs/Design/Set 1/Floors & Walls/Floor8x1.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Prefabs/Design/Set 1/AirFloors/AirFloor2x2.tscn" type="PackedScene" id=2]
@@ -36,6 +36,8 @@
 [ext_resource path="res://Prefabs/Design/Set 1/AirFloors/AirFloor8x2.tscn" type="PackedScene" id=34]
 [ext_resource path="res://Scripts/Levels/Level2.gd" type="Script" id=35]
 [ext_resource path="res://Prefabs/Misc/CountdownScene.tscn" type="PackedScene" id=36]
+[ext_resource path="res://Prefabs/Design/Set 1/AirFloors/AirFloor4x2.tscn" type="PackedScene" id=37]
+[ext_resource path="res://Prefabs/Design/Set 1/Floors & Walls/Floor2x1.tscn" type="PackedScene" id=38]
 
 [sub_resource type="Environment" id=1]
 background_mode = 4
@@ -224,6 +226,9 @@ position = Vector2( 3072, 608 )
 [node name="Floor10" parent="." instance=ExtResource( 1 )]
 position = Vector2( 3584, 608 )
 
+[node name="Floor" parent="Floor10" instance=ExtResource( 1 )]
+position = Vector2( 512, 0 )
+
 [node name="Enemy4" parent="." instance=ExtResource( 4 )]
 position = Vector2( 1992, 544 )
 
@@ -238,14 +243,14 @@ position = Vector2( 1368, 296 )
 
 [node name="Floor11" parent="." instance=ExtResource( 1 )]
 visible = false
-position = Vector2( 888, 8 )
+position = Vector2( 1040, 8 )
 rotation = -1.57142
 collision_layer = 8
 collision_mask = 8
 
 [node name="Floor14" parent="." instance=ExtResource( 1 )]
 visible = false
-position = Vector2( 2712, 16 )
+position = Vector2( 2832, 16 )
 rotation = -1.57142
 collision_layer = 8
 collision_mask = 8
@@ -259,7 +264,7 @@ collision_mask = 8
 
 [node name="Floor17" parent="." instance=ExtResource( 1 )]
 visible = false
-position = Vector2( 2016, -144 )
+position = Vector2( 2072, -144 )
 rotation = -1.57142
 collision_layer = 8
 collision_mask = 8
@@ -267,6 +272,34 @@ collision_mask = 8
 [node name="Floor15" parent="." instance=ExtResource( 1 )]
 visible = false
 position = Vector2( 3256, 24 )
+rotation = -1.57142
+collision_layer = 8
+collision_mask = 8
+
+[node name="Floor18" parent="." instance=ExtResource( 1 )]
+visible = false
+position = Vector2( 3776, 136 )
+rotation = -1.57142
+collision_layer = 8
+collision_mask = 8
+
+[node name="Floor19" parent="." instance=ExtResource( 1 )]
+visible = false
+position = Vector2( 3552, 128 )
+rotation = -1.57142
+collision_layer = 8
+collision_mask = 8
+
+[node name="Floor21" parent="." instance=ExtResource( 1 )]
+visible = false
+position = Vector2( 3776, -192 )
+rotation = -1.57142
+collision_layer = 8
+collision_mask = 8
+
+[node name="Floor20" parent="." instance=ExtResource( 1 )]
+visible = false
+position = Vector2( 3536, -192 )
 rotation = -1.57142
 collision_layer = 8
 collision_mask = 8
@@ -307,4 +340,31 @@ __meta__ = {
 "_edit_lock_": true,
 "_edit_use_anchors_": false
 }
+
+[node name="Armor2" parent="." instance=ExtResource( 31 )]
+position = Vector2( 1792, 416 )
+
+[node name="AirFloor6" parent="." instance=ExtResource( 37 )]
+position = Vector2( 3632, 440 )
+
+[node name="Enemy8" parent="." instance=ExtResource( 4 )]
+position = Vector2( 3648, 344 )
+
+[node name="AirFloor7" parent="." instance=ExtResource( 37 )]
+position = Vector2( 3632, 112 )
+
+[node name="Enemy9" parent="." instance=ExtResource( 4 )]
+position = Vector2( 3648, 16 )
+
+[node name="AttackBuff2" parent="." instance=ExtResource( 6 )]
+position = Vector2( 2928, 544 )
+
+[node name="Floor8" parent="." instance=ExtResource( 38 )]
+visible = false
+position = Vector2( 1968, 480 )
+collision_layer = 8
+collision_mask = 8
+
+[node name="Armor3" parent="." instance=ExtResource( 31 )]
+position = Vector2( 2952, 232 )
 [connection signal="tree_entered" from="." to="." method="_on_Main_tree_entered"]
