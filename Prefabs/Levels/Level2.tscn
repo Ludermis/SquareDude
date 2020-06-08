@@ -233,18 +233,21 @@ position = Vector2( 2392, 544 )
 position = Vector2( 1368, 296 )
 
 [node name="Floor11" parent="." instance=ExtResource( 1 )]
+visible = false
 position = Vector2( 888, 8 )
 rotation = -1.57142
 collision_layer = 8
 collision_mask = 8
 
 [node name="Floor13" parent="." instance=ExtResource( 1 )]
+visible = false
 position = Vector2( 1480, 208 )
 rotation = -1.57142
 collision_layer = 8
 collision_mask = 8
 
 [node name="Floor12" parent="." instance=ExtResource( 1 )]
+visible = false
 position = Vector2( 1312, 8.00002 )
 rotation = -1.5646
 collision_layer = 8
