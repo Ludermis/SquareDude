@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://Prefabs/Design/Set 1/Floors & Walls/Floor8x1.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Prefabs/Design/Set 1/AirFloors/AirFloor2x2.tscn" type="PackedScene" id=2]
@@ -31,6 +31,8 @@
 [ext_resource path="res://Sounds/pistolreloadsound.wav" type="AudioStream" id=29]
 [ext_resource path="res://Sounds/sniperattacksound.wav" type="AudioStream" id=30]
 [ext_resource path="res://Prefabs/Pickups/Armor.tscn" type="PackedScene" id=31]
+[ext_resource path="res://Prefabs/Pickups/SpeedBuff.tscn" type="PackedScene" id=32]
+[ext_resource path="res://Prefabs/Pickups/Medkit.tscn" type="PackedScene" id=33]
 
 [sub_resource type="Environment" id=1]
 background_mode = 4
@@ -204,3 +206,46 @@ volume_db = -15.0
 
 [node name="Armor" parent="." instance=ExtResource( 31 )]
 position = Vector2( 488, 104 )
+
+[node name="Floor6" parent="." instance=ExtResource( 5 )]
+position = Vector2( 2224, 488 )
+rotation = -0.488968
+
+[node name="Floor7" parent="." instance=ExtResource( 5 )]
+position = Vector2( 2448, 432 )
+
+[node name="Floor9" parent="." instance=ExtResource( 1 )]
+position = Vector2( 3072, 608 )
+
+[node name="Floor10" parent="." instance=ExtResource( 1 )]
+position = Vector2( 3584, 608 )
+
+[node name="Enemy4" parent="." instance=ExtResource( 4 )]
+position = Vector2( 2008, 544 )
+
+[node name="SpeedBuff" parent="." instance=ExtResource( 32 )]
+position = Vector2( 1920, 552 )
+
+[node name="Enemy5" parent="." instance=ExtResource( 12 )]
+position = Vector2( 2392, 544 )
+
+[node name="Medkit" parent="." instance=ExtResource( 33 )]
+position = Vector2( 1368, 296 )
+
+[node name="Floor11" parent="." instance=ExtResource( 1 )]
+position = Vector2( 888, 8 )
+rotation = -1.57142
+collision_layer = 8
+collision_mask = 8
+
+[node name="Floor13" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1480, 208 )
+rotation = -1.57142
+collision_layer = 8
+collision_mask = 8
+
+[node name="Floor12" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1312, 8.00002 )
+rotation = -1.5646
+collision_layer = 8
+collision_mask = 8
