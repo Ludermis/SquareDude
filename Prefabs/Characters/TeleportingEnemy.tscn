@@ -1,4 +1,4 @@
-[gd_scene load_steps=93 format=2]
+[gd_scene load_steps=94 format=2]
 
 [ext_resource path="res://Sprites/Characters/enemy3.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Characters/TeleportingEnemy.gd" type="Script" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://Shaders/circular-progress.shader" type="Shader" id=4]
 [ext_resource path="res://Sprites/Characters/enemy3animation.png" type="Texture" id=5]
 [ext_resource path="res://Sprites/Characters/enemy3animation2.png" type="Texture" id=6]
+
+[sub_resource type="CanvasItemMaterial" id=87]
 
 [sub_resource type="ParticlesMaterial" id=1]
 emission_shape = 1
@@ -385,6 +387,7 @@ z_index = -50
 script = ExtResource( 2 )
 
 [node name="Particles2D" type="Particles2D" parent="."]
+material = SubResource( 87 )
 amount = 128
 process_material = SubResource( 1 )
 

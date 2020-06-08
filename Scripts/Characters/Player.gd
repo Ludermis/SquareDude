@@ -57,7 +57,7 @@ func boostHandler (delta):
 		speedBoostTimeLeft -= delta
 		if speedBoostTimeLeft <= 0:
 			$GhostTrail.visible = false
-			maxSpeed /= 1.75
+			maxSpeed /= 1.5
 			$Controls/ProgressBar2.visible = false
 			speedBoostTimeLeft = -1
 	
