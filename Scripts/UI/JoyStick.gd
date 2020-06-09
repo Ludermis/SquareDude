@@ -19,32 +19,40 @@ func _input(event):
 	# If it's a touch event (pressed, released)
 	if event is InputEventScreenTouch or event is InputEventMouseButton:
 		if not event.pressed:
-			# Reset joystick position
-			Input.action_release('shoot')
-			small_circle.global_position = big_circle.global_position
-			# Stop tracking position 
-			input_ongoing = false
-			# If touch screen, hide the control
-			if event is InputEventScreenTouch:
+			if event.position.y < 792:
+				# Reset joystick position
+				Input.action_release('shoot')
+				small_circle.global_position = big_circle.global_position
+				# Stop tracking position 
+				input_ongoing = false
+				# If touch screen, hide the control
 				self.visible = false
-			return
+				Vars.joyStickRotation = 0
+				return
 		else:
 			# Start tracking position
 			if event.position.y < 792:
 				input_ongoing = true
-				Input.action_press('shoot')
 				# If touch screen, show control under the finger
-				if event is InputEventScreenTouch:
-					self.visible = true
-					self.position = event.position
+				self.visible = true
+				var motion_vector = event.position - Vector2(1920 / 2, 1080 / 2)
+				if motion_vector.length() > big_circle_radius:
+					small_circle.set_position(motion_vector.normalized() * big_circle_radius)
+				else:
+					small_circle.set_global_position(event.position)
+				self.position = event.position - small_circle.position
+				var vector = small_circle.position / big_circle_radius
+				Vars.joyStickRotation = vector.angle()
+				Input.action_press('shoot')
 				return
 	# Move event: set joystick position
 	if (event is InputEventMouseMotion or event is InputEventScreenDrag) and input_ongoing:
-		var motion_vector = event.position - big_circle.get_global_position()
-		if motion_vector.length() > big_circle_radius:
-			small_circle.set_position(motion_vector.normalized() * big_circle_radius)
-		else:
-			small_circle.set_global_position(event.position)
+		if event.position.y < 792:
+			var motion_vector = event.position - position
+			if motion_vector.length() > big_circle_radius:
+				small_circle.set_position(motion_vector.normalized() * big_circle_radius)
+			else:
+				small_circle.set_global_position(event.position)
 
 func _process(delta):
 	if input_ongoing:
