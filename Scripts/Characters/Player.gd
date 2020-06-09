@@ -21,7 +21,7 @@ var attackBoostTimeLeft : float = -1
 
 func _ready():
 	set_physics_process(true)
-	if is_instance_valid($Weapon):
+	if has_node("Weapon"):
 		$Weapon.ownerNode = self
 	
 	# Cosmetics

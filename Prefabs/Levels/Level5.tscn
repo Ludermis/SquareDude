@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://Prefabs/Characters/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Prefabs/Design/Set 1/Floors & Walls/Floor8x1.tscn" type="PackedScene" id=2]
@@ -32,6 +32,10 @@
 [ext_resource path="res://Scripts/Misc/AreaDisarm.gd" type="Script" id=30]
 [ext_resource path="res://Sounds/Music/music5.wav" type="AudioStream" id=31]
 [ext_resource path="res://Fonts/ThaleahFat.ttf" type="DynamicFontData" id=32]
+[ext_resource path="res://Prefabs/Characters/CloakingEnemy.tscn" type="PackedScene" id=33]
+[ext_resource path="res://Prefabs/Pickups/Medkit.tscn" type="PackedScene" id=34]
+[ext_resource path="res://Prefabs/Design/Set 1/AirFloors/AirFloor8x2.tscn" type="PackedScene" id=35]
+[ext_resource path="res://Prefabs/Design/Set 1/Floors & Walls/Floor2x1.tscn" type="PackedScene" id=36]
 
 [sub_resource type="DynamicFont" id=1]
 size = 94
@@ -49,7 +53,7 @@ glow_blend_mode = 0
 glow_bicubic_upscale = true
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 80, 584 )
+extents = Vector2( 80, 864 )
 
 [sub_resource type="DynamicFont" id=4]
 size = 258
@@ -88,13 +92,46 @@ position = Vector2( 1.45519e-11, 4.54747e-13 )
 position = Vector2( -992, 352 )
 
 [node name="Enemy2" parent="." instance=ExtResource( 8 )]
-position = Vector2( -536, -32 )
+position = Vector2( -544, 88 )
 
 [node name="Enemy3" parent="." instance=ExtResource( 8 )]
-position = Vector2( 104, -224 )
+position = Vector2( 96, -112 )
+
+[node name="Enemy14" parent="." instance=ExtResource( 8 )]
+position = Vector2( -544, -1440 )
+
+[node name="Enemy16" parent="." instance=ExtResource( 8 )]
+position = Vector2( 672, -2144 )
+
+[node name="Enemy17" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1248, -2144 )
+
+[node name="Enemy18" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1632, -2144 )
+
+[node name="Enemy15" parent="." instance=ExtResource( 8 )]
+position = Vector2( -864, -1184 )
 
 [node name="Enemy4" parent="." instance=ExtResource( 8 )]
 position = Vector2( 1696, 544 )
+
+[node name="Enemy7" parent="." instance=ExtResource( 8 )]
+position = Vector2( 2280, 160 )
+
+[node name="Enemy8" parent="." instance=ExtResource( 8 )]
+position = Vector2( 2976, -32 )
+
+[node name="Enemy10" parent="." instance=ExtResource( 8 )]
+position = Vector2( 3104, -480 )
+
+[node name="Enemy11" parent="." instance=ExtResource( 8 )]
+position = Vector2( 2528, -680 )
+
+[node name="Enemy12" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1888, -1120 )
+
+[node name="Enemy5" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1120, 544 )
 
 [node name="Floors" type="Node2D" parent="."]
 
@@ -103,6 +140,22 @@ position = Vector2( 768, 608 )
 
 [node name="Floor24" parent="Floors" instance=ExtResource( 2 )]
 position = Vector2( 808, 320 )
+rotation = -1.5708
+
+[node name="Floor41" parent="Floors" instance=ExtResource( 2 )]
+position = Vector2( -1248, 320 )
+rotation = -1.5708
+
+[node name="Floor42" parent="Floors" instance=ExtResource( 2 )]
+position = Vector2( -1248, -192 )
+rotation = -1.5708
+
+[node name="Floor43" parent="Floors" instance=ExtResource( 2 )]
+position = Vector2( -1248, -696 )
+rotation = -1.5708
+
+[node name="Floor44" parent="Floors" instance=ExtResource( 2 )]
+position = Vector2( -1248, -1208 )
 rotation = -1.5708
 
 [node name="Floor25" parent="Floors" instance=ExtResource( 2 )]
@@ -163,6 +216,63 @@ position = Vector2( -448, 160 )
 [node name="Floor23" parent="Floors" instance=ExtResource( 2 )]
 position = Vector2( 128, -40 )
 
+[node name="Floor26" parent="Floors" instance=ExtResource( 2 )]
+position = Vector2( 472, -1120 )
+
+[node name="Floor27" parent="Floors" instance=ExtResource( 2 )]
+position = Vector2( -40, -1120 )
+
+[node name="Floor28" parent="Floors" instance=ExtResource( 2 )]
+position = Vector2( -552, -1120 )
+
+[node name="Floor29" parent="Floors" instance=ExtResource( 2 )]
+position = Vector2( -1064, -1120 )
+
+[node name="Floor36" parent="Floors" instance=ExtResource( 2 )]
+position = Vector2( -1576, -1120 )
+
+[node name="Floor37" parent="Floors" instance=ExtResource( 2 )]
+position = Vector2( -2088, -1120 )
+
+[node name="Floor38" parent="Floors" instance=ExtResource( 2 )]
+position = Vector2( -2600, -1120 )
+
+[node name="Floor33" parent="Floors" instance=ExtResource( 2 )]
+position = Vector2( -1248, -1408 )
+rotation = -1.5708
+
+[node name="Floor34" parent="Floors" instance=ExtResource( 2 )]
+position = Vector2( -1248, -1920 )
+rotation = -1.5708
+
+[node name="Floor35" parent="Floors" instance=ExtResource( 2 )]
+position = Vector2( -1248, -2432 )
+rotation = -1.5708
+
+[node name="Floor30" parent="Floors" instance=ExtResource( 2 )]
+position = Vector2( -168, -1552 )
+rotation = -0.775723
+
+[node name="Floor3" parent="Floors" instance=ExtResource( 36 )]
+position = Vector2( 936, -2120 )
+rotation = -0.633255
+
+[node name="Floor32" parent="Floors" instance=ExtResource( 36 )]
+position = Vector2( 1032, -2192 )
+rotation = -0.633255
+
+[node name="Floor39" parent="Floors" instance=ExtResource( 36 )]
+position = Vector2( 1120, -2256 )
+rotation = -0.633255
+
+[node name="Floor40" parent="Floors" instance=ExtResource( 36 )]
+position = Vector2( 1208, -2320 )
+rotation = -0.633255
+
+[node name="Floor31" parent="Floors" instance=ExtResource( 2 )]
+position = Vector2( 192, -1904 )
+rotation = -0.775723
+
 [node name="Floor5" parent="Floors" instance=ExtResource( 2 )]
 position = Vector2( -1272, 608 )
 
@@ -175,6 +285,10 @@ position = Vector2( -2296, 608 )
 [node name="AirFloor" parent="Floors" instance=ExtResource( 9 )]
 position = Vector2( 592, -168 )
 rotation = 2.68398
+
+[node name="AirFloor2" parent="Floors" instance=ExtResource( 9 )]
+position = Vector2( 1856, -1024 )
+rotation = 0.0
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 416, 544 )
@@ -220,6 +334,10 @@ bus = "Music"
 [node name="WeaponPickup" parent="." instance=ExtResource( 7 )]
 position = Vector2( 672, 552 )
 weaponName = "Sniper"
+
+[node name="WeaponPickup3" parent="." instance=ExtResource( 7 )]
+position = Vector2( 608, -1176 )
+weaponName = "Shotgun"
 
 [node name="WeaponPickup2" parent="." instance=ExtResource( 7 )]
 position = Vector2( 1440, 552 )
@@ -316,15 +434,11 @@ volume_db = -15.0
 [node name="INVS" type="Node2D" parent="."]
 visible = false
 
-[node name="INV10" type="StaticBody2D" parent="INVS" instance=ExtResource( 24 )]
+[node name="INV10" parent="INVS" instance=ExtResource( 24 )]
 position = Vector2( -736, 256 )
 rotation = -1.5708
-z_index = -20
 collision_layer = 8
 collision_mask = 8
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="INV12" parent="INVS" instance=ExtResource( 24 )]
 position = Vector2( -736, -128 )
@@ -350,12 +464,174 @@ rotation = -1.5708
 collision_layer = 8
 collision_mask = 8
 
+[node name="INV16" parent="INVS" instance=ExtResource( 24 )]
+position = Vector2( 416, -584 )
+rotation = -1.5708
+collision_layer = 8
+collision_mask = 8
+
+[node name="INV17" parent="INVS" instance=ExtResource( 24 )]
+position = Vector2( -160, -584 )
+rotation = -1.5708
+collision_layer = 8
+collision_mask = 8
+
+[node name="INV18" parent="INVS" instance=ExtResource( 24 )]
+position = Vector2( 1384, 72 )
+rotation = -1.5708
+collision_layer = 8
+collision_mask = 8
+
+[node name="INV19" parent="INVS" instance=ExtResource( 24 )]
+position = Vector2( 1944, 64 )
+rotation = -1.5708
+collision_layer = 8
+collision_mask = 8
+
+[node name="INV20" parent="INVS" instance=ExtResource( 24 )]
+position = Vector2( 1944, 64 )
+rotation = -1.5708
+collision_layer = 8
+collision_mask = 8
+
+[node name="INV21" parent="INVS" instance=ExtResource( 24 )]
+position = Vector2( 2024, 0 )
+rotation = -1.5708
+collision_layer = 8
+collision_mask = 8
+
+[node name="INV22" parent="INVS" instance=ExtResource( 24 )]
+position = Vector2( 2592, 0 )
+rotation = -1.5708
+collision_layer = 8
+collision_mask = 8
+
+[node name="INV23" parent="INVS" instance=ExtResource( 24 )]
+position = Vector2( 2664, -192 )
+rotation = -1.5708
+collision_layer = 8
+collision_mask = 8
+
+[node name="INV24" parent="INVS" instance=ExtResource( 24 )]
+position = Vector2( 3232, -192 )
+rotation = -1.5708
+collision_layer = 8
+collision_mask = 8
+
+[node name="INV25" parent="INVS" instance=ExtResource( 24 )]
+position = Vector2( 3368, -376 )
+rotation = -1.5708
+collision_layer = 8
+collision_mask = 8
+
+[node name="INV27" parent="INVS" instance=ExtResource( 24 )]
+position = Vector2( 3288, -632 )
+rotation = -1.5708
+collision_layer = 8
+collision_mask = 8
+
+[node name="INV28" parent="INVS" instance=ExtResource( 24 )]
+position = Vector2( 2728, -632 )
+rotation = -1.5708
+collision_layer = 8
+collision_mask = 8
+
+[node name="INV29" parent="INVS" instance=ExtResource( 24 )]
+position = Vector2( 2704, -840 )
+rotation = -1.5708
+collision_layer = 8
+collision_mask = 8
+
+[node name="INV30" parent="INVS" instance=ExtResource( 24 )]
+position = Vector2( 2152, -832 )
+rotation = -1.5708
+collision_layer = 8
+collision_mask = 8
+
+[node name="INV31" parent="INVS" instance=ExtResource( 24 )]
+position = Vector2( 2128, -1032 )
+rotation = -1.5708
+collision_layer = 8
+collision_mask = 8
+
+[node name="INV32" parent="INVS" instance=ExtResource( 24 )]
+position = Vector2( 2016, -1272 )
+rotation = -1.5708
+collision_layer = 8
+collision_mask = 8
+
+[node name="INV33" parent="INVS" instance=ExtResource( 24 )]
+position = Vector2( 1704, -1280 )
+rotation = -1.5708
+collision_layer = 8
+collision_mask = 8
+
+[node name="INV34" parent="INVS" instance=ExtResource( 24 )]
+position = Vector2( 1568, -1024 )
+rotation = -1.5708
+collision_layer = 8
+collision_mask = 8
+
+[node name="INV35" parent="INVS" instance=ExtResource( 24 )]
+position = Vector2( 1560, -1344 )
+rotation = -1.5708
+collision_layer = 8
+collision_mask = 8
+
+[node name="INV36" parent="INVS" instance=ExtResource( 24 )]
+position = Vector2( 1000, -1336 )
+rotation = -1.5708
+collision_layer = 8
+collision_mask = 8
+
+[node name="INV37" parent="INVS" instance=ExtResource( 24 )]
+position = Vector2( 696, -1344 )
+rotation = -1.5708
+collision_layer = 8
+collision_mask = 8
+
+[node name="INV38" parent="INVS" instance=ExtResource( 24 )]
+position = Vector2( -296, -1584 )
+rotation = -1.5708
+collision_layer = 8
+collision_mask = 8
+
+[node name="INV40" parent="INVS" instance=ExtResource( 24 )]
+position = Vector2( 880, -2304 )
+rotation = -1.5708
+collision_layer = 8
+collision_mask = 8
+
+[node name="INV42" parent="INVS" instance=ExtResource( 24 )]
+position = Vector2( 1896, -2304 )
+rotation = -1.5708
+collision_layer = 8
+collision_mask = 8
+
+[node name="INV41" parent="INVS" instance=ExtResource( 24 )]
+position = Vector2( 328, -2304 )
+rotation = -1.5708
+collision_layer = 8
+collision_mask = 8
+
+[node name="INV39" parent="INVS" instance=ExtResource( 24 )]
+position = Vector2( -864, -1584 )
+rotation = -1.5708
+collision_layer = 8
+collision_mask = 8
+
+[node name="INV26" parent="INVS" instance=ExtResource( 24 )]
+position = Vector2( 3936, -376 )
+rotation = -1.5708
+collision_layer = 8
+collision_mask = 8
+
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2( 888, -840 )
 script = ExtResource( 30 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2( -80, -192 )
+position = Vector2( -80, -392 )
 shape = SubResource( 3 )
 
 [node name="Label" type="Label" parent="Area2D"]
@@ -370,7 +646,79 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Label2" type="Label" parent="Area2D"]
+margin_left = -96.0
+margin_top = -696.0
+margin_right = -48.0
+margin_bottom = -459.0
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+text = "!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Armor" parent="." instance=ExtResource( 10 )]
 position = Vector2( 288, -112 )
+
+[node name="Armor3" parent="." instance=ExtResource( 10 )]
+position = Vector2( -264, -1200 )
+
+[node name="Armor2" parent="." instance=ExtResource( 10 )]
+position = Vector2( 2456, 152 )
+
+[node name="Medkit" parent="." instance=ExtResource( 34 )]
+position = Vector2( 1248, 552 )
+
+[node name="Medkit3" parent="." instance=ExtResource( 34 )]
+position = Vector2( 408, -2168 )
+
+[node name="Medkit2" parent="." instance=ExtResource( 34 )]
+position = Vector2( 3480, -224 )
+
+[node name="AirFloor" parent="." instance=ExtResource( 35 )]
+position = Vector2( 1664, 320 )
+
+[node name="AirFloor2" parent="." instance=ExtResource( 35 )]
+position = Vector2( 2304, 256 )
+
+[node name="AirFloor3" parent="." instance=ExtResource( 35 )]
+position = Vector2( 2944, 64 )
+
+[node name="AirFloor4" parent="." instance=ExtResource( 35 )]
+position = Vector2( 3648, -128 )
+
+[node name="AirFloor5" parent="." instance=ExtResource( 35 )]
+position = Vector2( 3008, -384 )
+
+[node name="AirFloor6" parent="." instance=ExtResource( 35 )]
+position = Vector2( 2432, -584 )
+
+[node name="AirFloor7" parent="." instance=ExtResource( 35 )]
+position = Vector2( 1856, -776 )
+
+[node name="AirFloor8" parent="." instance=ExtResource( 35 )]
+position = Vector2( 1280, -1088 )
+
+[node name="AirFloor9" parent="." instance=ExtResource( 35 )]
+position = Vector2( -576, -1344 )
+
+[node name="AirFloor10" parent="." instance=ExtResource( 35 )]
+position = Vector2( 600, -2048 )
+
+[node name="AirFloor11" parent="." instance=ExtResource( 35 )]
+position = Vector2( 1112, -2048 )
+
+[node name="AirFloor12" parent="." instance=ExtResource( 35 )]
+position = Vector2( 1624, -2048 )
+
+[node name="Enemy6" parent="." instance=ExtResource( 33 )]
+position = Vector2( 1760, 224 )
+
+[node name="Enemy9" parent="." instance=ExtResource( 33 )]
+position = Vector2( 3616, -232 )
+
+[node name="Enemy13" parent="." instance=ExtResource( 33 )]
+position = Vector2( 1312, -1184 )
 [connection signal="tree_entered" from="." to="." method="_on_Main_tree_entered"]
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_Area2D_body_entered"]

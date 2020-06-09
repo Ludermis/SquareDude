@@ -60,6 +60,27 @@ position = Vector2( 256, 608 )
 [node name="Floor2" parent="Floor" instance=ExtResource( 1 )]
 position = Vector2( 512, 0 )
 
+[node name="Floor5" parent="Floor" instance=ExtResource( 1 )]
+position = Vector2( -512, 0 )
+
+[node name="Floor6" parent="Floor" instance=ExtResource( 1 )]
+position = Vector2( -1024, 0 )
+
+[node name="Floor7" parent="Floor" instance=ExtResource( 1 )]
+position = Vector2( -1536, 0 )
+
+[node name="Floor8" parent="Floor" instance=ExtResource( 1 )]
+position = Vector2( 4352, 0 )
+
+[node name="Floor9" parent="Floor" instance=ExtResource( 1 )]
+position = Vector2( 4864, 0 )
+
+[node name="Floor10" parent="Floor" instance=ExtResource( 1 )]
+position = Vector2( 5376, 0 )
+
+[node name="Floor11" parent="Floor" instance=ExtResource( 1 )]
+position = Vector2( 5888, 0 )
+
 [node name="Floor3" parent="Floor" instance=ExtResource( 1 )]
 position = Vector2( 1024, 0 )
 
@@ -332,14 +353,8 @@ position = Vector2( 2264, 64 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="CountdownMain" type="Control" parent="CanvasLayer" instance=ExtResource( 36 )]
-anchor_right = 1.0
-anchor_bottom = 1.0
+[node name="CountdownMain" parent="CanvasLayer" instance=ExtResource( 36 )]
 rect_pivot_offset = Vector2( 960, 499.813 )
-__meta__ = {
-"_edit_lock_": true,
-"_edit_use_anchors_": false
-}
 
 [node name="Armor2" parent="." instance=ExtResource( 31 )]
 position = Vector2( 1792, 416 )
@@ -367,4 +382,24 @@ collision_mask = 8
 
 [node name="Armor3" parent="." instance=ExtResource( 31 )]
 position = Vector2( 2952, 232 )
+
+[node name="InvisibleWall" type="StaticBody2D" parent="."]
+collision_layer = 3
+collision_mask = 3
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="InvisibleWall"]
+position = Vector2( -1224, -48 )
+polygon = PoolVector2Array( 1032, 624, 968, 624, 968, -592, 1032, -592 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="InvisibleWall"]
+position = Vector2( -224, -488 )
+polygon = PoolVector2Array( -32, -152, -32, -216, 4320, -216, 4320, -152 )
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="InvisibleWall"]
+position = Vector2( 1256, -24 )
+polygon = PoolVector2Array( 2840, -616, 2776, -616, 2776, 600, 2840, 600 )
 [connection signal="tree_entered" from="." to="." method="_on_Main_tree_entered"]
