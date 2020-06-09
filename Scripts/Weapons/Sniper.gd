@@ -49,6 +49,9 @@ func shoot (target):
 		curAmmo -= 1
 		$LaserBeam2D.is_casting = true
 
+func shootByAngle ():
+	shoot(Vars.rotatePoint(global_position + Vector2(16,0),global_position,rotation + PI / 2))
+
 func reload ():
 	if ownerNode.is_in_group("Player"):
 		$"../../Sounds/SniperReloadSound".play()

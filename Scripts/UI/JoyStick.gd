@@ -5,7 +5,6 @@
 # The position of the joystick is fixed if controlled by the mouse.
 # It's under the finger if controlled by touch
 extends Node2D
-signal move
 
 onready var big_circle = get_node("BigCircle")
 onready var small_circle = get_node("SmallCircle")
@@ -20,9 +19,8 @@ func _input(event):
 	# If it's a touch event (pressed, released)
 	if event is InputEventScreenTouch or event is InputEventMouseButton:
 		if not event.pressed:
-			# Stop moving.
-			emit_signal('move', Vector2())
 			# Reset joystick position
+			Input.action_release('shoot')
 			small_circle.global_position = big_circle.global_position
 			# Stop tracking position 
 			input_ongoing = false
@@ -32,12 +30,14 @@ func _input(event):
 			return
 		else:
 			# Start tracking position
-			input_ongoing = true
-			# If touch screen, show control under the finger
-			if event is InputEventScreenTouch:
-				self.visible = true
-				self.position = event.position
-			return
+			if event.position.y < 792:
+				input_ongoing = true
+				Input.action_press('shoot')
+				# If touch screen, show control under the finger
+				if event is InputEventScreenTouch:
+					self.visible = true
+					self.position = event.position
+				return
 	# Move event: set joystick position
 	if (event is InputEventMouseMotion or event is InputEventScreenDrag) and input_ongoing:
 		var motion_vector = event.position - big_circle.get_global_position()
@@ -49,4 +49,5 @@ func _input(event):
 func _process(delta):
 	if input_ongoing:
 		var vector = small_circle.position / big_circle_radius
-		emit_signal("move", vector*vector*vector)
+		Vars.joyStickRotation = vector.angle()
+		#emit_signal("move", vector*vector*vector)

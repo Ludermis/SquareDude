@@ -173,13 +173,14 @@ func _physics_process(delta):
 	if has_node("Weapon"):
 		if Input.is_action_just_pressed("reload") &&  $Weapon.reloading == false && $Weapon.curAmmo < $Weapon.maxAmmo:
 			$Weapon.reload()
-		if get_global_mouse_position().x < position.x:
+		$Weapon.rotation = Vars.joyStickRotation - PI / 2
+		print(str($Weapon.rotation_degrees))
+		if $Weapon.rotation < -PI || ($Weapon.rotation > 0 && $Weapon.rotation < PI / 2):
 			$Weapon.flip_v = true
 		else:
 			$Weapon.flip_v = false
-		$Weapon.look_at(get_global_mouse_position())
 		if Input.is_action_pressed('shoot'):
-			$Weapon.shoot(get_global_mouse_position())
+			$Weapon.shootByAngle()
 		if Input.is_action_just_pressed('throw_weapon'):
 			throwWeapon()
 	

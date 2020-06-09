@@ -3,6 +3,7 @@ extends Node
 var gravity = Vector2(0,98 / 2 * 60)
 var friction = 0.2
 var FASTFORDEBUG = false
+var joyStickRotation = 0
 var enemyAIType = 3
 var enemyRemaining = 0
 var currentLevel = -1

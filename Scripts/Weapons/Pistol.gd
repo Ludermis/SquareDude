@@ -44,6 +44,9 @@ func shoot (target):
 		Vars.currentCamera.shake(0.2,15,4)
 		curAmmo -= 1
 
+func shootByAngle ():
+	shoot(Vars.rotatePoint(global_position + Vector2(16,0),global_position,rotation + PI / 2))
+
 func reload ():
 	if ownerNode.is_in_group("Player"):
 		$"../../Sounds/PistolReloadSound".play()

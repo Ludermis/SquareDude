@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=2]
+[gd_scene load_steps=45 format=2]
 
 [ext_resource path="res://Prefabs/Characters/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Prefabs/Design/Set 1/Floors & Walls/Floor8x1.tscn" type="PackedScene" id=2]
@@ -37,7 +37,6 @@
 [ext_resource path="res://Fonts/arial.ttf" type="DynamicFontData" id=35]
 [ext_resource path="res://Scripts/UI/RightButton.gd" type="Script" id=36]
 [ext_resource path="res://Scripts/UI/LeftButton.gd" type="Script" id=37]
-[ext_resource path="res://Scripts/UI/AttackButton.gd" type="Script" id=38]
 [ext_resource path="res://Scripts/UI/GetWeapon.gd" type="Script" id=39]
 [ext_resource path="res://Scripts/UI/JumpButton.gd" type="Script" id=40]
 [ext_resource path="res://Sprites/UI/button.png" type="Texture" id=41]
@@ -532,17 +531,17 @@ __meta__ = {
 }
 
 [node name="LeftButton" type="TouchScreenButton" parent="CanvasLayer/Mobile"]
-position = Vector2( 96, 696 )
+position = Vector2( 80, 792 )
 scale = Vector2( 0.6, 2.5 )
 z_index = -100
 normal = ExtResource( 41 )
 script = ExtResource( 37 )
 
 [node name="Label" type="Label" parent="CanvasLayer/Mobile"]
-margin_left = 96.0
-margin_top = 696.0
-margin_right = 288.0
-margin_bottom = 896.0
+margin_left = 80.0
+margin_top = 792.0
+margin_right = 272.0
+margin_bottom = 992.0
 custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "<"
@@ -553,17 +552,17 @@ __meta__ = {
 }
 
 [node name="RightButton" type="TouchScreenButton" parent="CanvasLayer/Mobile"]
-position = Vector2( 400, 704 )
+position = Vector2( 384, 800 )
 scale = Vector2( 0.6, 2.4 )
 z_index = -100
 normal = ExtResource( 41 )
 script = ExtResource( 36 )
 
 [node name="Label2" type="Label" parent="CanvasLayer/Mobile"]
-margin_left = 400.0
-margin_top = 704.0
-margin_right = 592.0
-margin_bottom = 896.0
+margin_left = 384.0
+margin_top = 800.0
+margin_right = 576.0
+margin_bottom = 992.0
 custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = ">"
@@ -573,39 +572,18 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="AttackButton" type="TouchScreenButton" parent="CanvasLayer/Mobile"]
-position = Vector2( 1720, 608 )
-scale = Vector2( 0.6, 2.4 )
-z_index = -100
-normal = ExtResource( 41 )
-script = ExtResource( 38 )
-
-[node name="Label3" type="Label" parent="CanvasLayer/Mobile"]
-margin_left = 1720.0
-margin_top = 608.0
-margin_right = 1912.0
-margin_bottom = 800.0
-custom_fonts/font = SubResource( 4 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "A"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="JumpButton" type="TouchScreenButton" parent="CanvasLayer/Mobile"]
-position = Vector2( 1472, 736 )
+position = Vector2( 1456, 800 )
 scale = Vector2( 0.6, 2.4 )
 z_index = -100
 normal = ExtResource( 41 )
 script = ExtResource( 40 )
 
 [node name="Label4" type="Label" parent="CanvasLayer/Mobile"]
-margin_left = 1472.0
-margin_top = 736.0
-margin_right = 1664.0
-margin_bottom = 928.0
+margin_left = 1456.0
+margin_top = 800.0
+margin_right = 1648.0
+margin_bottom = 992.0
 custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "J"
@@ -616,17 +594,17 @@ __meta__ = {
 }
 
 [node name="GetWeapon" type="TouchScreenButton" parent="CanvasLayer/Mobile"]
-position = Vector2( 1720, 888 )
+position = Vector2( 1712, 800 )
 scale = Vector2( 0.6, 2.4 )
 z_index = -100
 normal = ExtResource( 41 )
 script = ExtResource( 39 )
 
 [node name="Label5" type="Label" parent="CanvasLayer/Mobile"]
-margin_left = 1720.0
-margin_top = 888.0
-margin_right = 1912.0
-margin_bottom = 1080.0
+margin_left = 1712.0
+margin_top = 800.0
+margin_right = 1904.0
+margin_bottom = 992.0
 custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "W"
@@ -637,6 +615,7 @@ __meta__ = {
 }
 
 [node name="JoyStick" parent="CanvasLayer" instance=ExtResource( 34 )]
+visible = false
 position = Vector2( 1128, 912 )
 
 [node name="Armor" parent="." instance=ExtResource( 10 )]
@@ -657,8 +636,6 @@ position = Vector2( 5452.4, 544.839 )
 [connection signal="released" from="CanvasLayer/Mobile/LeftButton" to="CanvasLayer/Mobile/LeftButton" method="_on_LeftButton_released"]
 [connection signal="pressed" from="CanvasLayer/Mobile/RightButton" to="CanvasLayer/Mobile/RightButton" method="_on_RightButton_pressed"]
 [connection signal="released" from="CanvasLayer/Mobile/RightButton" to="CanvasLayer/Mobile/RightButton" method="_on_RightButton_released"]
-[connection signal="pressed" from="CanvasLayer/Mobile/AttackButton" to="CanvasLayer/Mobile/AttackButton" method="_on_AttackButton_pressed"]
-[connection signal="released" from="CanvasLayer/Mobile/AttackButton" to="CanvasLayer/Mobile/AttackButton" method="_on_AttackButton_released"]
 [connection signal="pressed" from="CanvasLayer/Mobile/JumpButton" to="CanvasLayer/Mobile/JumpButton" method="_on_JumpButton_pressed"]
 [connection signal="released" from="CanvasLayer/Mobile/JumpButton" to="CanvasLayer/Mobile/JumpButton" method="_on_JumpButton_released"]
 [connection signal="pressed" from="CanvasLayer/Mobile/GetWeapon" to="CanvasLayer/Mobile/GetWeapon" method="_on_GetWeapon_pressed"]

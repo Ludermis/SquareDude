@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=2]
+[gd_scene load_steps=49 format=2]
 
 [ext_resource path="res://Prefabs/Design/Set 1/Floors & Walls/Floor8x1.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Prefabs/Design/Set 1/AirFloors/AirFloor2x2.tscn" type="PackedScene" id=2]
@@ -38,8 +38,16 @@
 [ext_resource path="res://Prefabs/Misc/CountdownScene.tscn" type="PackedScene" id=36]
 [ext_resource path="res://Prefabs/Design/Set 1/AirFloors/AirFloor4x2.tscn" type="PackedScene" id=37]
 [ext_resource path="res://Prefabs/Design/Set 1/Floors & Walls/Floor2x1.tscn" type="PackedScene" id=38]
+[ext_resource path="res://Scripts/UI/GetWeapon.gd" type="Script" id=39]
+[ext_resource path="res://Scripts/UI/RightButton.gd" type="Script" id=40]
+[ext_resource path="res://Scripts/UI/JumpButton.gd" type="Script" id=41]
+[ext_resource path="res://Scripts/UI/LeftButton.gd" type="Script" id=42]
+[ext_resource path="res://Sprites/UI/button.png" type="Texture" id=43]
+[ext_resource path="res://Fonts/arial.ttf" type="DynamicFontData" id=44]
+[ext_resource path="res://Scripts/UI/JoyStick.gd" type="Script" id=45]
+[ext_resource path="res://Prefabs/UI/JoyStick.tscn" type="PackedScene" id=46]
 
-[sub_resource type="Environment" id=1]
+[sub_resource type="Environment" id=5]
 background_mode = 4
 dof_blur_far_distance = 6.4
 dof_blur_far_transition = 72.82
@@ -47,6 +55,11 @@ glow_enabled = true
 glow_bloom = 0.12
 glow_blend_mode = 0
 glow_bicubic_upscale = true
+
+[sub_resource type="DynamicFont" id=4]
+size = 116
+use_filter = true
+font_data = ExtResource( 44 )
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 35 )
@@ -105,7 +118,7 @@ position = Vector2( 1096, 320 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 pause_mode = 2
-environment = SubResource( 1 )
+environment = SubResource( 5 )
 
 [node name="Player" parent="." instance=ExtResource( 11 )]
 position = Vector2( 192, 544 )
@@ -356,6 +369,101 @@ position = Vector2( 2264, 64 )
 [node name="CountdownMain" parent="CanvasLayer" instance=ExtResource( 36 )]
 rect_pivot_offset = Vector2( 960, 499.813 )
 
+[node name="Mobile" type="Control" parent="CanvasLayer"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LeftButton" type="TouchScreenButton" parent="CanvasLayer/Mobile"]
+position = Vector2( 80, 792 )
+scale = Vector2( 0.6, 2.5 )
+z_index = -100
+normal = ExtResource( 43 )
+script = ExtResource( 42 )
+
+[node name="Label" type="Label" parent="CanvasLayer/Mobile"]
+margin_left = 80.0
+margin_top = 792.0
+margin_right = 272.0
+margin_bottom = 992.0
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "<"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RightButton" type="TouchScreenButton" parent="CanvasLayer/Mobile"]
+position = Vector2( 384, 800 )
+scale = Vector2( 0.6, 2.4 )
+z_index = -100
+normal = ExtResource( 43 )
+script = ExtResource( 40 )
+
+[node name="Label2" type="Label" parent="CanvasLayer/Mobile"]
+margin_left = 384.0
+margin_top = 800.0
+margin_right = 576.0
+margin_bottom = 992.0
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = ">"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="JumpButton" type="TouchScreenButton" parent="CanvasLayer/Mobile"]
+position = Vector2( 1456, 800 )
+scale = Vector2( 0.6, 2.4 )
+z_index = -100
+normal = ExtResource( 43 )
+script = ExtResource( 41 )
+
+[node name="Label4" type="Label" parent="CanvasLayer/Mobile"]
+margin_left = 1456.0
+margin_top = 800.0
+margin_right = 1648.0
+margin_bottom = 992.0
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "J"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GetWeapon" type="TouchScreenButton" parent="CanvasLayer/Mobile"]
+position = Vector2( 1712, 800 )
+scale = Vector2( 0.6, 2.4 )
+z_index = -100
+normal = ExtResource( 43 )
+script = ExtResource( 39 )
+
+[node name="Label5" type="Label" parent="CanvasLayer/Mobile"]
+margin_left = 1712.0
+margin_top = 800.0
+margin_right = 1904.0
+margin_bottom = 992.0
+custom_fonts/font = SubResource( 4 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "W"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="JoyStick" type="Node2D" parent="CanvasLayer" instance=ExtResource( 46 )]
+position = Vector2( 1128, 912 )
+script = ExtResource( 45 )
+
 [node name="Armor2" parent="." instance=ExtResource( 31 )]
 position = Vector2( 1792, 416 )
 
@@ -403,3 +511,11 @@ polygon = PoolVector2Array( -32, -152, -32, -216, 4320, -216, 4320, -152 )
 position = Vector2( 1256, -24 )
 polygon = PoolVector2Array( 2840, -616, 2776, -616, 2776, 600, 2840, 600 )
 [connection signal="tree_entered" from="." to="." method="_on_Main_tree_entered"]
+[connection signal="pressed" from="CanvasLayer/Mobile/LeftButton" to="CanvasLayer/Mobile/LeftButton" method="_on_LeftButton_pressed"]
+[connection signal="released" from="CanvasLayer/Mobile/LeftButton" to="CanvasLayer/Mobile/LeftButton" method="_on_LeftButton_released"]
+[connection signal="pressed" from="CanvasLayer/Mobile/RightButton" to="CanvasLayer/Mobile/RightButton" method="_on_RightButton_pressed"]
+[connection signal="released" from="CanvasLayer/Mobile/RightButton" to="CanvasLayer/Mobile/RightButton" method="_on_RightButton_released"]
+[connection signal="pressed" from="CanvasLayer/Mobile/JumpButton" to="CanvasLayer/Mobile/JumpButton" method="_on_JumpButton_pressed"]
+[connection signal="released" from="CanvasLayer/Mobile/JumpButton" to="CanvasLayer/Mobile/JumpButton" method="_on_JumpButton_released"]
+[connection signal="pressed" from="CanvasLayer/Mobile/GetWeapon" to="CanvasLayer/Mobile/GetWeapon" method="_on_GetWeapon_pressed"]
+[connection signal="released" from="CanvasLayer/Mobile/GetWeapon" to="CanvasLayer/Mobile/GetWeapon" method="_on_GetWeapon_released"]
