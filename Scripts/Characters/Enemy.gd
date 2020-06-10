@@ -143,6 +143,6 @@ func _on_Enemy_tree_exiting():
 		node.initLifeLeft = rand_range(3,5)
 		node.velocity.y = rand_range(-700,-1400)
 		node.velocity.x = rand_range(-600,600)
-		node.position = global_position
-		node.position.x = rand_range(global_position.x - 32, global_position.x + 32)
-		$"..".add_child(node)
+		node.position = position
+		node.position.x = rand_range(position.x - 32, position.x + 32)
+		$"..".call_deferred("add_child",node)

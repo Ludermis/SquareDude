@@ -8,7 +8,7 @@ var debugDraw = false
 var wasOnFloor = false
 var jumpsMax = 2
 var jumpsLeft = jumpsMax
-var maxHealth : float = 100
+var maxHealth : float = 100000
 var maxArmor : float = 100
 var armor : float = 0
 var health : float = maxHealth
@@ -34,7 +34,7 @@ func use ():
 	var nearestPickup = Vars.getNearestPickup(position)
 	if nearestPickup != null && nearestPickup.position.distance_to(position) < maxUseRange:
 		if nearestPickup.is_in_group("WeaponPickup"):
-			if is_instance_valid($Weapon):
+			if has_node("Weapon"):
 				throwWeapon()
 			
 			$"../Sounds/WeaponPickupSound".play()
@@ -174,7 +174,7 @@ func _physics_process(delta):
 		if Input.is_action_just_pressed("reload") &&  $Weapon.reloading == false && $Weapon.curAmmo < $Weapon.maxAmmo:
 			$Weapon.reload()
 		$Weapon.rotation = Vars.joyStickRotation - PI / 2
-		print(str($Weapon.rotation_degrees))
+		#print(str($Weapon.rotation_degrees))
 		if $Weapon.rotation < -PI || ($Weapon.rotation > 0 && $Weapon.rotation < PI / 2):
 			$Weapon.flip_v = true
 		else:

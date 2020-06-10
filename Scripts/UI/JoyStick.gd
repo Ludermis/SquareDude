@@ -9,7 +9,7 @@ extends Node2D
 onready var big_circle = get_node("BigCircle")
 onready var small_circle = get_node("SmallCircle")
 onready var big_circle_radius = big_circle.texture.get_size().x / 2	
-var input_ongoing = false
+var input_ongoing : bool = false
 	
 func ready():
 	# need to test
@@ -19,8 +19,7 @@ func _input(event):
 	# If it's a touch event (pressed, released)
 	if event is InputEventScreenTouch or event is InputEventMouseButton:
 		if not event.pressed:
-			if event.position.y < 792:
-				# Reset joystick position
+			if event is InputEventMouseButton && ((event.position.x > 576 && event.position.x < 1416) || event.position.y < 792):
 				Input.action_release('shoot')
 				small_circle.global_position = big_circle.global_position
 				# Stop tracking position 
@@ -31,7 +30,7 @@ func _input(event):
 				return
 		else:
 			# Start tracking position
-			if event.position.y < 792:
+			if ((event.position.x > 576 && event.position.x < 1416) || event.position.y < 792) && input_ongoing == false:
 				input_ongoing = true
 				# If touch screen, show control under the finger
 				self.visible = true
@@ -47,14 +46,14 @@ func _input(event):
 				return
 	# Move event: set joystick position
 	if (event is InputEventMouseMotion or event is InputEventScreenDrag) and input_ongoing:
-		if event.position.y < 792:
+		if ((event.position.x > 576 && event.position.x < 1416) || event.position.y < 792):
 			var motion_vector = event.position - position
 			if motion_vector.length() > big_circle_radius:
 				small_circle.set_position(motion_vector.normalized() * big_circle_radius)
 			else:
 				small_circle.set_global_position(event.position)
 
-func _process(delta):
+func _process(_delta):
 	if input_ongoing:
 		var vector = small_circle.position / big_circle_radius
 		Vars.joyStickRotation = vector.angle()

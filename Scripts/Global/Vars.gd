@@ -32,7 +32,7 @@ func getNearestPickup (pos) -> Node2D:
 		return null
 	var returner = pickups[0]
 	for pickup in pickups:
-		if pickup.global_position.distance_to(pos) < returner.global_position.distance_to(pos):
+		if pickup.position.distance_to(pos) < returner.position.distance_to(pos):
 			returner = pickup
 	return returner
 

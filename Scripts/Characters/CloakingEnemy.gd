@@ -102,7 +102,7 @@ func goLeft ():
 func idle():
 	velocity.x = lerp(velocity.x,0,Vars.friction)
 
-func takeDamage (attacker, damage):
+func takeDamage (_attacker, damage):
 	health -= damage
 	if health <= 0:
 		queue_free()
@@ -180,6 +180,6 @@ func _on_Enemy_tree_exiting():
 		node.initLifeLeft = rand_range(3,5)
 		node.velocity.y = rand_range(-700,-1400)
 		node.velocity.x = rand_range(-600,600)
-		node.global_position = global_position
-		node.global_position.x = rand_range(global_position.x - 32, global_position.x + 32)
-		$"..".add_child(node)
+		node.position = position
+		node.position.x = rand_range(position.x - 32, position.x + 32)
+		$"..".call_deferred("add_child",node)

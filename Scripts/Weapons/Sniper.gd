@@ -16,7 +16,7 @@ var canKill = false
 func _ready():
 	pass
 
-func _process(delta):
+func _process(_delta):
 	if flip_v && $LaserBeam2D.position.y == -2:
 		$LaserBeam2D.position.y = 2
 	elif !flip_v && $LaserBeam2D.position.y != -2:
@@ -27,11 +27,11 @@ func _process(delta):
 	if reloading && reloadStarted + reloadDelay * 1000 <= Vars.time():
 		curAmmo = maxAmmo
 		reloading = false
-	if global_position.distance_to(ownerNode.global_position) > 4:
-		global_position = lerp(global_position,ownerNode.global_position,0.2)
+	if global_position.distance_to(ownerNode.position) > 4:
+		global_position = lerp(global_position,ownerNode.position,0.2)
 	else:
 		readyToShoot = true
-		global_position = ownerNode.global_position
+		global_position = ownerNode.position
 	if canKill && $LaserBeam2D.is_casting && $LaserBeam2D.get_collider() != null && $LaserBeam2D.get_collider().is_in_group("Enemy"):
 			$LaserBeam2D.get_collider().takeDamage(ownerNode,damage)
 			if $LaserBeam2D.get_collider().health > 0:

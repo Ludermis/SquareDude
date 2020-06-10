@@ -35,7 +35,7 @@ func shoot (target):
 		node.position = to_global(Vars.rotatePoint(position + Vector2(16,0),position,get_angle_to(target)))
 		node.dir = target - ownerNode.position
 		node.dir = node.dir.normalized()
-		node.look_at(target)
+		node.rotation = (target - ownerNode.position).angle()
 		node.ownerNode = $".."
 		node.damage = damage * ownerNode.damageMultiplier
 		if ownerNode.is_in_group("Enemy"):

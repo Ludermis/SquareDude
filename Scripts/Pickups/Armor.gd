@@ -25,7 +25,7 @@ func _physics_process(delta):
 	if positionY != null:
 		position.y = positionY - (1 + sin((Vars.time() - startFloating) / 384)) * 8
 
-func _process(delta):
+func _process(_delta):
 	pass
 
 

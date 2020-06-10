@@ -19,11 +19,11 @@ func _process(delta):
 	if reloading && reloadStarted + reloadDelay * 1000 <= Vars.time():
 		curAmmo = maxAmmo
 		reloading = false
-	if global_position.distance_to(ownerNode.global_position) > 4:
-		global_position = lerp(global_position,ownerNode.global_position,0.2)
+	if global_position.distance_to(ownerNode.position) > 4:
+		global_position = lerp(global_position,ownerNode.position,0.2)
 	else:
 		readyToShoot = true
-		global_position = ownerNode.global_position
+		global_position = ownerNode.position
 
 func shoot (target):
 	
@@ -35,7 +35,7 @@ func shoot (target):
 		node.position = to_global(Vars.rotatePoint(position + Vector2(16,0),position,get_angle_to(target)))
 		node.dir = target - ownerNode.position
 		node.dir = node.dir.normalized()
-		node.look_at(target)
+		node.rotation = (target - ownerNode.position).angle()
 		node.ownerNode = $".."
 		node.damage = damage * ownerNode.damageMultiplier
 		if ownerNode.is_in_group("Enemy"):

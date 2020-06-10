@@ -19,11 +19,11 @@ func _process(delta):
 	if reloading && reloadStarted + reloadDelay * 1000 <= Vars.time():
 		curAmmo = maxAmmo
 		reloading = false
-	if global_position.distance_to(ownerNode.global_position) > 4:
-		global_position = lerp(global_position,ownerNode.global_position,0.2)
+	if global_position.distance_to(ownerNode.position) > 4:
+		global_position = lerp(global_position,ownerNode.position,0.2)
 	else:
 		readyToShoot = true
-		global_position = ownerNode.global_position
+		global_position = ownerNode.position
 
 func _draw():
 #	var target = get_global_mouse_position()
@@ -53,7 +53,7 @@ func shoot (target):
 		node1.position = to_global(Vars.rotatePoint(position + Vector2(16,0),position,get_angle_to(target)))
 		node1.dir = target - ownerNode.position
 		node1.dir = node1.dir.normalized()
-		node1.look_at(target)
+		node1.rotation = (target - ownerNode.position).angle()
 		node1.ownerNode = $".."
 		node1.damage = damage * ownerNode.damageMultiplier
 		if ownerNode.is_in_group("Enemy"):
@@ -64,16 +64,16 @@ func shoot (target):
 		
 		var node2 = preload("res://Prefabs/Bullets/Bullet.tscn").instance()
 		
-		var target2 = target - ownerNode.global_position
+		var target2 = target - ownerNode.position
 		target2 = target2.normalized()
 		target2 *= 16
-		target2 += ownerNode.global_position
-		target2 = Vars.rotatePoint(target2,ownerNode.global_position,-PI / 36)
+		target2 += ownerNode.position
+		target2 = Vars.rotatePoint(target2,ownerNode.position,-PI / 36)
 		
 		node2.position = to_global(Vars.rotatePoint(position + Vector2(16,0),position,get_angle_to(target2)))
 		node2.dir = target2 - ownerNode.position
 		node2.dir = node2.dir.normalized()
-		node2.look_at(target2)
+		node2.rotation = (target2 - ownerNode.position).angle()
 		node2.rotation += PI
 		node2.ownerNode = $".."
 		node2.damage = damage * ownerNode.damageMultiplier
@@ -88,12 +88,12 @@ func shoot (target):
 		target3 = target3.normalized()
 		target3 *= 16
 		target3 += ownerNode.global_position
-		target3 = Vars.rotatePoint(target3,ownerNode.global_position,PI / 36)
+		target3 = Vars.rotatePoint(target3,ownerNode.position,PI / 36)
 		
 		node3.position = to_global(Vars.rotatePoint(position + Vector2(16,0),position,get_angle_to(target3)))
 		node3.dir = target3 - ownerNode.position
 		node3.dir = node3.dir.normalized()
-		node3.look_at(target3)
+		node3.rotation = (target3 - ownerNode.position).angle()
 		node3.rotation += PI
 		node3.ownerNode = $".."
 		node3.damage = damage * ownerNode.damageMultiplier
