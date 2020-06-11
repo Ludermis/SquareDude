@@ -18,4 +18,5 @@ func _ready():
 
 func _on_LevelsButton_pressed():
 	$"../../Levels".visible = true
+	$"../../BackButton".visible = true
 	$"..".visible = false

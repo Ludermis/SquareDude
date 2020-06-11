@@ -10,10 +10,10 @@ var currentLevel = -1
 var countdownSeconds = 1
 var currentCamera : Camera2D
 var cosmeticTypes = ["Hat"]
-var allCosmetics = {"Hat": ["none","cowboyhat","testhat","blackhat"]}
+var allCosmetics = {"Hat": ["none","cowboyhat","testhat","blackhat","fedorahat"]}
 var ownedCosmetics = {"Hat": ["none"]}
 var currentCosmetics = {"Hat": 0}
-var cosmeticsPrice = {"cowboyhat": 100,"testhat": 350, "blackhat": 500}
+var cosmeticsPrice = {"cowboyhat": 100, "testhat": 350, "blackhat": 500, "fedorahat": 800}
 var money = 100
 var crystal = 5
 var levelStarted = 0

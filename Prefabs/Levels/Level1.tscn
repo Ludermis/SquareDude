@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=2]
+[gd_scene load_steps=47 format=2]
 
 [ext_resource path="res://Prefabs/Characters/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Prefabs/Design/Set 1/Floors & Walls/Floor8x1.tscn" type="PackedScene" id=2]
@@ -34,12 +34,15 @@
 [ext_resource path="res://Fonts/ThaleahFat.ttf" type="DynamicFontData" id=32]
 [ext_resource path="res://Prefabs/Pickups/SpeedBuff.tscn" type="PackedScene" id=33]
 [ext_resource path="res://Prefabs/UI/JoyStick.tscn" type="PackedScene" id=34]
-[ext_resource path="res://Fonts/arial.ttf" type="DynamicFontData" id=35]
+[ext_resource path="res://Sprites/UI/movementidle.png" type="Texture" id=35]
 [ext_resource path="res://Scripts/UI/RightButton.gd" type="Script" id=36]
 [ext_resource path="res://Scripts/UI/LeftButton.gd" type="Script" id=37]
-[ext_resource path="res://Scripts/UI/GetWeapon.gd" type="Script" id=39]
+[ext_resource path="res://Sprites/UI/movementpressed.png" type="Texture" id=38]
+[ext_resource path="res://Scripts/UI/BackButton.gd" type="Script" id=39]
 [ext_resource path="res://Scripts/UI/JumpButton.gd" type="Script" id=40]
-[ext_resource path="res://Sprites/UI/button.png" type="Texture" id=41]
+[ext_resource path="res://Sprites/UI/backbutton.png" type="Texture" id=41]
+[ext_resource path="res://Sprites/UI/reloadbutton.png" type="Texture" id=42]
+[ext_resource path="res://Scripts/UI/ReloadButton.gd" type="Script" id=43]
 
 [sub_resource type="DynamicFont" id=1]
 size = 32
@@ -61,11 +64,6 @@ glow_enabled = true
 glow_bloom = 0.12
 glow_blend_mode = 0
 glow_bicubic_upscale = true
-
-[sub_resource type="DynamicFont" id=4]
-size = 116
-use_filter = true
-font_data = ExtResource( 35 )
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 30 )
@@ -237,6 +235,10 @@ rotation = -1.5708
 position = Vector2( 5662.73, -695.517 )
 rotation = -1.5708
 
+[node name="Floor24" parent="Floors" instance=ExtResource( 2 )]
+position = Vector2( 5664, -1208 )
+rotation = -1.5708
+
 [node name="Floor18" parent="Floors" instance=ExtResource( 2 )]
 position = Vector2( 5888, 608 )
 
@@ -395,7 +397,7 @@ position = Vector2( 2984, 88 )
 startCloaked = true
 
 [node name="WeaponPickup" parent="." instance=ExtResource( 7 )]
-position = Vector2( -800, 552 )
+position = Vector2( -800, 560 )
 weaponName = "SMG"
 
 [node name="WeaponPickup2" parent="." instance=ExtResource( 7 )]
@@ -531,92 +533,52 @@ __meta__ = {
 }
 
 [node name="LeftButton" type="TouchScreenButton" parent="CanvasLayer/Mobile"]
-position = Vector2( 80, 792 )
-scale = Vector2( 0.6, 2.5 )
+position = Vector2( 256, 992 )
+rotation = 3.14159
+scale = Vector2( 6, 6 )
 z_index = -100
-normal = ExtResource( 41 )
+normal = ExtResource( 35 )
+pressed = ExtResource( 38 )
 script = ExtResource( 37 )
-
-[node name="Label" type="Label" parent="CanvasLayer/Mobile"]
-margin_left = 80.0
-margin_top = 792.0
-margin_right = 272.0
-margin_bottom = 992.0
-custom_fonts/font = SubResource( 4 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "<"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="RightButton" type="TouchScreenButton" parent="CanvasLayer/Mobile"]
 position = Vector2( 384, 800 )
-scale = Vector2( 0.6, 2.4 )
+scale = Vector2( 6, 6 )
 z_index = -100
-normal = ExtResource( 41 )
+normal = ExtResource( 35 )
+pressed = ExtResource( 38 )
 script = ExtResource( 36 )
 
-[node name="Label2" type="Label" parent="CanvasLayer/Mobile"]
-margin_left = 384.0
-margin_top = 800.0
-margin_right = 576.0
-margin_bottom = 992.0
-custom_fonts/font = SubResource( 4 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = ">"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="JumpButton" type="TouchScreenButton" parent="CanvasLayer/Mobile"]
-position = Vector2( 1456, 800 )
-scale = Vector2( 0.6, 2.4 )
+position = Vector2( 1456, 984 )
+rotation = -1.5708
+scale = Vector2( 6, 6 )
 z_index = -100
-normal = ExtResource( 41 )
+normal = ExtResource( 35 )
+pressed = ExtResource( 38 )
 script = ExtResource( 40 )
 
-[node name="Label4" type="Label" parent="CanvasLayer/Mobile"]
-margin_left = 1456.0
-margin_top = 800.0
-margin_right = 1648.0
-margin_bottom = 992.0
-custom_fonts/font = SubResource( 4 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "J"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="GetWeapon" type="TouchScreenButton" parent="CanvasLayer/Mobile"]
-position = Vector2( 1712, 800 )
-scale = Vector2( 0.6, 2.4 )
+[node name="ReloadButton" type="TouchScreenButton" parent="CanvasLayer/Mobile"]
+visible = false
+position = Vector2( 1712, 976 )
+rotation = -1.5708
+scale = Vector2( 6, 6 )
 z_index = -100
-normal = ExtResource( 41 )
-script = ExtResource( 39 )
-
-[node name="Label5" type="Label" parent="CanvasLayer/Mobile"]
-margin_left = 1712.0
-margin_top = 800.0
-margin_right = 1904.0
-margin_bottom = 992.0
-custom_fonts/font = SubResource( 4 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "W"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
+normal = ExtResource( 42 )
+script = ExtResource( 43 )
 
 [node name="JoyStick" parent="CanvasLayer" instance=ExtResource( 34 )]
 visible = false
 position = Vector2( 1128, 912 )
+
+[node name="BackButton" type="TextureButton" parent="CanvasLayer"]
+margin_right = 40.0
+margin_bottom = 40.0
+texture_normal = ExtResource( 41 )
+script = ExtResource( 39 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Armor" parent="." instance=ExtResource( 10 )]
 position = Vector2( 1624, 88 )
@@ -638,5 +600,6 @@ position = Vector2( 5452.4, 544.839 )
 [connection signal="released" from="CanvasLayer/Mobile/RightButton" to="CanvasLayer/Mobile/RightButton" method="_on_RightButton_released"]
 [connection signal="pressed" from="CanvasLayer/Mobile/JumpButton" to="CanvasLayer/Mobile/JumpButton" method="_on_JumpButton_pressed"]
 [connection signal="released" from="CanvasLayer/Mobile/JumpButton" to="CanvasLayer/Mobile/JumpButton" method="_on_JumpButton_released"]
-[connection signal="pressed" from="CanvasLayer/Mobile/GetWeapon" to="CanvasLayer/Mobile/GetWeapon" method="_on_GetWeapon_pressed"]
-[connection signal="released" from="CanvasLayer/Mobile/GetWeapon" to="CanvasLayer/Mobile/GetWeapon" method="_on_GetWeapon_released"]
+[connection signal="pressed" from="CanvasLayer/Mobile/ReloadButton" to="CanvasLayer/Mobile/ReloadButton" method="_on_ReloadButton_pressed"]
+[connection signal="released" from="CanvasLayer/Mobile/ReloadButton" to="CanvasLayer/Mobile/ReloadButton" method="_on_ReloadButton_released"]
+[connection signal="pressed" from="CanvasLayer/BackButton" to="CanvasLayer/BackButton" method="_on_BackButton_pressed"]

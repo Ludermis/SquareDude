@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Scripts/UI/MainLabel.gd" type="Script" id=1]
 [ext_resource path="res://Scripts/Scenes/MainMenuScene.gd" type="Script" id=2]
@@ -14,6 +14,8 @@
 [ext_resource path="res://Scripts/UI/ShopButton.gd" type="Script" id=12]
 [ext_resource path="res://Scripts/UI/LevelsButton.gd" type="Script" id=13]
 [ext_resource path="res://Scripts/UI/CustomizeButton.gd" type="Script" id=14]
+[ext_resource path="res://Scripts/UI/BackButton.gd" type="Script" id=15]
+[ext_resource path="res://Sprites/UI/backbutton.png" type="Texture" id=16]
 
 [sub_resource type="Environment" id=1]
 background_mode = 4
@@ -280,10 +282,11 @@ align = 1
 valign = 1
 
 [node name="OptionsButton" type="TextureButton" parent="CanvasLayer/Menu"]
+visible = false
 margin_left = 768.0
-margin_top = 450.272
+margin_top = 824.0
 margin_right = 1152.0
-margin_bottom = 514.272
+margin_bottom = 888.0
 texture_normal = ExtResource( 3 )
 expand = true
 __meta__ = {
@@ -301,9 +304,9 @@ valign = 1
 
 [node name="ShopButton" type="TextureButton" parent="CanvasLayer/Menu"]
 margin_left = 768.0
-margin_top = 578.272
+margin_top = 448.0
 margin_right = 1152.0
-margin_bottom = 642.272
+margin_bottom = 512.0
 texture_normal = ExtResource( 3 )
 expand = true
 script = ExtResource( 12 )
@@ -322,9 +325,9 @@ valign = 1
 
 [node name="CustomizeButton" type="TextureButton" parent="CanvasLayer/Menu"]
 margin_left = 768.0
-margin_top = 706.272
+margin_top = 576.0
 margin_right = 1152.0
-margin_bottom = 770.272
+margin_bottom = 640.0
 texture_normal = ExtResource( 3 )
 expand = true
 script = ExtResource( 14 )
@@ -344,6 +347,16 @@ valign = 1
 [node name="Levels" parent="CanvasLayer" instance=ExtResource( 9 )]
 visible = false
 
+[node name="BackButton" type="TextureButton" parent="CanvasLayer"]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+texture_normal = ExtResource( 16 )
+script = ExtResource( 15 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 11 )
 volume_db = -20.0
@@ -352,3 +365,4 @@ bus = "Music"
 [connection signal="pressed" from="CanvasLayer/Menu/LevelsButton" to="CanvasLayer/Menu/LevelsButton" method="_on_LevelsButton_pressed"]
 [connection signal="pressed" from="CanvasLayer/Menu/ShopButton" to="CanvasLayer/Menu/ShopButton" method="_on_ShopButton_pressed"]
 [connection signal="pressed" from="CanvasLayer/Menu/CustomizeButton" to="CanvasLayer/Menu/CustomizeButton" method="_on_CustomizeButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/BackButton" to="CanvasLayer/BackButton" method="_on_BackButton_pressed"]

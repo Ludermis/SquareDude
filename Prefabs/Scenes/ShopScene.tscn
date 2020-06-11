@@ -37,6 +37,7 @@ __meta__ = {
 }
 
 [node name="TextureButton2" type="TextureButton" parent="."]
+visible = false
 margin_left = 128.0
 margin_top = 320.0
 margin_right = 448.0
@@ -47,6 +48,7 @@ __meta__ = {
 }
 
 [node name="TextureButton3" type="TextureButton" parent="."]
+visible = false
 margin_left = 128.0
 margin_top = 448.0
 margin_right = 448.0
@@ -57,6 +59,7 @@ __meta__ = {
 }
 
 [node name="TextureButton4" type="TextureButton" parent="."]
+visible = false
 margin_left = 128.0
 margin_top = 576.0
 margin_right = 448.0
@@ -67,6 +70,7 @@ __meta__ = {
 }
 
 [node name="TextureButton5" type="TextureButton" parent="."]
+visible = false
 margin_left = 128.0
 margin_top = 704.0
 margin_right = 448.0

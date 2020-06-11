@@ -29,6 +29,7 @@ func _ready():
 	Vars.enemyRemaining += 1
 	nextTeleporting = Vars.time() + teleportingCooldown * 1000
 	$Particles2D.emitting = false
+	$Weapon.shootDelay /= 2
 
 func teleport ():
 	$Particles2D.preprocess = 2
@@ -154,6 +155,7 @@ func _physics_process(delta):
 
 func _on_Enemy_tree_exiting():
 	Vars.enemyRemaining -= 1
+	Vars.money += (randi() % 20) + 10
 	for i in range(1,10):
 		var node = preload("res://Prefabs/Effects/FlyingParticle.tscn").instance()
 		

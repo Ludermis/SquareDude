@@ -24,6 +24,7 @@ func _ready():
 	set_physics_process(true)
 	$Weapon.ownerNode = self
 	Vars.enemyRemaining += 1
+	$Weapon.shootDelay /= 2
 
 func _process(delta):
 	$"Controls/HealthFG".rect_size.x = (health / maxHealth) * 64.0
@@ -134,6 +135,7 @@ func _physics_process(delta):
 
 func _on_Enemy_tree_exiting():
 	Vars.enemyRemaining -= 1
+	Vars.money += (randi() % 20) + 10
 	for i in range(1,10):
 		var node = preload("res://Prefabs/Effects/FlyingParticle.tscn").instance()
 		

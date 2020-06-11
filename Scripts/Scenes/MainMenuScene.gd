@@ -10,6 +10,7 @@ extends Node2D
 func _ready():
 	get_tree().paused = false
 	$"Level1/WorldEnvironment".queue_free()
+	$"CanvasLayer/BackButton".visible = false
 	add_child(preload("res://Prefabs/Misc/BlurEnvironment.tscn").instance())
 
 

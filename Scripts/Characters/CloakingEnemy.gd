@@ -34,6 +34,7 @@ func _ready():
 	nextInvisible = Vars.time() + invisibleCooldown * 1000
 	if startCloaked:
 		nextInvisible = Vars.time()
+	$Weapon.shootDelay /= 2
 
 func shadering (delta):
 	var r = 0.1
@@ -170,6 +171,7 @@ func _physics_process(delta):
 
 func _on_Enemy_tree_exiting():
 	Vars.enemyRemaining -= 1
+	Vars.money += (randi() % 20) + 10
 	for i in range(1,10):
 		var node = preload("res://Prefabs/Effects/FlyingParticle.tscn").instance()
 		
