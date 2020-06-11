@@ -3,7 +3,7 @@ extends KinematicBody2D
 var velocity = Vector2.ZERO
 var positionY = null
 var startFloating = null
-var health = 50
+var health = 100
 
 func _ready():
 	set_physics_process(true)

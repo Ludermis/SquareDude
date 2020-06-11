@@ -15,11 +15,11 @@ func ready():
 	if OS.has_touchscreen_ui_hint():
 		self.visible=false
 func _unhandled_input(event):
-#	if !(event.position.y < 808 || (event.position.x > 576 && event.position.x < 1456)):
-#		return
-	if event is InputEventScreenTouch or event is InputEventMouseButton:
-		if not event.pressed:
-			if event is InputEventMouseButton:
+	print(event)
+	if !(event.position.y < 808 || (event.position.x > 576 && event.position.x < 1456)):
+		return
+	if event is InputEventScreenTouch:
+		if not event.pressed && input_ongoing:
 				Input.action_release('shoot')
 				small_circle.global_position = big_circle.global_position
 				input_ongoing = false
@@ -40,7 +40,7 @@ func _unhandled_input(event):
 				Vars.joyStickRotation = vector.angle()
 				Input.action_press('shoot')
 				return
-	if (event is InputEventMouseMotion or event is InputEventScreenDrag) and input_ongoing:
+	if (event is InputEventScreenDrag) and input_ongoing:
 		var motion_vector = event.position - position
 		if motion_vector.length() > big_circle_radius:
 			small_circle.set_position(motion_vector.normalized() * big_circle_radius)
