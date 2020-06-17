@@ -16,6 +16,8 @@ func ready():
 		self.visible=false
 func _unhandled_input(event):
 	print(event)
+	if !(event is InputEventScreenTouch || event is InputEventScreenDrag):
+		return
 	if !(event.position.y < 808 || (event.position.x > 576 && event.position.x < 1456)):
 		return
 	if event is InputEventScreenTouch:
